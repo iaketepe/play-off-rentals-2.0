@@ -2,8 +2,8 @@ import './bootstrap';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-function App() {
+function Root() {
     return <h1>Hello from React!</h1>;
 }
 
-ReactDOM.createRoot(document.getElementById('react-root')).render(<App />);
+ReactDOM.createRoot(document.getElementById('react-root')).render(<Root />);
