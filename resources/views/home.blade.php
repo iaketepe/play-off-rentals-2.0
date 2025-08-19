@@ -6,6 +6,8 @@
 
         <title>Play-Off Rentals 2</title>
 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
         <!-- Styles / Scripts -->
         @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
             @viteReactRefresh
@@ -16,7 +18,7 @@
             </style>
         @endif
     </head>
-    <body class="bg-[#FDFDFC] dark:bg-[#0a0a0a] text-[#1b1b18] flex p-6 p-8 items-center justify-center min-h-screen flex-col">
-        <div class="text-white" id="react-root"></div>
+    <body class="bg-[#FDFDFC] border-red-700 border-2 min-h-screen h-screen flex justify-center">
+        <div class="text-white w-full" id="react-root"></div>
     </body>
 </html>
