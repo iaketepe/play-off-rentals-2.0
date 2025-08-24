@@ -19,6 +19,6 @@
         @endif
     </head>
     <body class="bg-[#FDFDFC] min-h-screen h-screen">
-        <div class="text-white w-full" id="react-root"></div>
+        <div class="text-white w-full min-w-xs" id="react-root"></div>
     </body>
 </html>
