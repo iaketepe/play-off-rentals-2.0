@@ -14,11 +14,11 @@ function Header() {
                 </div>
             </div>
 
-            <div className="fles flex-col gap-5 border-red-700 border-2">
-                <a href="#">Rent</a>
-                <a href="#">FAQ</a>
-                <a href="#">Contact Us</a>
-                <a href="#">EN/FR</a>
+            <div className="fles flex-col gap-5 border-red-700 border-2 text-center">
+                <div className="p-3 border-blue-700 border-2"><a href="#">Rent</a></div>
+                <div className="p-3 border-blue-700 border-2"><a href="#">FAQ</a></div>
+                <div className="p-3 border-blue-700 border-2"><a href="#">Contact Us</a></div>
+                <div className="p-3 border-blue-700 border-2"><a href="#">EN/FR</a></div>
             </div>
         </nav>
     );
