@@ -18,7 +18,7 @@
             </style>
         @endif
     </head>
-    <body class="bg-[#FDFDFC] border-red-700 border-2 min-h-screen h-screen flex justify-center">
-        <div class="text-white w-full" id="react-root"></div>
+    <body class="bg-[#FDFDFC] min-h-screen h-screen">
+        <div class="text-white w-full min-w-xs" id="react-root"></div>
     </body>
 </html>
