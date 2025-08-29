@@ -1,8 +1,8 @@
 
 function Footer() {
     return (
-        <footer className="bg-slate-500 border-red-700 border-2 w-full min-h-[20em] flex justify-center">
-            <div className="flex flex-col-reverse w-full max-w-[55em] p-2 gap-5 sm:flex-row sm:p-5">
+        <footer className="bg-slate-500 border-red-700 border-2 w-full flex justify-center">
+            <div className="flex flex-col w-full max-w-[55em] p-2 gap-5 sm:flex-row sm:p-5"> 
                 <div className="flex flex-col basis-full sm:basis-2/3 space-y-3 p-5 border">
                     <h5 className="text-lg font-semibold">Location Details</h5>
                     <div className="flex flex-col flex-1 justify-center">
@@ -26,9 +26,11 @@ function Footer() {
                     <h5 className="text-lg font-semibold text-center">Hours of Operation</h5>
                     <table className="w-full">
                         <thead>
-                            <th className="text-left">Day</th>
-                            <th className="text-right">Open</th>
-                            <th className="text-right">Closed</th>
+                            <tr>
+                                <th className="text-left">Day</th>
+                                <th className="text-right">Open</th>
+                                <th className="text-right">Closed</th>
+                            </tr>
                         </thead>
                         <tbody>
                             <tr>
