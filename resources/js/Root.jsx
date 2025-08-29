@@ -5,6 +5,8 @@ import Header from './components/Header';
 import HomeCore from './cores/HomeCore';
 import Footer from './components/Footer';
 
+import "./i18n";
+
 function Root() {
     return (
         <div className='flex flex-col h-full'>
