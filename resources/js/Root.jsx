@@ -2,12 +2,16 @@ import './bootstrap';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import Header from './components/Header';
+import HomeCore from './cores/HomeCore';
 import Footer from './components/Footer';
+
+import "./i18n";
 
 function Root() {
     return (
-        <div>
+        <div className='flex flex-col h-full'>
             <Header/>
+            <HomeCore/>
             <Footer/>
         </div>
     );
