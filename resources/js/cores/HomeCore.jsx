@@ -11,12 +11,19 @@ function HomeCore() {
 
             </section>
 
-            <section className="border-black border-2 h-[30rem]">
+            <section className="border-black text-black border-2 h-[30rem]">
                 <div>
                     
-                    <p>
+                    <div>
+                        <h3>About Us</h3>
                         
-                    </p>
+                        <p>Welcome to Play Off Rentals, your premier destination for rental arcade games! We specialize in providing a wide variety of classic and modern arcade games for all types of events and gatherings. Whether you're hosting a corporate event, birthday party, wedding, or any other special occasion, we have the perfect arcade games to bring fun and excitement to your guests.
+                        <br /> <br /> At Play Off Rentals, we believe in creating memorable experiences through the joy of gaming. Our extensive selection includes everything from timeless classics like Pac-Man and Donkey Kong to the latest and greatest in arcade gaming. Each game is carefully maintained and regularly serviced to ensure the best possible experience for our clients.
+                        <br /> <br /> Our team is dedicated to delivering exceptional customer service and ensuring that your event is a resounding success. We offer flexible rental packages tailored to meet your specific needs and budget. From delivery and setup to on-site support, we handle all the details so you can focus on enjoying the festivities.
+                        <br /> <br /> Thank you for considering Play Off Rentals for your arcade game rental needs. We look forward to helping you create an unforgettable event!
+                        </p>
+
+                    </div>
                 </div>
             </section>
         </div>
