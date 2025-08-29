@@ -5,7 +5,7 @@ function Header() {
     const [isOpen, setIsOpen] = React.useState(false);
 
     return (
-        <nav className="bg-slate-500 flex flex-col border-red-700 border-2">
+        <nav className="bg-slate-500 flex flex-col border-red-700 border-2 relative">
             <div className="flex p-5 pr-3 items-center justify-between">
                 <div className="flex flex-1">
                     <button onClick={() => setIsOpen(!isOpen)} className="p-2 px-3 border-red-700 border-2 rounded-full"><i className="fa-solid fa-bars"></i></button>
@@ -18,7 +18,7 @@ function Header() {
                 </div>
             </div>
 
-            <div className={`flex flex-col text-center bg-gray-800 transition-all duration-300 ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
+            <div className={`absolute top-full w-full flex flex-col text-center bg-gray-800 transition-all duration-300 ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
                 <div className="p-3"><a href="#">Rent</a></div>
                 <div className="p-3"><a href="#">FAQ</a></div>
                 <div className="p-3"><a href="#">Contact Us</a></div>
