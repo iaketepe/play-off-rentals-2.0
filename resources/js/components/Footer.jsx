@@ -3,17 +3,22 @@ function Footer() {
     return (
         <footer className="bg-slate-500 border-red-700 border-2 w-full h-full min-h-[20em] flex justify-center">
             <div className="flex flex-col-reverse w-full max-w-[55em] p-2 gap-5 sm:flex-row sm:p-5">
-                <div className="basis-full sm:basis-2/3 border-blue-700 border-2 space-y-3">
+                <div className="flex flex-col basis-full sm:basis-2/3 space-y-3 p-5 border">
                     <h5 className="text-lg font-semibold">Location Details</h5>
-                    <div className="">
-                        <h6 className="font-semibold">Location</h6>
-                        <p>
-                            456 Elm Avenue, Ottawa, Ontario, Canada
-                            <br></br>
-                            PlayOffRentals@Ottawa.ca
-                            <br></br>
-                            XXX-XXX-XXXX
-                        </p>
+                    <div className="flex flex-col flex-1 justify-center">
+                        <div>
+                            <h6 className="font-semibold">Location</h6>
+                            <p>
+                                456 Elm Avenue
+                                <br></br>
+                                Ottawa, Ontario, Canada
+                                <br></br>
+                                PlayOffRentals@Ottawa.ca
+                                <br></br>
+                                XXX-XXX-XXXX
+                            </p>
+                        </div>
+
                     </div>
                     <h6 className="font-semibold">Copyright @ Play Off Rentals 2025.</h6>
                 </div>
