@@ -5,7 +5,7 @@
         "rent" : "Louer",
         "faq" : "FAQ",
         "contact" : "Contactez-nous",
-        "toggleLang" : "Anglais"
+        "lang" : "Anglais"
     }
   }
 }
