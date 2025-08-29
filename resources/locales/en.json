@@ -1,0 +1,11 @@
+{
+  "header": {
+    "login": "Login",
+    "navList": {
+        "rent" : "Rent",
+        "faq" : "FAQ",
+        "contact" : "Contact Us",
+        "toggleLang" : "French"
+    }
+  }
+}
