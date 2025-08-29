@@ -2,11 +2,11 @@
 function Footer() {
     return (
         <footer className="bg-slate-500 border-red-700 border-2 w-full h-full min-h-[20em] flex justify-center">
-            <div className="flex w-full max-w-[55em] p-5 gap-5 mx-auto border-black border-2 overflow-x-hidden">
-                <div className="basis-2/3 border-blue-700 border-2">
+            <div className="flex flex-col-reverse w-full max-w-[55em] p-2 gap-5 sm:flex-row sm:p-5">
+                <div className="basis-full sm:basis-2/3 border-blue-700 border-2">
                     <h5>Location Details</h5>
                 </div>
-                <div className="text-black flex flex-col basis-1/3 min-w-[18em] bg-white p-5 rounded-xl">
+                <div className="text-black flex flex-col basis-full sm:basis-1/3 min-w-[18em] bg-white p-5 rounded-xl">
                     <h5 className="text-lg font-semibold text-center">Hours of Operation</h5>
                     <table className="w-full">
                         <thead>
