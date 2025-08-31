@@ -2,7 +2,7 @@
 
 function RentCore () {
     return (
-        <div>
+        <div className="text-black">
             <h1>RentCore</h1>
         </div>
     );

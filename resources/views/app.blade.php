@@ -19,6 +19,11 @@
         @endif
     </head>
     <body class="bg-[#FDFDFC] min-h-screen h-screen">
-        <div class="text-white w-full min-w-xs h-full" id="react-root" data-page="{{ $page ?? 'home' }}"></div>
+        <div 
+            class="text-white w-full min-w-xs h-full" 
+            id="react-root" 
+            data-page="{{ $page ?? 'home' }}"
+            >
+        </div>
     </body>
 </html>

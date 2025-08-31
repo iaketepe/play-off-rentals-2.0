@@ -8,10 +8,10 @@ import Footer from './components/Footer';
 
 import "./i18n";
 
-//const rootDiv = document.getElementById('react-root');
-//const page = rootDiv ? rootDiv.dataset.page : 'home';
+const rootDiv = document.getElementById('react-root');
+const page = rootDiv ? rootDiv.dataset.page : 'home';
 
-function Root({page}) {
+function Root() {
 
     const cores = {
         home: <HomeCore/>,
@@ -19,7 +19,7 @@ function Root({page}) {
         //contact: <ContactCore/>
     };
 
-    const Core = cores[page] || cores['home'];
+    const Core = cores[page] ?? cores.home;
 
     return (
         <div className='flex flex-col h-full'>
@@ -30,4 +30,4 @@ function Root({page}) {
     );
 }
 //<Footer/>
-ReactDOM.createRoot(document.getElementById('react-root')).render(<Root />);
+ReactDOM.createRoot(document.getElementById('react-root')).render(<Root page={page}/>);
