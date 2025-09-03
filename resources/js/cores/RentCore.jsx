@@ -2,8 +2,10 @@
 
 function RentCore () {
     return (
-        <div className="text-black">
-            <h1>RentCore</h1>
+        <div className="text-black flex flex-1 justify-center items-center">
+            <div className="border-black border-2 w-full max-w-lg h-full max-h-[30rem]">
+                
+            </div>
         </div>
     );
 

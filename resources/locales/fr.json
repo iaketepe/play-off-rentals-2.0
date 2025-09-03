@@ -7,5 +7,17 @@
         "contact" : "Contactez-nous",
         "lang" : "Anglais"
     }
+  },
+  "footer" : {
+    "contactTitle" : "Coordonnées du Play Off Rentals",
+    "location" : "Lieu",
+    "copyright" : "Play Off Rentals 2025.",
+    "contactInformation" : {
+      "streetName" : "456 Elm Avenue",
+      "cityToCountry" : "Ottawa, Ontario, Canada",
+      "email" : "PlayOffRentals@Ottawa.ca",
+      "phoneNumber" : "XXX-XXX-XXXX"
+    }
+
   }
 }
