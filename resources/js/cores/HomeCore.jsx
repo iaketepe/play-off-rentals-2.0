@@ -1,4 +1,4 @@
-
+import mainArcade from '../../imgs/HomeArcade.jpg';
 
 function HomeCore() {
     return (
@@ -11,10 +11,10 @@ function HomeCore() {
 
             </section>
 
-            <section className="border-black text-black border-2 h-[30rem]">
-                <div>
-                    
-                    <div>
+            <section className="border-black text-black border-2">
+                <div className="flex h-full gap-10 p-5 justify-center items-center">
+                    <img src={mainArcade} className="basis-1/2 min-w-0 max-w-[40rem] h-auto object-contain" alt="Stream of Arcade Machines"/>
+                    <div className="basis-1/2">
                         <h3>About Us</h3>
                         
                         <p>Welcome to Play Off Rentals, your premier destination for rental arcade games! We specialize in providing a wide variety of classic and modern arcade games for all types of events and gatherings. Whether you're hosting a corporate event, birthday party, wedding, or any other special occasion, we have the perfect arcade games to bring fun and excitement to your guests.
