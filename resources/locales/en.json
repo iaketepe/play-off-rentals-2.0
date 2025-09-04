@@ -17,7 +17,11 @@
       "cityToCountry" : "Ottawa, Ontario, Canada",
       "email" : "PlayOffRentals@Ottawa.ca",
       "phoneNumber" : "XXX-XXX-XXXX"
-    }
+    },
+    "hoursOfOperation" : "Hours of Operation",
+    "day" : "Day",
+    "Open" : "Open",
+    "Closed" : "Closed"
 
   }
 }
