@@ -3,7 +3,10 @@
 
 function RentOne() {
     return(
-        <h1>Rent One</h1>
+        <div><h1 className='text-black text-4xl font-semibold'>Confirm Your Location</h1>
+        <h3>(Click Next to confirm later...)</h3>
+        </div>
+
     )
 }
 

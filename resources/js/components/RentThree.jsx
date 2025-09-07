@@ -2,7 +2,7 @@
 
 function RentThree() {
     return(
-        <h1>Rent Three</h1>
+        <p>Rent Three</p>
     )
 }
 
