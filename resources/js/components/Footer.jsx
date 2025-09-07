@@ -10,68 +10,68 @@ function Footer() {
         <footer className="bg-slate-500 border-red-700 border-2 w-full flex justify-center">
             <div className="flex flex-col w-full max-w-[55em] p-2 gap-5 sm:flex-row sm:p-5"> 
                 <div className="flex flex-col basis-full sm:basis-2/3 space-y-3 p-5 border">
-                    <h5 className="text-lg font-semibold">{t("footer.contactTitle")}</h5>
+                    <h5 className="text-lg font-semibold">{t("footer.contactInformation.title")}</h5>
                     <div className="flex flex-col flex-1 justify-center">
                         <div>
-                            <h6 className="font-semibold">{t("footer.location")}</h6>
+                            <h6 className="font-semibold">{t("footer.contactInformation.location")}</h6>
                             <p>
-                                {t("footer.contactInformation.streetName")}
+                                {t("footer.contactInformation.office.street")}
                                 <br></br>
-                                {t("footer.contactInformation.cityToCountry")}
+                                {t("footer.contactInformation.office.city")}
                                 <br></br>
-                                {t("footer.contactInformation.email")}
+                                {t("footer.contactInformation.office.email")}
                                 <br></br>
-                                {t("footer.contactInformation.phoneNumber")}
+                                {t("footer.contactInformation.office.phoneNumber")}
                             </p>
                         </div>
                     </div>
-                    <h6 className="font-semibold">&copy; {t("footer.copyright")}</h6>
+                    <h6 className="font-semibold">&copy; {t("footer.contactInformation.copyright")}</h6>
                 </div>
                 <div className="text-black flex flex-col basis-full sm:basis-1/3 min-w-[18em] bg-white p-5 rounded-xl">
-                    <h5 className="text-lg font-semibold text-center">Hours of Operation</h5>
+                    <h5 className="text-lg font-semibold text-center">{t("footer.hoursOfOperation.title")}</h5>
                     <table className="w-full">
                         <thead>
                             <tr>
-                                <th className="text-left">Day</th>
-                                <th className="text-right">Open</th>
-                                <th className="text-right">Closed</th>
+                                <th className="text-left">{t("footer.hoursOfOperation.table.labels.day")}</th>
+                                <th className="text-right">{t("footer.hoursOfOperation.table.labels.open")}</th>
+                                <th className="text-right">{t("footer.hoursOfOperation.table.labels.closed")}</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Monday</td>
-                                <td className="text-right">9am</td>
-                                <td className="text-right">5pm</td>
+                                <td>{t("footer.hoursOfOperation.table.days.monday.title")}</td>
+                                <td className="text-right">{t("footer.hoursOfOperation.table.days.monday.open")}</td>
+                                <td className="text-right">{t("footer.hoursOfOperation.table.days.monday.closed")}</td>
                             </tr>
                             <tr>
-                                <td>Tuesday</td>
-                                <td className="text-right">9am</td>
-                                <td className="text-right">5pm</td>
+                                <td>{t("footer.hoursOfOperation.table.days.tuesday.title")}</td>
+                                <td className="text-right">{t("footer.hoursOfOperation.table.days.tuesday.open")}</td>
+                                <td className="text-right">{t("footer.hoursOfOperation.table.days.tuesday.closed")}</td>
                             </tr>
                             <tr>
-                                <td>Wednesday</td>
-                                <td className="text-right">N/A</td>
-                                <td className="text-right">N/A</td>
+                                <td>{t("footer.hoursOfOperation.table.days.wednesday.title")}</td>
+                                <td className="text-right">{t("footer.hoursOfOperation.table.days.wednesday.open")}</td>
+                                <td className="text-right">{t("footer.hoursOfOperation.table.days.wednesday.closed")}</td>
                             </tr>
                             <tr>
-                                <td>Thursday</td>
-                                <td className="text-right">N/A</td>
-                                <td className="text-right">N/A</td>
+                                <td>{t("footer.hoursOfOperation.table.days.thursday.title")}</td>
+                                <td className="text-right">{t("footer.hoursOfOperation.table.days.thursday.open")}</td>
+                                <td className="text-right">{t("footer.hoursOfOperation.table.days.thursday.closed")}</td>
                             </tr>
                             <tr>
-                                <td>Friday</td>
-                                <td className="text-right">9am</td>
-                                <td className="text-right">5pm</td>
+                                <td>{t("footer.hoursOfOperation.table.days.friday.title")}</td>
+                                <td className="text-right">{t("footer.hoursOfOperation.table.days.friday.open")}</td>
+                                <td className="text-right">{t("footer.hoursOfOperation.table.days.friday.closed")}</td>
                             </tr>
                             <tr>
-                                <td>Saturday</td>
-                                <td className="text-right">9am</td>
-                                <td className="text-right">5pm</td>
+                                <td>{t("footer.hoursOfOperation.table.days.saturday.title")}</td>
+                                <td className="text-right">{t("footer.hoursOfOperation.table.days.saturday.open")}</td>
+                                <td className="text-right">{t("footer.hoursOfOperation.table.days.saturday.closed")}</td>
                             </tr>
                             <tr>
-                                <td>Sunday</td>
-                                <td className="text-right">9am</td>
-                                <td className="text-right">5pm</td>
+                                <td>{t("footer.hoursOfOperation.table.days.sunday.title")}</td>
+                                <td className="text-right">{t("footer.hoursOfOperation.table.days.sunday.open")}</td>
+                                <td className="text-right">{t("footer.hoursOfOperation.table.days.sunday.closed")}</td>
                             </tr>
                         </tbody>
                     </table>
