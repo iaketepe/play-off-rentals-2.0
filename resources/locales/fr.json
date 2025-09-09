@@ -9,15 +9,36 @@
     }
   },
   "footer" : {
-    "contactTitle" : "Coordonnées du Play Off Rentals",
-    "location" : "Lieu",
-    "copyright" : "Play Off Rentals 2025.",
     "contactInformation" : {
-      "streetName" : "456 Elm Avenue",
-      "cityToCountry" : "Ottawa, Ontario, Canada",
-      "email" : "PlayOffRentals@Ottawa.ca",
-      "phoneNumber" : "XXX-XXX-XXXX"
+      "title" : "Coordonnées du Play Off Rentals",
+      "location" : "Lieu",
+      "copyright" : "2025 Play Off Rentals. Tous droits réservés.",
+      "office" : {
+        "street" : "456 Avenue Elm",
+        "city" : "Ottawa, Ontario, Canada",
+        "email" : "PlayOffRentals@Ottawa.ca",
+        "phoneNumber" : "XXX-XXX-XXXX"
+      }
+    },
+    "hoursOfOperation" : {
+      "title" : "Heures d'ouverture",
+      "table" : {
+        "labels" : {
+          "day" : "Jour",
+          "open" : "Ouvert",
+          "closed" : "Fermé"
+        },
+        "days": {
+          "monday": { "title": "Lundi", "open": "9h", "closed": "17h" },
+          "tuesday": { "title": "Mardi", "open": "9h", "closed": "17h" },
+          "wednesday": { "title": "Meceredi", "open": "-", "closed": "-" },
+          "thursday": { "title": "Jeudi", "open": "-", "closed": "-" },
+          "friday": { "title": "Vendredi", "open": "9h", "closed": "17h" },
+          "saturday": { "title": "Samedi", "open": "9h", "closed": "17h" },
+          "sunday": { "title": "Dimanche", "open": "9h", "closed": "17h" }
+        }
+      }
     }
-
   }
 }
+
