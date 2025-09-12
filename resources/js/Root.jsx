@@ -19,12 +19,14 @@ function Root() {
         //contact: <ContactCore/>
     };
 
-    const Core = cores[page] ?? cores.home;
+    const core = cores[page] ?? cores.home;
 
     return (
         <div className='flex flex-col h-full'>
             <Header/>
-            {Core}
+            <div className="flex-1">
+                {core}
+            </div>
             <Footer/>
         </div>
     );
