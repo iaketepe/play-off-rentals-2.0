@@ -22,7 +22,7 @@ function RentCore () {
                 <div className="">
                     {steps[step]}
                 </div>
-                <div class="flex justify-between">
+                <div className="flex justify-between">
                     <button onClick={() => setStep(((step + 1) % 3) + 1)}>Prev</button>
                     <button onClick={() => setStep((step % 3) + 1)}>Next</button>
                 </div>
