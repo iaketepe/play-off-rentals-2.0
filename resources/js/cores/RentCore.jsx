@@ -17,16 +17,15 @@ function RentCore () {
  
 
     return (
-        <div className="text-black flex flex-1 justify-center items-center">
-            <div className="border-black border-2 w-full max-w-4xl h-full max-h-[30rem] divide-y border-black flex flex-col">
-                <div className='flex flex-1'>
+        <div className="flex flex-col flex-1 text-black p-10 justify-center items-center border-purple-800 border-2">
+            <div className=" w-full max-w-4xl flex flex-col gap-5">
+                <div className="">
                     {steps[step]}
                 </div>
-                <div class="flex justify-between">
+                <div className="flex justify-between">
                     <button onClick={() => setStep(((step + 1) % 3) + 1)}>Prev</button>
                     <button onClick={() => setStep((step % 3) + 1)}>Next</button>
                 </div>
-
             </div>
         </div>
     );

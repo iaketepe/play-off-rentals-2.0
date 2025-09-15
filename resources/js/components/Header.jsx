@@ -12,7 +12,7 @@ function Header() {
         <nav className="bg-slate-500 flex flex-col border-red-700 border-2 relative">
             <div className="flex p-5 pr-3 items-center justify-between">
                 <div className="flex flex-1">
-                    <button onClick={() => setIsOpen(!isOpen)} className="p-2 px-3 border-red-700 border-2 rounded-full"><i className="fa-solid fa-bars"></i></button>
+                    <button onClick={() => setIsOpen(!isOpen)} onBlur={() => setIsOpen(false)} className="p-2 px-3 border-red-700 border-2 rounded-full"><i className="fa-solid fa-bars"></i></button>
                 </div>
 
                 <a href="/" className=""><i className="fa-solid fa-gamepad text-3xl"></i></a>

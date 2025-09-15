@@ -14,3 +14,6 @@ Route::get('/contact', function () {
     return view('app', ['page' => 'contact']);
 });
 
+
+
+//Route::get('/map', [mapController::class, 'index']); 
