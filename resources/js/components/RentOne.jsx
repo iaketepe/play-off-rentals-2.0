@@ -1,17 +1,49 @@
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
+import XMLHTTPRequest from 'axios';
 
 
 
 function RentOne() {
-    useEffect(() => {
-        var map = L.map('map').setView([51.505, -0.09], 13);
 
-        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19,
-            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-        }).addTo(map);
+    const searchbar = document.getElementById("searchbar");
+    let timer;
+    let coordinates = [51.505, -0.09];
+    const mapRef = useRef(null);
+    const mapObjectRef = useRef(null);
+    
+
+    /*searchbar.addEventListener("input", function () {
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+            fetch(`/locations/search?query=${encodeURIComponent(searchbar.value)}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log("Locations:", data);
+                const searchResults = document.createElement("div");
+                for 
+                
+            })
+            .catch(err => console.error("Error fetching locations:", err));
+        },500)
+    });
+
+    searchbar.addEventListener("click", function() {
+        coordinates = [51.505, -0.09]; //fetch('/map/coordinates') ?? [51.505, -0.09];
+    }); */
+
+    useEffect(() => {
+        if(!mapObjectRef.current) {
+            mapObjectRef.current = L.map(mapRef.current).setView(coordinates, 13);
+
+            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+            }).addTo(mapObjectRef.current);
+        }
+
+
         //mapDiv.innerHTML = map;
     });
     
@@ -24,8 +56,10 @@ function RentOne() {
                 <span className="text-xl">(Click Next to confirm later...)</span>
             </div>
             <div className="flex flex-col flex-1 gap-5 divide-y divide-black">
-                <input className="border-black border-2 p-3 rounded-lg max-w-" type="search" name="" id="" placeholder="Type to Search" />
-                <div id="map" className="border-black border-2 m-auto w-full max-w-lg h-[20rem] rounded-lg">
+                <div className="w-full">
+                    <input id="searchbar" className="border-black border-2 p-3 rounded-lg w-full" type="search" name="" placeholder="Type to Search" />
+                </div>
+                <div id="map" ref={mapRef} className="border-black border-2 m-auto w-full max-w-lg h-[20rem] rounded-lg">
                     
                 </div>
             </div>

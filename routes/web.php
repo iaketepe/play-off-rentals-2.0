@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\MapController;
+
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -16,4 +18,4 @@ Route::get('/contact', function () {
 
 
 
-//Route::get('/map', [mapController::class, 'index']); 
+Route::get('/locations/search', [MapController::class, 'autocomplete']); 
