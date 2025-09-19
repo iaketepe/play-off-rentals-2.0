@@ -1,6 +1,10 @@
 <?php
 
+namespace App\Services;
+
 use Illuminate\Support\Facades\Http; 
+
+use Exception;
 
 class AutoCoder {
     private String $async;
@@ -20,11 +24,19 @@ class AutoCoder {
     }
 
     public function search(string $address) {
-        $response = Http::get($this->url, [
+        /*$response = Http::get($this->url, [
             "key" => $this->apiKey,
             "q" => $address,
             "limit" => 5,
             "dedupe" =>  1,
+        ]);*/
+
+        $response = Http::withOptions([
+            'verify' => false,
+        ])->get('https://api.locationiq.com/v1/autocomplete', [
+            'key' => $this->apiKey,
+            'q' => $address,
+            'limit' => 5,
         ]);
 
         return $response->json();

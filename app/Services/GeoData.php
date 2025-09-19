@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Services;
+
 class GeoData {
     private String $url;
     private String $apiKey;

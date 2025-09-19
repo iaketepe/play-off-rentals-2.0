@@ -14,22 +14,22 @@ function RentOne() {
     const map = useRef(null);
     
 
-    /*searchbar.addEventListener("input", function () {
+    searchBarDOM.current.addEventListener("input", function () {
         clearTimeout(timer);
         timer = setTimeout(() => {
-            fetch(`/locations/search?query=${encodeURIComponent(searchbar.value)}`)
+            fetch(`/locations/search?query=${encodeURIComponent(searchBarDOM.current.value)}`)
             .then(response => response.json())
             .then(data => {
                 console.log("Locations:", data);
-                const searchResults = document.createElement("div");
-                for 
+                //const searchResults = document.createElement("div");
+                //for
                 
             })
             .catch(err => console.error("Error fetching locations:", err));
         },500)
     });
 
-    searchbar.addEventListener("click", function() {
+    /*searchbar.addEventListener("click", function() {
         coordinates = [51.505, -0.09]; //fetch('/map/coordinates') ?? [51.505, -0.09];
     }); */
 
@@ -42,9 +42,6 @@ function RentOne() {
                 attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
             }).addTo(map.current);
         }
-
-
-        //mapDiv.innerHTML = map;
     });
     
 

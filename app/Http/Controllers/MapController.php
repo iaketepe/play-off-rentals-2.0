@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use AutoCoder;
-use GeoData;
+use App\Services\AutoCoder;
+use App\Services\GeoData;
 
 class MapController extends Controller {
     private AutoCoder $autocoder;
@@ -13,7 +13,7 @@ class MapController extends Controller {
 
     public function __construct() {
         $this->autocoder = new AutoCoder();
-        $this->geodata = new GeoData();
+        //$this->geodata = new GeoData();
     }
 
     public function autocomplete(Request $request) {
