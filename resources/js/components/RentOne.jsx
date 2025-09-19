@@ -7,11 +7,11 @@ import XMLHTTPRequest from 'axios';
 
 function RentOne() {
 
-    const searchbar = document.getElementById("searchbar");
     let timer;
     let coordinates = [51.505, -0.09];
-    const mapRef = useRef(null);
-    const mapObjectRef = useRef(null);
+    const searchBarDOM = useRef(null);
+    const mapDOM = useRef(null);
+    const map = useRef(null);
     
 
     /*searchbar.addEventListener("input", function () {
@@ -34,13 +34,13 @@ function RentOne() {
     }); */
 
     useEffect(() => {
-        if(!mapObjectRef.current) {
-            mapObjectRef.current = L.map(mapRef.current).setView(coordinates, 13);
+        if(!map.current) {
+            map.current = L.map(mapDOM.current).setView(coordinates, 13);
 
             L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 maxZoom: 19,
                 attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-            }).addTo(mapObjectRef.current);
+            }).addTo(map.current);
         }
 
 
@@ -57,9 +57,9 @@ function RentOne() {
             </div>
             <div className="flex flex-col flex-1 gap-5 divide-y divide-black">
                 <div className="w-full">
-                    <input id="searchbar" className="border-black border-2 p-3 rounded-lg w-full" type="search" name="" placeholder="Type to Search" />
+                    <input id="searchbar" ref={searchBarDOM} className="border-black border-2 p-3 rounded-lg w-full" type="search" name="" placeholder="Type to Search" />
                 </div>
-                <div id="map" ref={mapRef} className="border-black border-2 m-auto w-full max-w-lg h-[20rem] rounded-lg">
+                <div id="map" ref={mapDOM} className="border-black border-2 m-auto w-full max-w-lg h-[20rem] rounded-lg">
                     
                 </div>
             </div>
