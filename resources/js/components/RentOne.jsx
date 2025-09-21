@@ -6,19 +6,16 @@ import { useEffect, useRef, useState } from "react";
 
 function RentOne() {
 
-    let timer;
-    let coordinates = [51.505, -0.09];
-    const searchBarDOM = useRef(null);
+
+    const [coordinates, setCoordinates] = useState([51.505, -0.09]);
     const mapDOM = useRef(null);
     const map = useRef(null);
+
     const [searchResults, setSearchResults] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
-
-    
-
-    /*searchbar.addEventListener("click", function() {
-        coordinates = [51.505, -0.09]; //fetch('/map/coordinates') ?? [51.505, -0.09];
-    }); */
+    const searchBarDOM = useRef(null);
+    const timer = useRef(null);
+    const abortController = useRef(null);
 
     useEffect(() => {
         if(!map.current) {
@@ -30,25 +27,43 @@ function RentOne() {
             }).addTo(map.current);
         }
 
-        searchBarDOM.current.addEventListener("input", function () {
-            clearTimeout(timer);
-            if (searchBarDOM.current.value !== "") {
-                timer = setTimeout(() => {
-                    fetch(`/locations/search?query=${encodeURIComponent(searchBarDOM.current.value)}`)
-                    .then(response => response.json())
-                    .then(data => {
-                        console.log("Locations:", data);
-                        //const searchResults = document.createElement("div");
-                        setSearchResults(data);
-                        setIsOpen(true);
-                        
-                    })
-                    .catch(err => console.error("Error fetching locations:", err));
-                },500)
-            }
+    }, []);
 
-        });
-    });
+    const handleSearchInput = (e) => {
+        clearTimeout(timer.current);
+
+        if (abortController.current) {
+            abortController.current.abort();
+        }
+
+        if (!e.target.value) {
+            setSearchResults([]);
+            setIsOpen(false);
+            return;
+        }
+
+
+        timer.current = setTimeout(() => {
+            const controller = new AbortController();
+            abortController.current = controller;
+
+            fetch(`/locations/search?query=${encodeURIComponent(searchBarDOM.current.value)}`, {
+                signal: controller.signal
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log("Locations:", data);
+                //const searchResults = document.createElement("div");
+                setSearchResults(Array.isArray(data) ? data : []);
+                setIsOpen(true);
+                
+            })
+            .catch(err => {
+                if(err.name === "AbortError") return;
+                console.error("Error fetching locations:", err)
+            });
+        },400)
+    }
     
 
 
@@ -60,12 +75,12 @@ function RentOne() {
             </div>
             <div className="flex flex-col flex-1 gap-5 divide-y divide-black">
                 <div className="w-full relative">
-                    <input id="searchbar" ref={searchBarDOM} onFocus={() => {if (searchResults.length > 0) setIsOpen(true);}} onBlur={() => setIsOpen(false)}  className="border-black border-2 p-3 rounded-lg w-full" type="search" name="" placeholder="Type to Search" />
+                    <input id="searchbar" ref={searchBarDOM} onInput={(e) => {handleSearchInput(e)}} onFocus={() => {if (searchResults.length > 0) setIsOpen(true);}} onBlur={() => setIsOpen(false)}  className="border-black border-2 p-3 rounded-lg w-full" type="search" name="" placeholder="Type to Search" />
                     <div className={`bg-white absolute top-full flex flex-col rounded-b-lg w-full z-[2000] ${isOpen ? 'block' : 'hidden'}`}>
                         {searchResults.map((item, i) => (
                             <div
                             key={i}
-                            className="border-black border-2 p-3 rounded-lg w-full"
+                            className="border-black border-2 p-3 rounded-lg w-full space-x-3"
                             >
                             <span className="font-semibold">{item.display_place}</span>
                             <span className="text-xs text-gray-500">{item.display_address}</span>
