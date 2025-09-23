@@ -7,7 +7,7 @@ import { useEffect, useRef, useState } from "react";
 function RentOne() {
 
 
-    const [coordinates, setCoordinates] = useState([51.505, -0.09]);
+    const [coordinates, setCoordinates] = useState([45.409, -75.7171]);
     const mapDOM = useRef(null);
     const map = useRef(null);
 
