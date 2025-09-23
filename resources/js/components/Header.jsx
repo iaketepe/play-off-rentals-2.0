@@ -1,9 +1,9 @@
 
-import React from 'react';
+import { useState } from 'react';
 import { useTranslation } from "react-i18next";
 
 function Header() {
-    const [isOpen, setIsOpen] = React.useState(false);
+    const [isOpen, setIsOpen] = useState(false);
     const { t, i18n } = useTranslation();
 
     const toggleLanguage = () => i18n.changeLanguage(i18n.language === "en" ? "fr" : "en");

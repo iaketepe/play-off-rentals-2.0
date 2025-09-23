@@ -1,19 +1,75 @@
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 
 
 
 function RentOne() {
-    useEffect(() => {
-        var map = L.map('map').setView([51.505, -0.09], 13);
 
-        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19,
-            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-        }).addTo(map);
-        //mapDiv.innerHTML = map;
-    });
+
+    const [coordinates, setCoordinates] = useState([45.409, -75.7171]);
+    const mapDOM = useRef(null);
+    const map = useRef(null);
+
+    const [searchResults, setSearchResults] = useState([]);
+    const [isOpen, setIsOpen] = useState(false);
+    const searchBarDOM = useRef(null);
+    const timer = useRef(null);
+    const abortController = useRef(null);
+
+    useEffect(() => {
+        if(!map.current) {
+            map.current = L.map(mapDOM.current).setView(coordinates, 13);
+
+            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+            }).addTo(map.current);
+        }
+
+        map.current.setView(coordinates, 13);
+
+    }, [coordinates]);
+
+    const handleMapSearching = (lat, lon) => {
+        setCoordinates([lat,lon]);
+    }
+
+    const handleSearchInput = (e) => {
+        clearTimeout(timer.current);
+
+        if (abortController.current) {
+            abortController.current.abort();
+        }
+
+        if (!e.target.value) {
+            setSearchResults([]);
+            setIsOpen(false);
+            return;
+        }
+
+
+        timer.current = setTimeout(() => {
+            const controller = new AbortController();
+            abortController.current = controller;
+
+            fetch(`/locations/search?query=${encodeURIComponent(searchBarDOM.current.value)}`, {
+                signal: controller.signal
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log("Locations:", data);
+                //const searchResults = document.createElement("div");
+                setSearchResults(Array.isArray(data) ? data : []);
+                setIsOpen(true);
+                
+            })
+            .catch(err => {
+                if(err.name === "AbortError") return;
+                console.error("Error fetching locations:", err)
+            });
+        },400)
+    }
     
 
 
@@ -24,8 +80,26 @@ function RentOne() {
                 <span className="text-xl">(Click Next to confirm later...)</span>
             </div>
             <div className="flex flex-col flex-1 gap-5 divide-y divide-black">
-                <input className="border-black border-2 p-3 rounded-lg max-w-" type="search" name="" id="" placeholder="Type to Search" />
-                <div id="map" className="border-black border-2 m-auto w-full max-w-lg h-[20rem] rounded-lg">
+                <div className="w-full relative">
+                    <input id="searchbar" ref={searchBarDOM} onInput={(e) => {handleSearchInput(e)}} onFocus={() => {if (searchResults.length > 0) setIsOpen(true);}} onBlur={() => setIsOpen(false)}  className="border-black border-2 p-3 rounded-lg w-full" type="search" name="" placeholder="Type to Search" />
+                    <div className={`bg-white absolute top-full flex flex-col rounded-b-lg w-full z-[2000] ${isOpen ? 'block' : 'hidden'}`}>
+                        {searchResults.map((item, i) => (
+                            <div
+                            key={i}
+                            onMouseDown={(e) => e.preventDefault()}
+                            onClick={() => {
+                                handleMapSearching(item.lat,item.lon);
+                                setIsOpen(false);
+                            }}
+                            className="border-black border-2 p-3 rounded-lg w-full space-x-3"
+                            >
+                            <span className="font-semibold">{item.display_place}</span>
+                            <span className="text-xs text-gray-500">{item.display_address}</span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+                <div id="map" ref={mapDOM} className="border-black border-2 m-auto w-full max-w-lg h-[20rem] rounded-lg">
                     
                 </div>
             </div>
