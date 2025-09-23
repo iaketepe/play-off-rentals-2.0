@@ -27,7 +27,13 @@ function RentOne() {
             }).addTo(map.current);
         }
 
-    }, []);
+        map.current.setView(coordinates, 13);
+
+    }, [coordinates]);
+
+    const handleMapSearching = (lat, lon) => {
+        setCoordinates([lat,lon]);
+    }
 
     const handleSearchInput = (e) => {
         clearTimeout(timer.current);
@@ -80,6 +86,11 @@ function RentOne() {
                         {searchResults.map((item, i) => (
                             <div
                             key={i}
+                            onMouseDown={(e) => e.preventDefault()}
+                            onClick={() => {
+                                handleMapSearching(item.lat,item.lon);
+                                setIsOpen(false);
+                            }}
                             className="border-black border-2 p-3 rounded-lg w-full space-x-3"
                             >
                             <span className="font-semibold">{item.display_place}</span>
