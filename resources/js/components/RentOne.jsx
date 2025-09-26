@@ -5,8 +5,6 @@ import { useEffect, useRef, useState } from "react";
 
 
 function RentOne() {
-
-
     const [coordinates, setCoordinates] = useState([45.409, -75.7171]);
     const mapDOM = useRef(null);
     const map = useRef(null);
@@ -58,8 +56,6 @@ function RentOne() {
             })
             .then(response => response.json())
             .then(data => {
-                console.log("Locations:", data);
-                //const searchResults = document.createElement("div");
                 setSearchResults(Array.isArray(data) ? data : []);
                 setIsOpen(true);
                 
