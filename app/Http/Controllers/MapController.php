@@ -28,7 +28,7 @@ class MapController extends Controller {
         $y = $request->route('y');
 
         $tiles = $this->geodata->getTiles($z,$x,$y);
-        return response($tiles->body(), $tiles->status())->header('Content-Type',$tiles->header('Content-Type'));
+        return response($tiles->getBody()->getContents(), $tiles->getStatusCode())->header('Content-Type', $tiles->getHeaderLine('Content-Type'));
     }
 
     public function autoComplete(Request $request) {

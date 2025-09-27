@@ -58,7 +58,7 @@ function RentOne() {
             const controller = new AbortController();
             abortController.current = controller;
 
-            fetch(`/locations?query=${encodeURIComponent(searchBarDOM.current.value)}`, {
+            fetch(`/map/locations?query=${encodeURIComponent(searchBarDOM.current.value)}`, {
                 signal: controller.signal
             })
             .then(response => response.json())

@@ -2,7 +2,10 @@
 
 namespace App\Services;
 
-use Illuminate\Support\Facades\Http; 
+//use Illuminate\Support\Facades\Http; 
+
+use GuzzleHttp\Client;
+use GuzzleHttp\Promise;
 
 use Exception;
 
@@ -27,12 +30,20 @@ class GeoData {
     }
 
     public function getTiles($z, $x, $y) {
+        $client = new Client();
+
         $url = "{$this->url}/{$z}/{$x}/{$y}.png";
-        $response = HTTP::WithOptions([
+
+        $promise = $client->getAsync($url, [
+            'query' => ['apiKey' => $this->apiKey],
+            'verify' => false,
+        ]);
+        $response = $promise->wait();
+        /*$response = HTTP::WithOptions([
             'verify' => false,
         ])->get($url, [
             'apiKey' => $this->apiKey,
-        ]);
+        ]);*/
 
         return $response;
     }
