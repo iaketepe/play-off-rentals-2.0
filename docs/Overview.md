@@ -29,3 +29,4 @@ Goal: To create a site that simulates a web store.
 - React.js
 - i18next (localization)
 - Vite
+
