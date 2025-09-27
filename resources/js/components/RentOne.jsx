@@ -19,6 +19,8 @@ function RentOne() {
         if(!map.current) {
             map.current = L.map(mapDOM.current).setView(coordinates, 13);
 
+            L.circle([45.409, -75.7171], {radius: 10000,color: '#1f89bb'}).addTo(map.current);
+
             fetch('/map/tiles/metadata')
             .then(response => response.json())
             .then(data => {
