@@ -5,8 +5,6 @@ import { useEffect, useRef, useState } from "react";
 
 
 function RentOne() {
-
-
     const [coordinates, setCoordinates] = useState([45.409, -75.7171]);
     const mapDOM = useRef(null);
     const map = useRef(null);
@@ -21,10 +19,19 @@ function RentOne() {
         if(!map.current) {
             map.current = L.map(mapDOM.current).setView(coordinates, 13);
 
-            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                maxZoom: 19,
-                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-            }).addTo(map.current);
+            L.circle([45.409, -75.7171], {radius: 10000,color: '#1f89bb'}).addTo(map.current);
+
+            fetch('/map/tiles/metadata')
+            .then(response => response.json())
+            .then(data => {
+                L.tileLayer(data.urlHotline, {
+                    maxZoom: 19,
+                    attribution: data.attribution
+                }).addTo(map.current);
+            })
+            .catch((err) => {
+                console.error("Error on map startup:", err)
+            });
         }
 
         map.current.setView(coordinates, 13);
@@ -53,13 +60,11 @@ function RentOne() {
             const controller = new AbortController();
             abortController.current = controller;
 
-            fetch(`/locations/search?query=${encodeURIComponent(searchBarDOM.current.value)}`, {
+            fetch(`/map/locations?query=${encodeURIComponent(searchBarDOM.current.value)}`, {
                 signal: controller.signal
             })
             .then(response => response.json())
             .then(data => {
-                console.log("Locations:", data);
-                //const searchResults = document.createElement("div");
                 setSearchResults(Array.isArray(data) ? data : []);
                 setIsOpen(true);
                 

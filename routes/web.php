@@ -18,4 +18,8 @@ Route::get('/contact', function () {
 
 
 
-Route::get('/locations/search', [MapController::class, 'autocomplete']); 
+Route::get('/map/locations', [MapController::class, 'autoComplete']); 
+
+
+Route::get('/map/tiles/metadata', [MapController::class, 'tilesMetaData']);
+Route::get('/map/tiles/{z}/{x}/{y}.png', [MapController::class, 'tiles']);

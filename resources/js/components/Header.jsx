@@ -22,7 +22,7 @@ function Header() {
                 </div>
             </div>
 
-            <div className={`absolute top-full w-full flex flex-col text-center bg-gray-800 transition-all duration-300 ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
+            <div className={`absolute top-full w-full flex flex-col text-center bg-gray-800 transition-all duration-300 z-[3000] ${isOpen ? 'max-h-96 opacity-96' : 'max-h-0 opacity-0 overflow-hidden'}`}>
                 <div className="p-3"><a href="/rent">{t("header.navList.rent")}</a></div>
                 <div className="p-3"><a href="#">{t("header.navList.faq")}</a></div>
                 <div className="p-3"><a href="#">{t("header.navList.contact")}</a></div>

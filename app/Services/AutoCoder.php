@@ -33,7 +33,7 @@ class AutoCoder {
 
         $response = Http::withOptions([
             'verify' => false,
-        ])->get('https://api.locationiq.com/v1/autocomplete', [
+        ])->get($this->url, [
             'key' => $this->apiKey,
             'q' => $address,
             'limit' => 5,
