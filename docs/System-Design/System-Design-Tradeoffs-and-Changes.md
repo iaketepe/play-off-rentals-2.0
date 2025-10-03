@@ -8,7 +8,12 @@
 - I thought about the idea of removing one and then committing to a different stack (e.g. React with Express.js and PHP with Laravel) but I couldn't decide. This is where I learned about PHP Blade. Blade allowed me to still have my codebase stay PHP-centric while giving me the flexibility to work with React on the client side.
 - In conclusion, I chose to use PHP to handle my backend, expanding it with Laravel as my framework and relying on PHP blade to integrate tools like React for UI. This decision allows me to balance my experience in both tools, integrating them in a clean and reasonable way.
 
-### Single Blade view vs Multiple Blade views
+### Single Blade View vs Multiple Blade Views
+- After I figured out what technologies I wanted to use. My next issue was actually designing the project structure. I came up with two choices:
+    - Single PHP Blade view + dynamic react core
+    - Multiple PHP Blade views each with their own react core
+In both cases, the blade file being rendered would mount a React root, adding in what was needed to make up a webpage. The difference came down to simplicity and efficiency. Instead of having multiple views each with their own unique root, I could reduce it down to one root, passing data on route so the computer would know which 'page' needs to be brought up. This allows me to take advantage of PHP when it comes to routing, while relying on react in a relatively natural way.
+Result: I chose to go with the single blade view.
 
 
 ### Integrating React with PHP
