@@ -13,7 +13,7 @@
     - Single PHP Blade view + dynamic react core
     - Multiple PHP Blade views each with their own react core
 In both cases, the blade file being rendered would mount a React root, adding in what was needed to make up a webpage. The difference came down to simplicity and efficiency. Instead of having multiple views each with their own unique root, I could reduce it down to one root, passing data on route so the computer would know which 'page' needs to be brought up. This allows me to take advantage of PHP when it comes to routing, while relying on react in a relatively natural way.
-Result: I chose to go with the single blade view.
+    #### Result: I chose to go with the single blade view.
 
 
 ### Integrating React with PHP
