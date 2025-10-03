@@ -2,6 +2,15 @@
 
 ## Designing the Project Structure
 
+### Choosing my core stack
+- One of the difficult parts of this project was about integrating the technologies I was used to. Some time ago, I finished another project using PHP to handle my backend. Since PHP was something I was used to, I wanted to design this project with PHP for the backend as well. The problem? PHP is very heavy-handed. As a language, not only does it require web files like html to have a compatible format (.php). When using something like Laravel (A PHP framework) to handle other backend intractions, it forces the project into a PHP-centric ecosystem.
+- This was difficult for me because the technologies I used for past projects relied on a more front end centric system. Tools like React, allowed me to abstract some of the backend, giving me the chance to focus on modularizing my components, handling, some backend interactions like routing.
+- I thought about the idea of removing one and then committing to a different stack (e.g. React with Express.js and PHP with Laravel) but I couldn't decide. This is where I learned about PHP Blade. Blade allowed me to still have my codebase stay PHP-centric while giving me the flexibility to work with React on the client side.
+- In conclusion, I chose to use PHP to handle my backend, expanding it with Laravel as my framework and relying on PHP blade to integrate tools like React for UI. This decision allows me to balance my experience in both tools, integrating them in a clean and reasonable way.
+
+### Single Blade view vs Multiple Blade views
+
+
 ### Integrating React with PHP
 
 ## Dealing with RentCore
