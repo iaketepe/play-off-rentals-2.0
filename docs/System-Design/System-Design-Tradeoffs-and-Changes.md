@@ -2,7 +2,7 @@
 
 ## Designing the Project Structure
 
-### Choosing my core stack
+### Choosing my Core Stack
 - One of the difficult parts of this project was about integrating technologies I was used to. Before this project, I finished another using PHP for my backend. Since PHP was something I worked with, I wanted to use PHP to design this project. The problem? PHP is very heavy-handed. As a language, not only does it require web files like html to have a compatible format (.php). When using something like Laravel (A PHP framework) to handle other backend interactions, it forces the project into a PHP-centric ecosystem.
 - This was difficult for me because the technologies I used for past projects relied on a more front end focused system. Tools like React, allowed me to abstract some of the backend, giving me the chance to focus on modularizing my components, handling, some backend interactions like routing.
 - I thought about the idea of removing one and then committing to a different stack (e.g. React with Express.js and PHP with Laravel) but I couldn't decide. This is where I learned about PHP Blade. Blade allowed me to still have my codebase be PHP-centric while giving me the flexibility to work with React on the client side.
