@@ -143,6 +143,41 @@ paths:
                     type: string
                 example:
                   error: "Something went wrong"
-
+  /map/tiles/{z}/{x}/{y}.png:
+    get:
+      summary: Gets a map tile in the format of a .png file format
+      parameters:
+        - in: path
+          name: z
+          required: true
+          schema:
+            type: integer
+          description: Zoom level
+        - in: path
+          name: x
+          required: true
+          schema:
+            type: integer
+          description: Tile X coordinate
+        - in: path
+          name: y
+          required: true
+          schema:
+            type: integer
+          description: Tile Y coordinate
+      responses:
+        '200':
+          description: PNG tile image
+          content:
+            image/png:
+              schema:
+                type: string
+                format: binary
+        'default':
+          description: Upstream result
+          content:
+            application/json:
+              schema:
+                type: object
     
   # https://editor.swagger.io/
