@@ -115,6 +115,34 @@ paths:
             application/json:
               schema:
                 type: object
+  /map/tiles/metadata:
+    get:
+      summary: Gets metadata (point of contact, licensing) for client-side use
+      responses:
+        '200':
+          description: Metadata for map tiles
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  urlHotline:
+                    type: string
+                    example: "https://some.tile.server/{z}/{x}/{y}.png"
+                  attribution:
+                    type: string
+                    example: "© OpenStreetMap contributors"
+        'default':
+          description: Unexpected server response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                example:
+                  error: "Something went wrong"
 
     
   # https://editor.swagger.io/
