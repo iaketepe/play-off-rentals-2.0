@@ -9,6 +9,8 @@ servers:
 paths:
   /map/locations:
     get:
+      tags:
+        - Map
       summary: Get geocoded locations from a given search query
       parameters:
         - in: query
@@ -117,6 +119,8 @@ paths:
                 type: object
   /map/tiles/metadata:
     get:
+      tags:
+        - Map
       summary: Gets metadata (point of contact, licensing) for client-side use
       responses:
         '200':
@@ -145,6 +149,8 @@ paths:
                   error: "Something went wrong"
   /map/tiles/{z}/{x}/{y}.png:
     get:
+      tags:
+        - Map
       summary: Gets a map tile in the format of a .png file format
       parameters:
         - in: path
