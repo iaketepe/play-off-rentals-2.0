@@ -12,9 +12,12 @@ Designing with this structure in mind, gives me more seperation when designing m
 Since this is a web store. I have to design my header and footer, to fit the theme and function of one. This means both must adhere to good UX practices like accessibility and responsive design. 
 
 ### Dealing with the Header
-For my Header's mobile I planned to have all 
-
+#### Notable Bugs
+- [Used onBlur to setIsOpen variable to false, closing navbar onClick](https://github.com/iaketepe/play-off-rentals-2.0/commit/45af7583bb1ced9f28ef888841c90baed1351235)
+- [Updated z-index to combat render overide on RentOne](https://github.com/iaketepe/play-off-rentals-2.0/commit/47b8ba993f43d1ce6facdfc58fb4c38e98b86633)
 
 ### Dealing with the Footer
+#### Table element vs Div with class="grid"
 When it came to my Footer. I wasn't sure whether I wanted to design my hours of operations section with grid or with the table element. The table element has implicit aria and it also works well for the aesthetic of my design. On the other hand, using grid will still work well, but will take more time to implement.
 #### Result: I went with the table element. The technically better accessibility along with the ease of implmentation made it a better decision. 
+
