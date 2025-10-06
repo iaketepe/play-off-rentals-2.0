@@ -39,6 +39,17 @@
         }
       }
     }
+  },
+  "homeCore" : {
+
+  },
+  "rentCore" : {
+
+  },
+  "rentOne" : {
+    "title" : "Confirmez votre emplacement",
+    "sideNote" : "(Ou continuez sans confirmer...)",
+    "search" : "Rechercher..."
   }
 }
 
