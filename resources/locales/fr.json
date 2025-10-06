@@ -44,7 +44,8 @@
 
   },
   "rentCore" : {
-
+    "prev" : "Précédent",
+    "next" : "Suivant"
   },
   "rentOne" : {
     "title" : "Confirmez votre emplacement",

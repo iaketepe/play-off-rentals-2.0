@@ -2,11 +2,12 @@ import React from 'react';
 import RentOne from "../components/RentOne";
 import RentTwo from "../components/RentTwo";
 import RentThree from "../components/RentThree";
-
+import { useTranslation } from "react-i18next";
 
 
 function RentCore () {
     const [step, setStep] = React.useState(1);
+    const { t } = useTranslation();
 
 
     const steps = {
@@ -23,8 +24,8 @@ function RentCore () {
                     {steps[step]}
                 </div>
                 <div className="flex justify-between">
-                    <button onClick={() => setStep(((step + 1) % 3) + 1)}>Prev</button>
-                    <button onClick={() => setStep((step % 3) + 1)}>Next</button>
+                    <button onClick={() => setStep(((step + 1) % 3) + 1)}>{t("rentCore.prev")}</button>
+                    <button onClick={() => setStep((step % 3) + 1)}>{t("rentCore.next")}</button>
                 </div>
             </div>
         </div>
