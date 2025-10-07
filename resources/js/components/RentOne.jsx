@@ -83,7 +83,7 @@ function RentOne() {
 
 
     return(
-        <div className="w-full h-full flex flex-col divide-y divide-black gap-10 border-black border-2">
+        <div className="w-full max-w-4xl h-full flex flex-col divide-y divide-black gap-10 border-black border-2">
             <div className="space-x-5">
                 <h1 className='inline text-black text-4xl font-semibold'>{t("rentOne.title")}</h1>
                 <span className="text-xl">{t("rentOne.sideNote")}</span>
