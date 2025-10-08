@@ -18,7 +18,7 @@ function RentCore () {
  
 
     return (
-        <div className="flex flex-col text-black p-10 items-center">
+        <div className="flex flex-col p-[clamp(.25rem,2vw,2.5rem)] items-center">
             <div className=" w-full max-w-6xl flex flex-col gap-5">
                 <div className="flex justify-center">
                     {steps[step]}
