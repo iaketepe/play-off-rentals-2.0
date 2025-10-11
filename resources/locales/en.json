@@ -51,5 +51,8 @@
     "title" : "Confirm Your Location",
     "sideNote" : "(Click Next to confirm later...)",
     "search" : "Type to Search"
+  },
+  "rentTwo" : {
+    "title" : "Choose your Rental(s)"
   }
 }

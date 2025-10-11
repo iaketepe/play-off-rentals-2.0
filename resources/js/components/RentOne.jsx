@@ -83,12 +83,12 @@ function RentOne() {
 
 
     return(
-        <div className="w-full max-w-4xl h-full flex flex-col divide-y divide-black gap-10 border-black border-2">
+        <div className="w-full max-w-4xl h-full flex flex-col gap-10">
             <div className="space-x-5">
                 <h1 className='inline text-black text-4xl font-semibold'>{t("rentOne.title")}</h1>
                 <span className="text-xl">{t("rentOne.sideNote")}</span>
             </div>
-            <div className="flex flex-col flex-1 gap-5 divide-y divide-black">
+            <div className="flex flex-col flex-1 gap-5">
                 <div className="w-full relative">
                     <input id="searchbar" ref={searchBarDOM} onInput={(e) => {handleSearchInput(e)}} onFocus={() => {if (searchResults.length > 0) setIsOpen(true);}} onBlur={() => setIsOpen(false)}  className="border-black border-2 p-3 rounded-lg w-full" type="search" name="" placeholder={t("rentOne.search")} />
                     <div className={`bg-white absolute top-full flex flex-col rounded-b-lg w-full z-[2000] ${isOpen ? 'block' : 'hidden'}`}>

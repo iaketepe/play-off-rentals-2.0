@@ -51,6 +51,9 @@
     "title" : "Confirmez votre emplacement",
     "sideNote" : "(Ou continuez sans confirmer...)",
     "search" : "Rechercher..."
+  },
+  "rentTwo" : {
+    "title" : "Choose your Rental(s)"
   }
 }
 
