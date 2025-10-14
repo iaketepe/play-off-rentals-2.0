@@ -15,3 +15,32 @@
 button {
     cursor: pointer;
 }
+
+
+.underline-grow {
+    position: relative;
+    padding-bottom: 3px;
+    /* small gap under text */
+    overflow: hidden;
+}
+
+.underline-grow::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 0;
+    background-color: currentColor;
+    transition: width 0.3s ease;
+}
+
+.underline-grow:hover::after {
+    width: 100%;
+}
+
+.truncate {
+  white-space: nowrap;       
+  overflow: hidden;          
+  text-overflow: ellipsis;  
+}

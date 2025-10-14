@@ -1,0 +1,189 @@
+openapi: 3.0.4
+info:
+  title: Play Off Rentals
+  version: 2.0.0
+  description: Play Off Rentals is a full stack project that focuses simulating the web store of a local business. The business, 'Play Off Rentals' is a rental service for arcade machines, allowing people in the 'area' to build their own 'arcade' by renting the machines in their catalog.
+servers:
+  - url: http://localhost:8000/api
+    description: Development server
+paths:
+  /map/locations:
+    get:
+      tags:
+        - Map
+      summary: Get geocoded locations from a given search query
+      parameters:
+        - in: query
+          name: query
+          schema:
+            type: string
+          required: true
+          description: The search string used for geocoding
+      responses:
+        '200':
+          description: Successful response (array of locations or no results)
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - type: array
+                    items:
+                      type: object
+                      properties:
+                        place_id:
+                          type: string
+                        osm_id:
+                          type: string
+                        osm_type:
+                          type: string
+                        display_place:
+                          type: string
+                        display_name:
+                          type: string
+                        display_address:
+                          type: string
+                        class:
+                          type: string
+                        type:
+                          type: string
+                        lat:
+                          type: string
+                        lon:
+                          type: string
+                        licence:
+                          type: string
+                        boundingbox:
+                          type: array
+                          items:
+                            type: string
+                        address:
+                          type: object
+                          properties:
+                            name:
+                              type: string
+                            suburb:
+                              type: string
+                            city:
+                              type: string
+                            county:
+                              type: string
+                            state:
+                              type: string
+                            postcode:
+                              type: string
+                            country:
+                              type: string
+                            country_code:
+                              type: string
+                  - type: object
+                    properties:
+                      error:
+                        type: string
+              examples:
+                success:
+                  summary: Example successful response
+                  value:
+                    - place_id: "320775881916"
+                      osm_id: "10297703"
+                      osm_type: "way"
+                      display_place: "Rockerfeller Road"
+                      display_name: "Rockerfeller Road, Berry Creek, Butte County, California, 95916, USA"
+                      display_address: "Berry Creek, Butte County, California, 95916, USA"
+                      class: "highway"
+                      type: "residential"
+                      lat: "39.621938"
+                      lon: "-121.373008"
+                      licence: "https://locationiq.com/attribution"
+                      boundingbox:
+                        - "39.6093608"
+                        - "39.6316592"
+                        - "-121.380605"
+                        - "-121.3695717"
+                      address:
+                        name: "Rockerfeller Road"
+                        city: "Berry Creek"
+                        county: "Butte County"
+                        state: "California"
+                        postcode: "95916"
+                        country: "USA"
+                        country_code: "us"
+                failure:
+                  summary: Example “unable to geocode”
+                  value:
+                    error: "Unable to geocode"
+        'default':
+          description: Upstream result
+          content:
+            application/json:
+              schema:
+                type: object
+  /map/tiles/metadata:
+    get:
+      tags:
+        - Map
+      summary: Gets metadata (point of contact, licensing) for client-side use
+      responses:
+        '200':
+          description: Metadata for map tiles
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  urlHotline:
+                    type: string
+                    example: "https://some.tile.server/{z}/{x}/{y}.png"
+                  attribution:
+                    type: string
+                    example: "© OpenStreetMap contributors"
+        'default':
+          description: Unexpected server response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                example:
+                  error: "Something went wrong"
+  /map/tiles/{z}/{x}/{y}.png:
+    get:
+      tags:
+        - Map
+      summary: Gets a map tile in the format of a .png file format
+      parameters:
+        - in: path
+          name: z
+          required: true
+          schema:
+            type: integer
+          description: Zoom level
+        - in: path
+          name: x
+          required: true
+          schema:
+            type: integer
+          description: Tile X coordinate
+        - in: path
+          name: y
+          required: true
+          schema:
+            type: integer
+          description: Tile Y coordinate
+      responses:
+        '200':
+          description: PNG tile image
+          content:
+            image/png:
+              schema:
+                type: string
+                format: binary
+        'default':
+          description: Upstream result
+          content:
+            application/json:
+              schema:
+                type: object
+    
+  # https://editor.swagger.io/

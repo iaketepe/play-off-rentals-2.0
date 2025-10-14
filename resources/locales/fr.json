@@ -10,8 +10,8 @@
   },
   "footer" : {
     "contactInformation" : {
-      "title" : "Coordonnées du Play Off Rentals",
-      "location" : "Lieu",
+      "title" : "Coordonnées",
+      "location" : "Bureau",
       "copyright" : "2025 Play Off Rentals. Tous droits réservés.",
       "office" : {
         "street" : "456 Avenue Elm",
@@ -39,6 +39,21 @@
         }
       }
     }
+  },
+  "homeCore" : {
+
+  },
+  "rentCore" : {
+    "prev" : "Précédent",
+    "next" : "Suivant"
+  },
+  "rentOne" : {
+    "title" : "Confirmez votre emplacement",
+    "sideNote" : "(Ou continuez sans confirmer...)",
+    "search" : "Rechercher..."
+  },
+  "rentTwo" : {
+    "title" : "Choose your Rental(s)"
   }
 }
 

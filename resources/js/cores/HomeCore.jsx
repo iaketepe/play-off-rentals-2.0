@@ -5,13 +5,12 @@ function HomeCore() {
         <div className="flex flex-col flex-1">
             <section className="border-black border-2 h-[20rem] flex justify-center items-center">
                 <div className="text-center">
-                    <h1 className="text-black text-4xl font-semibold">Play-Off Rentals</h1>
-                    <h2 className="text-black text-3xl font-light">Your Way to the Arcade</h2>
+                    <h1 className="text-4xl font-semibold">Play-Off Rentals</h1>
+                    <h2 className="text-3xl font-light">Your Way to the Arcade</h2>
                 </div>
-
             </section>
 
-            <section className="border-black text-black border-2">
+            <section className="border-black border-2">
                 <div className="flex h-full gap-10 p-5 justify-center items-center">
                     <img src={mainArcade} className="basis-1/2 min-w-0 max-w-[40rem] h-auto object-contain" alt="Stream of Arcade Machines"/>
                     <div className="basis-1/2">
