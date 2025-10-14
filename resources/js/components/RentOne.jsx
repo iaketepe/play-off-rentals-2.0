@@ -100,7 +100,7 @@ function RentOne() {
                                 handleMapSearching(item.lat,item.lon);
                                 setIsOpen(false);
                             }}
-                            className="border-black border-2 p-3 rounded-lg w-full flex"
+                            className="border-black border-2 p-3 rounded-lg w-full flex cursor-pointer"
                             >
                             <span className="font-semibold truncate min-w-0">{item.display_place} <span className="text-xs text-gray-500 truncate min-w-0">{item.display_address}</span></span>
                             </div>
