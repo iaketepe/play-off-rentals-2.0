@@ -12,10 +12,10 @@ function RentTwo() {
     { id: 3, title: "Card Three", description: "Navigate the maze, munch on dots, and outsmart the ghosts in this timeless arcade classic by Namco!", price: "100/day" },
   ];
 
-  const [machines, setMachines] = useState([test]);
+  const [machines, setMachines] = useState([]);
 
   useEffect(() => {
-    fetch('/machines')
+    fetch('/api/machines')
     .then(response => response.json())
     .then(data => {
         console.log(data);
