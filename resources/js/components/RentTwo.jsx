@@ -34,11 +34,12 @@ function RentTwo() {
         <div className="w-full h-full flex flex-col gap-10 border-black border-2">
             <div className="flex flex-col gap-10">
                 <h1 className='inline text-black text-4xl font-semibold'>{t("rentTwo.title")}</h1>
-                <div id="arcadeList" className=" border-2 border-black m-auto grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div id="arcadeList" className="m-auto grid grid-cols-1 md:grid-cols-3 gap-4">
                     {machines.map((item, i) => (
                         <div
                         key={i}
                         className="rounded-lg p-2 py-3 bg-slate-500"
+                        loading="lazy"
                         >
                             <img src={item.image_path} className="bg-black w-full h-[262px] rounded-md" alt={item.name} />
                             <div className="p-3">
