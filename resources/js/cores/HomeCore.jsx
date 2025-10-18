@@ -1,4 +1,4 @@
-import mainArcade from '../../imgs/HomeArcade.jpg';
+import mainArcade from '../../imgs/HomeArcade.webp';
 
 function HomeCore() {
     return (
