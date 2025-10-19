@@ -1,15 +1,13 @@
-
 import { useTranslation } from "react-i18next";
 
 
 function Footer() {
-
     const { t } = useTranslation();
 
     return (
-        <footer className="bg-slate-500 border-red-700 border-2 w-full flex justify-center">
+        <footer className="bg-slate-500 w-full flex justify-center">
             <div className="flex flex-col w-full max-w-[55em] p-2 gap-5 sm:flex-row sm:p-5"> 
-                <div className="flex flex-col basis-full sm:basis-2/3 space-y-3 p-5 border">
+                <div className="border flex flex-col basis-full sm:basis-2/3 space-y-3 p-5">
                     <h5 className="text-lg font-semibold">{t("footer.contactInformation.title")}</h5>
                     <div className="flex flex-col flex-1 justify-center">
                         <div>
@@ -27,7 +25,7 @@ function Footer() {
                     </div>
                     <h6 className="font-semibold">&copy; {t("footer.contactInformation.copyright")}</h6>
                 </div>
-                <div className="text-black flex flex-col basis-full sm:basis-1/3 min-w-[18em] bg-white p-5 rounded-xl">
+                <div className="bg-white text-black flex flex-col basis-full sm:basis-1/3 min-w-[18em] p-5 rounded-xl">
                     <h5 className="text-lg font-semibold text-center">{t("footer.hoursOfOperation.title")}</h5>
                     <table className="w-full">
                         <thead>
