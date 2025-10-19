@@ -26,12 +26,29 @@ In both cases, the Blade file being rendered would mount a React root, adding in
 
 ### Step 1: Geolocation
 - The main point of this step is to serve as a 'soft wall' for the user. When a user submits their address, the rental service will confirm that their address is within the X km limit for dispatch. If they aren't in range the service will disable access to the next step. However, it is possible to continue first, allowing the user to check the machines available and confirm their location later on in the process.
-
-- One of the challenges I had when it came to developing the geolocation step was not understanding is actually needed to embed a map into a website.
+- Originally, when I thought about implementing this, I wanted to use some google maps integration. However, I wasn't interested in having to give payment information to access a free tier, so I tried to create the system myself.
+- One of the challenges from that was realizing I didn't know what I needed to embed a searchable map into a website.
     - After doing some research, I realized there were three parts to it:
         - Geodata - Getting the geographical data
-        - Geocoding - Converting address strings to coordinates
+            - Raster Tiles (Pre-rendered image files)
+            - Vector Tiles (Geometric data tiles)
+        - Geocoding - Converting address strings to coordinates (Think Google maps search result autocomplete)
         - Rendering - Applying coordinates onto geodata to render a map
+- I had found a library I wanted to use called leaflet. It had a very small size (42 KB), and I believed it would work well with my react frontend. Since the library supported raster tiles, I planned on using raster tiles for geodata.
+- When it came to finding my geodata, I originally looked for OpenStreetMap. However, after realizing that they are not a cloud 'service' and do not want to be directly used for production, I had to look for another provider that relied on them indirectly.
+- My options were:
+    - LocationIQ (Free Tier: 5000 requests / Day)
+        - Has more requests
+        - Provides Geocoding
+        - Had more technical overhead for backend integration
+    - Geoapify (Free Tier: 3000 requests / Day)
+        - Follows standard integration (Backend uses ApiKey)
+        - Provides Geocoding
+        - Has less requests
+    - MapTiler (Free Tier: 3333 requests / Day)
+        - Middle Ground
+        - Uses vector tiles
+- Eventually I chose Geoapify for my Geodata provider. Since Geoapify also provides geocoding, I thought about using it for that as well. The only problem is having one provider for both, would halve the number daily requests. However, since LocationIQ can provide geocoding and because I believe users are likely to rewrite their search query more than just rendering that result, I planned on using it to maximize the amount of requests users could make.
 
 ### Step 2: Rental Catalogue
 
