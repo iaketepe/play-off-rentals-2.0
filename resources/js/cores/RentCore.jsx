@@ -29,7 +29,7 @@ function RentCore () {
                 </div>
                 <div className="flex justify-between">
                     <button onClick={() => setStep(((step + 1) % 3) + 1)} className="bg-gray-700 text-white text-center p-3 py-2 border-2 border-black rounded-lg transition-colors duration-300 ease-in-out hover:bg-gray-600">{t("rentCore.prev")}</button>
-                    <button onClick={() => setStep((step % 3) + 1)} className="bg-gray-700 text-white text-center p-5 py-2 border-2 border-black rounded-lg transition-colors duration-300 ease-in-out hover:bg-gray-600">{t("rentCore.next")}</button>
+                    <button onClick={() => setStep((step % 3) + 1)} className="bg-gray-700 text-white text-center p-3 py-2 border-2 border-black rounded-lg transition-colors duration-300 ease-in-out hover:bg-gray-600">{t("rentCore.next")}</button>
                 </div>
             </div>
         </div>
