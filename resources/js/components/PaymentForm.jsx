@@ -9,7 +9,6 @@ function PaymentForm() {
     e.preventDefault();
 
     if (!stripe || !elements) return;
-    console.log(stripe, elements);
     const { error } = await stripe.confirmPayment({
       elements,
       confirmParams: {

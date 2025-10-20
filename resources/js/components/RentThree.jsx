@@ -24,8 +24,6 @@ function RentThree() {
         .then(data => {
             setStripePromise(loadStripe(data.stripePublicKey));
             setClientSecret(data.clientSecret);
-            console.log(data.stripePublicKey);
-            console.log(data.clientSecret);
         });
     }, []);
 
