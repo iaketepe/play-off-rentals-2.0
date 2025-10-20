@@ -27,7 +27,7 @@ function RentThree() {
     }, []);
 
     if (!clientSecret || !stripePromise) {
-        return <div className="w-full min-h-screen flex flex-col gap-10">
+        return <div className="w-full h-full flex flex-col gap-10">
                 <div className="h-15 w-full bg-gray-300 rounded mb-1 animate-pulse"></div>
                 <div className="bg-gray-500 rounded-lg grid grid-cols-1 md:grid-cols-3 gap-4">
                     {[1, 2, 3].map((_, i) => (
