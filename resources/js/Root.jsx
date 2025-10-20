@@ -14,6 +14,10 @@ const page = rootDiv ? rootDiv.dataset.page : 'home';
 
 function Root() {
 
+    if(!sessionStorage.getItem("cart")) {
+        sessionStorage.setItem("cart",JSON.stringify([]));
+    }
+
     const cores = {
         home: HomeCore,
         rent: RentCore,

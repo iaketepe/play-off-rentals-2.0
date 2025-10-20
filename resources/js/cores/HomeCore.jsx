@@ -1,6 +1,18 @@
 import mainArcade from '../../imgs/HomeArcade.webp';
+import { useEffect } from 'react';
 
 function HomeCore() {
+
+    useEffect(() => {
+        const params = new URLSearchParams(window.location.search);
+        const status = params.get('redirect_status');
+        if (status === 'succeeded') {
+        console.log('Payment successful!');
+        }
+        window.history.replaceState({}, document.title, '/');
+    }, []);
+
+
     return (
         <div className="w-full h-full flex flex-col">
             <section className="h-[clamp(10rem,8vw+6rem,20rem)] flex justify-center items-center">

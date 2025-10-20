@@ -13,7 +13,7 @@ class PayController extends Controller {
         Stripe::setApiKey(config('cashier.secret'));
 
         $paymentIntent = PaymentIntent::create([
-            'amount' => 2500,#$request->input('amount'),
+            'amount' => $request->input('amount') * 100,
             'currency' => 'cad',
         ]);
 

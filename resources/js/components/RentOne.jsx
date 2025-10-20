@@ -108,10 +108,8 @@ function RentOne() {
                     </div>
                 </div>
                 <div id="map" ref={mapDOM} className="border-black border-2 m-auto w-full max-w-lg h-[20rem] rounded-lg">
-                    
                 </div>
             </div>
-
         </div>
 
     )

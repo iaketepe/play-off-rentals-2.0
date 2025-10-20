@@ -9,11 +9,11 @@ function PaymentForm() {
     e.preventDefault();
 
     if (!stripe || !elements) return;
-
+    console.log(stripe, elements);
     const { error } = await stripe.confirmPayment({
       elements,
       confirmParams: {
-        return_url: window.location.href, // redirect after payment
+        return_url: window.location.origin, // redirect after payment
       },
     });
 
@@ -27,9 +27,9 @@ function PaymentForm() {
   return (
     <form onSubmit={handleSubmit} className='space-y-5'>
       <PaymentElement options={{ fields: { billingDetails: 'auto' }, wallets: 'auto' }} />
-      <input type="submit" className='text-center w-full p-3 py-2 border-2 border-black rounded-full' disabled={!stripe} value="Submit"/>
+      <input type="submit" className='text-center w-full p-3 py-2 border-2 border-black rounded-full cursor-pointer' disabled={!stripe} value="Submit"/>
     </form>
-  );
+  )
 
 }
 
