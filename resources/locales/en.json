@@ -54,5 +54,8 @@
   },
   "rentTwo" : {
     "title" : "Choose your Rental(s)"
+  },
+    "rentThree" : {
+    "title" : "Checkout"
   }
 }

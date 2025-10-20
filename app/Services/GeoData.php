@@ -20,7 +20,7 @@ class GeoData {
         try {
             $this->url = env('GEODATA_URL');
             $this->apiKey = env('GEODATA_KEY');
-            $this->urlHotline = '/map/tiles/{z}/{x}/{y}.png';
+            $this->urlHotline = '/api/map/tiles/{z}/{x}/{y}.png';
             $this->attribution = env('GEODATA_ATTRIBUTION');
 
             $this->client = new Client([

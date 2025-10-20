@@ -1,31 +1,38 @@
 import './bootstrap';
-import React from 'react';
+import { React, Suspense, lazy } from 'react';
 import ReactDOM from 'react-dom/client';
-import Header from './components/Header';
 import HomeCore from './cores/HomeCore';
-import RentCore from './cores/RentCore';
+import Header from './components/Header';
 import Footer from './components/Footer';
 
 import "./i18n";
+
+const RentCore = lazy(() => import('./cores/RentCore'));
 
 const rootDiv = document.getElementById('react-root');
 const page = rootDiv ? rootDiv.dataset.page : 'home';
 
 function Root() {
 
+    if(!sessionStorage.getItem("cart")) {
+        sessionStorage.setItem("cart",JSON.stringify([]));
+    }
+
     const cores = {
-        home: <HomeCore/>,
-        rent: <RentCore/>,
+        home: HomeCore,
+        rent: RentCore,
         //contact: <ContactCore/>
     };
 
-    const core = cores[page] ?? cores.home;
+    const Core = cores[page] ?? cores.home;
 
     return (
         <div className='flex flex-col h-full'>
             <Header/>
             <div className="flex-1 text-black">
-                {core}
+                <Suspense fallback={<div>Loading...</div>}>
+                    <Core/>
+                </Suspense>
             </div>
             <Footer/>
         </div>

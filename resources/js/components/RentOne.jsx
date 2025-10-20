@@ -25,7 +25,7 @@ function RentOne() {
 
             L.circle([45.409, -75.7171], {radius: 10000,color: '#1f89bb'}).addTo(map.current);
 
-            fetch('/map/tiles/metadata')
+            fetch('/api/map/tiles/metadata')
             .then(response => response.json())
             .then(data => {
                 L.tileLayer(data.urlHotline, {
@@ -64,7 +64,7 @@ function RentOne() {
             const controller = new AbortController();
             abortController.current = controller;
 
-            fetch(`/map/locations?query=${encodeURIComponent(searchBarDOM.current.value)}`, {
+            fetch(`/api/map/locations?query=${encodeURIComponent(searchBarDOM.current.value)}`, {
                 signal: controller.signal
             })
             .then(response => response.json())
@@ -108,10 +108,8 @@ function RentOne() {
                     </div>
                 </div>
                 <div id="map" ref={mapDOM} className="border-black border-2 m-auto w-full max-w-lg h-[20rem] rounded-lg">
-                    
                 </div>
             </div>
-
         </div>
 
     )
