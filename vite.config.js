@@ -6,7 +6,7 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
     plugins: [
         laravel({
-            input: ['resources/css/root.css', 'resources/js/root.jsx'],
+            input: ['resources/css/Root.css', 'resources/js/Root.jsx'],
             refresh: true,
         }),
         tailwindcss(), react()
