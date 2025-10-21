@@ -16,12 +16,10 @@ RUN apt-get update && apt-get install -y \
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Copy composer files + artisan + bootstrap (needed for post-autoload scripts)
-COPY composer.json composer.lock artisan bootstrap/ ./
+COPY . .
 
 RUN composer install --no-dev --optimize-autoloader
 
-# Then copy the rest of the app
-COPY . .
 
 
 RUN npm install
