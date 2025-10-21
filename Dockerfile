@@ -24,6 +24,9 @@ COPY . .
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 RUN composer install --no-dev --optimize-autoloader
 
+# Set NODE_ENV=production before building
+ARG NODE_ENV=production
+ENV NODE_ENV=${NODE_ENV}
 # Install Node dependencies and build React/Vite assets
 RUN npm install
 RUN npm run build
