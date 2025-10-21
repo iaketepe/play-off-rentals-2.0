@@ -28,8 +28,8 @@ RUN composer install --no-dev --optimize-autoloader
 ARG NODE_ENV=production
 ENV NODE_ENV=${NODE_ENV}
 # Install Node dependencies and build React/Vite assets
-RUN npm install
-RUN npx vite build
+RUN npm install --include=dev
+RUN npm run build 
 
 # Set permissions
 RUN chown -R www-data:www-data storage bootstrap/cache vendor public/build
