@@ -18,6 +18,7 @@ class Kernel extends HttpKernel
         'web' => [
             // web middleware here
             //\App\Http\Middleware\EnforceHTTPS::class,
+            \App\Http\Middleware\TrustProxies::class,
         ],
 
         'api' => [

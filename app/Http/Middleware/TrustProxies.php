@@ -39,6 +39,10 @@ class TrustProxies extends Middleware
         // However, logging here can help with debugging:
         Log::info('X-Forwarded-Proto: ' . $request->header('X-Forwarded-Proto'));
 
+        if ($request->header('X-Forwarded-Proto') !== 'https' && $request->getScheme() !== 'https') {
+            $request->setScheme('https');
+        }
+
         // Trust the proxy and continue
         return parent::handle($request, $next);
     }
