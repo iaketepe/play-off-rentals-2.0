@@ -8,16 +8,17 @@ class Kernel extends HttpKernel
 {
     protected $middleware = [
         // other global middleware
-        //\App\Http\Middleware\TrustProxies::class,
+        \App\Http\Middleware\TrustProxies::class,
         //'App\Http\Middleware\TrustProxies',
         \App\Http\Middleware\EnforceHTTPS::class,
 
     ];
 
     protected $middlewareGroups = [
-        /*'web' => [
+        'web' => [
             // web middleware here
-        ],*/
+            //\App\Http\Middleware\EnforceHTTPS::class,
+        ],
 
         'api' => [
             'throttle:api',
