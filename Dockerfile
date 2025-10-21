@@ -29,7 +29,7 @@ ARG NODE_ENV=production
 ENV NODE_ENV=${NODE_ENV}
 # Install Node dependencies and build React/Vite assets
 RUN npm install
-RUN npm run build
+RUN npx vite build
 
 # Set permissions
 RUN chown -R www-data:www-data storage bootstrap/cache vendor public/build
