@@ -12,10 +12,5 @@ export default defineConfig(({ _, mode }) => ({
         tailwindcss(),
         react(),
     ],
-    base: '/build/',
-    server: {
-        origin: mode === 'production'
-            ? 'https://play-off-rentals-2-0.onrender.com'
-            : 'http://localhost:5173',
-    },
+    base: '/build/'
 }));
