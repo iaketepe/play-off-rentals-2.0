@@ -64,4 +64,21 @@ In both cases, the Blade file being rendered would mount a React root, adding in
     - Too much javascript being executed at once
 - Trying to understand this out a bit more, I inspected my site's network traffic. I realized every time my site loaded a page, it would grab all of the data it needs for every page, create all pages as objects and only render the page that was asked. 
 - To fix this, I implemented React lazy loading, making sure that on load only the requested page would be loaded.
-    
+
+
+### Dealing with Deployment
+After setting up my home page and my rent process, I decided I had enough of a viable product to deploy. I ended up deploying my project on render since render was what I used in the past.
+
+#### Dealing with Cloud Networking issues
+- These networking issues were one of the most challenging parts of this project. A notable issue was the 'Mixed Content' error. To give some context, this site was deployed with HTTPS. However, when my site was given a page request, it would reference the necessary files using HTTP requests. 
+- Since laravel has its own implicit handling, it would block the request, preventing any vulnerabilities. However, if I wanted to allow users to actually access the site I had to fix this build issue.
+- To fix the issue, I would add a script to redirect any requests referencing HTTP (e.g. http://play-off-rentals-2-0.onrender.com) to a secure HTTPS variant. I would also use curl requests to verify the redirect worked correctly.
+- I also added an app service provider script that would check the app environment (mode = local or production), using it to force HTTPS responses.
+- Finally, I checked my environment variables to make sure that my app environment was set to production. After realizing it was set to local, I updated it promptly. After checking my site again, I was finally able to see my page rendered.
+
+
+#### Dealing with Cloud Routing
+- The next problem was routing. Even though my site had been deployed and I could only access the home page, recieving a 404 as the result of checking my rent page.
+- After doing some research, I realized that my cloud server may have been ignoring my htaccess file, so I updated my dockerfile making sure my cloud server would allow for htaccess overrides.
+- After doing so, I was able to access all of my pages including my rent sub process pages.
+
