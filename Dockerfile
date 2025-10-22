@@ -29,12 +29,16 @@ RUN npm install
 RUN npm run build 
 
 # Set permissions
-RUN chown -R www-data:www-data storage bootstrap/cache vendor public/build
+RUN chown -R www-data:www-data storage bootstrap/cache vendor public
 
 ENV APACHE_DOCUMENT_ROOT /var/www/html/public
 
 RUN sed -ri -e 's!/var/www/html!/var/www/html/public!g' /etc/apache2/sites-available/*.conf \
     && sed -ri -e 's!/var/www/!/var/www/html/public!g' /etc/apache2/apache2.conf
+
+# Update default Apache site to allow .htaccess overrides
+RUN sed -i 's/AllowOverride None/AllowOverride All/g' /etc/apache2/apache2.conf
+
 
 EXPOSE 80
 
