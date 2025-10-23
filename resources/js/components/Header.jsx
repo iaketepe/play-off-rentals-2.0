@@ -1,6 +1,8 @@
 
 import { useState } from 'react';
 import { useTranslation } from "react-i18next";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faGamepad } from '@fortawesome/free-solid-svg-icons';
 
 function Header() {
     const [isOpen, setIsOpen] = useState(false);
@@ -12,10 +14,10 @@ function Header() {
         <nav className="bg-slate-500 flex flex-col relative">
             <div className="flex p-[clamp(0.75rem,2vw,1.25rem)] pr-2 items-center justify-between">
                 <div className="flex flex-1">
-                    <button onClick={() => setIsOpen(!isOpen)} onBlur={() => setTimeout(() => setIsOpen(false), 150)} className="p-1 px-2 rounded-full hover:bg-gray-600 transition-colors duration-300 ease-in-out"><i className="fa-solid fa-bars"></i></button>
+                    <button onClick={() => setIsOpen(!isOpen)} onBlur={() => setTimeout(() => setIsOpen(false), 150)} className="p-1 px-2 rounded-full hover:bg-gray-600 transition-colors duration-300 ease-in-out"><FontAwesomeIcon icon={faBars}/></button>
                 </div>
 
-                <a href="/"><i className="fa-solid fa-gamepad scale-200 rounded-lg transform transition duration-300 ease-in-out hover:scale-240"></i></a>
+                <a href="/"><FontAwesomeIcon icon={faGamepad} className="scale-200 rounded-lg transform transition duration-300 ease-in-out hover:scale-240"/></a>
                 
                 <div className="flex flex-1 justify-end">
                     <a className="bg-gray-700 text-xs p-4 py-2 rounded-full border-black border-2 hover:bg-gray-600 transition-colors duration-300 ease-in-out" href="#">{t("header.login")}</a>
