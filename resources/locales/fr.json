@@ -41,7 +41,8 @@
     }
   },
   "homeCore" : {
-
+    "aboutUs" : "À propos de nous",
+    "welcomeText": "Bienvenue chez Play Off Rentals, votre destination de choix pour la location de jeux d'arcade ! Nous sommes spécialisés dans la fourniture d'une grande variété de jeux d'arcade classiques et modernes pour tous types d'événements et de rassemblements. Que vous organisiez un événement d'entreprise, une fête d'anniversaire, un mariage ou toute autre occasion spéciale, nous avons les jeux d'arcade parfaits pour divertir et enthousiasmer vos invités.\n\nChez Play Off Rentals, nous croyons en la création d'expériences mémorables grâce au plaisir du jeu. Notre vaste sélection comprend tout, des classiques intemporels comme Pac-Man et Donkey Kong aux derniers et meilleurs jeux d'arcade. Chaque jeu est soigneusement entretenu et régulièrement révisé afin de garantir la meilleure expérience possible à nos clients.\n\nNotre équipe s'engage à fournir un service client exceptionnel et à faire en sorte que votre événement soit un succès retentissant. Nous proposons des formules de location flexibles, adaptées à vos besoins et à votre budget. De la livraison à l'installation, en passant par l'assistance sur place, nous nous occupons de tous les détails afin que vous puissiez vous concentrer sur le plaisir de la fête.\n\nMerci d'avoir pensé à Play Off Rentals pour vos besoins en matière de location de jeux d'arcade. Nous sommes impatients de vous aider à créer un événement inoubliable !"
   },
   "rentCore" : {
     "prev" : "Précédent",
