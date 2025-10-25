@@ -8,7 +8,12 @@ function RentThree() {
     const { t } = useTranslation();
 
     const cart = useRef(JSON.parse(sessionStorage.getItem("cart")) || []);
-    const total = useRef(cart.current.reduce((sum, item) => sum + item.cost * (item.qty || 1), 0));
+    const subtotal = useRef(cart.current.reduce((sum, item) => sum + item.cost * (item.qty || 1), 0));
+    const serviceFee = useRef(Math.round(Math.max(25, subtotal.current * 0.07) * 100) / 100);
+    const HST = useRef(Math.round(subtotal.current * 0.13 * 100) / 100);
+    const total = useRef(Math.round((subtotal.current + serviceFee.current + HST.current) * 100) / 100);
+
+    
 
     const [stripePromise, setStripePromise] = useState(null);
     const [clientSecret, setClientSecret] = useState('');
@@ -62,9 +67,23 @@ function RentThree() {
                                     </div>
                                 ))}
                             </div>
-                            <div className="flex justify-between p-2 border-t-2 border-black">
-                                <span>Total Cost: </span>
-                                <span>${total.current}</span>
+                            <div className="flex flex-col justify-between p-2 border-t-2 border-black">
+                                <div className="flex justify-between">
+                                    <span>Subtotal: </span>
+                                    <span>${subtotal.current}</span>
+                                </div>
+                                <div className="flex justify-between">
+                                    <span>Service Fee (7%): </span>
+                                    <span>${serviceFee.current}</span>
+                                </div>
+                                <div className="flex justify-between">
+                                    <span>Tax (13%): </span>
+                                    <span>${HST.current}</span>
+                                </div>
+                                <div className="flex justify-between">
+                                    <span>Total Cost: </span>
+                                    <span>${total.current}</span>
+                                </div>
                             </div>
                         </div>
                         <div className="basis-1/2">
