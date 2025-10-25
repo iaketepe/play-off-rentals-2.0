@@ -21,8 +21,8 @@ function HomeCore() {
         <div className="w-full h-full flex flex-col">
             <section className="h-[clamp(10rem,8vw+6rem,20rem)] flex justify-center items-center">
                 <div className="text-center">
-                    <h1 className="text-4xl font-semibold">Play-Off Rentals</h1>
-                    <h2 className="text-3xl font-light">Your Way to the Arcade</h2>
+                    <h1 className="text-4xl font-semibold">{t("homeCore.title")}</h1>
+                    <h2 className="text-3xl font-light">{t("homeCore.subtitle")}</h2>
                 </div>
             </section>
 
