@@ -16,6 +16,7 @@ function Root() {
 
     if(!sessionStorage.getItem("cart")) {
         sessionStorage.setItem("cart",JSON.stringify([]));
+        sessionStorage.setItem("contact", JSON.stringify([]));
     }
 
     const cores = {
