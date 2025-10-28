@@ -59,7 +59,13 @@
     "title" : "Choisissez vos locations"
   },
   "rentThree" : {
-    "title" : "Paiement"
+    "title" : "Paiement",
+    "payBreakdown" : {
+      "subtotal" : "Sous-total",
+      "serviceFee" : "Frais de service (7 %)",
+      "tax" : "Taxe (13 %)",
+      "total" : "Coût total"
+    }
   }
   
 }

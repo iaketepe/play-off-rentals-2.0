@@ -60,6 +60,12 @@
     "title" : "Choose your Rental(s)"
   },
     "rentThree" : {
-    "title" : "Checkout"
+    "title" : "Checkout",
+    "payBreakdown" : {
+      "subtotal" : "subtotal",
+      "serviceFee" : "Service Fee (7%)",
+      "tax" : "Tax (13%)",
+      "total" : "Total Cost"
+    }
   }
 }

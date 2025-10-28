@@ -69,19 +69,19 @@ function RentThree() {
                             </div>
                             <div className="flex flex-col justify-between p-2 border-t-2 border-black">
                                 <div className="flex justify-between">
-                                    <span>Subtotal: </span>
+                                    <span>{t("rentThree.payBreakdown.subtotal")}</span>
                                     <span>${subtotal.current}</span>
                                 </div>
                                 <div className="flex justify-between">
-                                    <span>Service Fee (7%): </span>
+                                    <span>{t("rentThree.payBreakdown.serviceFee")}</span>
                                     <span>${serviceFee.current}</span>
                                 </div>
                                 <div className="flex justify-between">
-                                    <span>Tax (13%): </span>
+                                    <span>{t("rentThree.payBreakdown.tax")}</span>
                                     <span>${HST.current}</span>
                                 </div>
                                 <div className="flex justify-between">
-                                    <span>Total Cost: </span>
+                                    <span>{t("rentThree.payBreakdown.total")}</span>
                                     <span>${total.current}</span>
                                 </div>
                             </div>
