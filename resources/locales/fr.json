@@ -66,6 +66,9 @@
       "tax" : "Taxe (13 %)",
       "total" : "Coût total"
     }
+  },
+  "paymentForm" : {
+    "submit" : "Soumettre"
   }
   
 }

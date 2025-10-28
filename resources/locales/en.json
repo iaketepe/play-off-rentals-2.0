@@ -67,5 +67,8 @@
       "tax" : "Tax (13%)",
       "total" : "Total Cost"
     }
+  },
+  "paymentForm" : {
+    "submit" : "Submit"
   }
 }
