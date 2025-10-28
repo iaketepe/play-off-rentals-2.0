@@ -30,7 +30,26 @@ function PaymentForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className='h-full flex flex-col justify-between'>
+    <form onSubmit={handleSubmit} className='h-full flex flex-col justify-between gap-5'>
+      <div className='space-y-3'>
+          <div className='flex gap-5 justify-between'>
+              <div className='basis-1/2'>
+                  <label className='block'>First Name: </label>
+                  <input type="text" className='border border-[#e6e6e6] w-full p-2 rounded-sm shadow-sm focus:outline-none focus:ring-3 focus:ring-blue-200 focus:border-[#056fde] transition-colors duration-300 ease-in-out' required/>
+              </div>
+              <div className='basis-1/2'>
+                  <label className='block'>Last Name: </label>
+                  <input type="text" className='border border-[#e6e6e6] w-full p-2 rounded-sm shadow-sm focus:outline-none focus:ring-3 focus:ring-blue-200 focus:border-[#056fde] transition-colors duration-300 ease-in-out' required/>
+              </div>
+          </div>
+          <div>
+              <label className='block'>Address</label>
+              <input type="text" className='border border-[#e6e6e6] w-full p-2 rounded-sm shadow-sm focus:outline-none focus:ring-3 focus:ring-blue-200 focus:border-[#056fde] transition-colors duration-300 ease-in-out' required/>
+          </div>
+          <div>
+
+          </div>
+      </div>
       <PaymentElement options={{ layout : 'tabs' }} />
       <input type="submit" className='text-center w-full p-3 py-2 border-2 border-black rounded-full cursor-pointer transition-colors duration-300 ease-in-out hover:bg-gray-600 hover:text-white' disabled={!stripe} value={t("paymentForm.submit")}/>
     </form>

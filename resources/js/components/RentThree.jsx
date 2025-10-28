@@ -87,25 +87,6 @@ function RentThree() {
                             </div>
                         </div>
                         <div className="basis-1/2 flex flex-col">
-                            <div>
-                                <div>
-                                    <div>
-                                        <label >First Name: </label>
-                                        <input type="text" />
-                                    </div>
-                                    <div>
-                                        <label >Last Name: </label>
-                                        <input type="text" />
-                                    </div>
-                                </div>
-                                <div>
-                                    <label>Address Line 1</label>
-                                    <input type="text" />
-                                </div>
-                                <div>
-
-                                </div>
-                            </div>
                             {clientSecret && (
                                 <Elements stripe={stripePromise} options={{ clientSecret }}>
                                     <PaymentForm />
