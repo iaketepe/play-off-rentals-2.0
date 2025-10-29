@@ -1,6 +1,13 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 function ArcadeCard({item}) {
+    const { i18n } = useTranslation();
+
+    const handleDescription = () => i18n.language === "en" ? item.description : item.description_fr;
+
+    const handleCost = () => i18n.language === "en" ? `$${item.cost}/Day` : `${item.cost} $/Jour`;
+
     const [cardValue, setCardValue] = useState(() => {
         try {
             const cart = JSON.parse(sessionStorage.getItem("cart")) || [];
@@ -58,9 +65,9 @@ function ArcadeCard({item}) {
                     <div className="flex flex-col gap-3 flex-1 justify-between">
                         <div className="space-y-3">
                             <h2 className="text-xl font-bold">{item.name}</h2>
-                            <p>{item.description}</p>
+                            <p>{handleDescription()}</p>
                         </div>
-                        <p>{item.cost}/Day</p>
+                        <p>{handleCost()}</p>
                     </div>
                     <div className="w-full flex text-2xl justify-center">
                         <button onClick={() => handleRemoveFromCart(item.name)} className="border p-5 py-0 rounded-l-sm">-</button>
