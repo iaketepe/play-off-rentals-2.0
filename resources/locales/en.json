@@ -62,7 +62,7 @@
     "rentThree" : {
     "title" : "Checkout",
     "payBreakdown" : {
-      "subtotal" : "subtotal",
+      "subtotal" : "Subtotal",
       "serviceFee" : "Service Fee (7%)",
       "tax" : "Tax (13%)",
       "total" : "Total Cost"
