@@ -49,11 +49,12 @@ function PaymentForm() {
               </div>
           </div>
           <div>
-              <label className='block'>Address</label>
-              <input type="text" value={handleAddress()} className='border border-[#e6e6e6] text-[#30313d] w-full p-2 rounded-sm shadow-sm focus:outline-none focus:ring-3 focus:ring-blue-200 focus:border-[#056fde] transition-colors duration-300 ease-in-out' readOnly required/>
+              <label className='block'>Email</label>
+              <input type="email" className='border border-[#e6e6e6] text-[#30313d] w-full p-2 rounded-sm shadow-sm focus:outline-none focus:ring-3 focus:ring-blue-200 focus:border-[#056fde] transition-colors duration-300 ease-in-out' required/>
           </div>
           <div>
-
+              <label className='block'>Address</label>
+              <input type="text" value={handleAddress()} className='border border-[#e6e6e6] text-[#30313d] w-full p-2 rounded-sm shadow-sm focus:outline-none focus:ring-3 focus:ring-blue-200 focus:border-[#056fde] transition-colors duration-300 ease-in-out' readOnly required/>
           </div>
       </div>
       <div className='flex-1 flex flex-col justify-between gap-5'>
