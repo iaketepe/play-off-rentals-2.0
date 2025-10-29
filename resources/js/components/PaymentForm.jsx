@@ -40,20 +40,20 @@ function PaymentForm() {
       <div className='space-y-3 text-[#30313d]'>
           <div className='flex gap-5 justify-between'>
               <div className='basis-1/2'>
-                  <label className='block'>First Name: </label>
+                  <label className='block'>{t("paymentForm.firstName")}</label>
                   <input type="text" className='border border-[#e6e6e6] text-[#30313d] w-full p-2 rounded-sm shadow-sm focus:outline-none focus:ring-3 focus:ring-blue-200 focus:border-[#056fde] transition-colors duration-300 ease-in-out' required/>
               </div>
               <div className='basis-1/2'>
-                  <label className='block'>Last Name: </label>
+                  <label className='block'>{t("paymentForm.lastName")}</label>
                   <input type="text" className='border border-[#e6e6e6] text-[#30313d] w-full p-2 rounded-sm shadow-sm focus:outline-none focus:ring-3 focus:ring-blue-200 focus:border-[#056fde] transition-colors duration-300 ease-in-out' required/>
               </div>
           </div>
           <div>
-              <label className='block'>Email</label>
+              <label className='block'>{t("paymentForm.email")}</label>
               <input type="email" className='border border-[#e6e6e6] text-[#30313d] w-full p-2 rounded-sm shadow-sm focus:outline-none focus:ring-3 focus:ring-blue-200 focus:border-[#056fde] transition-colors duration-300 ease-in-out' required/>
           </div>
           <div>
-              <label className='block'>Address</label>
+              <label className='block'>{t("paymentForm.address")}</label>
               <input type="text" value={handleAddress()} className='border border-[#e6e6e6] text-[#30313d] w-full p-2 rounded-sm shadow-sm focus:outline-none focus:ring-3 focus:ring-blue-200 focus:border-[#056fde] transition-colors duration-300 ease-in-out' readOnly required/>
           </div>
       </div>

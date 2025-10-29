@@ -69,7 +69,11 @@
     }
   },
   "paymentForm" : {
-    "submit" : "Soumettre"
+    "submit" : "Soumettre",
+    "firstName" : "Prenom :",
+    "lastName" : "Surnom :",
+    "email" : "Courriel :",
+    "address" : "Addresse :"
   }
   
 }

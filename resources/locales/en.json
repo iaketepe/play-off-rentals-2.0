@@ -70,6 +70,10 @@
     }
   },
   "paymentForm" : {
-    "submit" : "Submit"
+    "submit" : "Submit",
+    "firstName" : "First Name:",
+    "lastName" : "Last Name:",
+    "email" : "Email:",
+    "address" : "Address:"
   }
 }
