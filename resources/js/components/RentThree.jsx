@@ -54,7 +54,7 @@ function RentThree() {
             <div className="flex flex-col gap-10">
                 <h1 className='inline text-black text-4xl font-semibold'>{t("rentThree.title")}</h1>
                 <div className="flex flex-col">
-                    <h3 className="text-xl font-semibold">Cart</h3>
+                    <h3 className="text-xl font-semibold">{t("rentThree.cart")}</h3>
                     <div className="flex flex-1 flex-col gap-5 sm:flex-row">
                         <div className="basis-1/2 flex flex-col flex-1">
                             <div className="flex-1 overflow-y-auto">

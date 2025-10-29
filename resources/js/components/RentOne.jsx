@@ -50,6 +50,12 @@ function RentOne() {
         console.log(isInCircle(circleRef.current, [lat,lon]));
     }
 
+    const handleAddToForm = (address) => {
+        const form = JSON.parse(sessionStorage.getItem("form")) || {};
+        form["address"] = address;
+        sessionStorage.setItem("form", JSON.stringify(form));
+    }
+
     const handleSearchInput = (e) => {
         clearTimeout(timer.current);
 
@@ -110,6 +116,7 @@ function RentOne() {
                             onMouseDown={(e) => e.preventDefault()}
                             onClick={() => {
                                 handleMapSearching(item.lat,item.lon);
+                                handleAddToForm(item.display_address);
                                 //sessionStorage.setItem("contact", JSON.stringify({"address" : item.display_name}));
                                 setIsOpen(false);
                             }}

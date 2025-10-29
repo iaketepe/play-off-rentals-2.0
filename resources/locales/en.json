@@ -61,6 +61,7 @@
   },
     "rentThree" : {
     "title" : "Checkout",
+    "cart" : "Cart",
     "payBreakdown" : {
       "subtotal" : "Subtotal",
       "serviceFee" : "Service Fee (7%)",

@@ -7,6 +7,12 @@ function PaymentForm() {
   const stripe = useStripe();
   const elements = useElements();
 
+  const form = JSON.parse(sessionStorage.getItem("form")) || [];
+
+  const handleAddress = () => {
+    return form["address"]; 
+  }
+
   const handleSubmit = async (e) => {
     try {
       e.preventDefault();
@@ -44,7 +50,7 @@ function PaymentForm() {
           </div>
           <div>
               <label className='block'>Address</label>
-              <input type="text" className='border border-[#e6e6e6] text-[#30313d] w-full p-2 rounded-sm shadow-sm focus:outline-none focus:ring-3 focus:ring-blue-200 focus:border-[#056fde] transition-colors duration-300 ease-in-out' required/>
+              <input type="text" value={handleAddress()} className='border border-[#e6e6e6] text-[#30313d] w-full p-2 rounded-sm shadow-sm focus:outline-none focus:ring-3 focus:ring-blue-200 focus:border-[#056fde] transition-colors duration-300 ease-in-out' readOnly required/>
           </div>
           <div>
 
