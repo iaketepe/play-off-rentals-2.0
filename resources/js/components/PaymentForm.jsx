@@ -30,7 +30,7 @@ function PaymentForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className='h-full flex flex-col justify-between gap-5'>
+    <form onSubmit={handleSubmit} className='h-full flex flex-col justify-between gap-2'>
       <div className='space-y-3'>
           <div className='flex gap-5 justify-between'>
               <div className='basis-1/2'>
@@ -50,8 +50,10 @@ function PaymentForm() {
 
           </div>
       </div>
-      <PaymentElement options={{ layout : 'tabs' }} />
-      <input type="submit" className='text-center w-full p-3 py-2 border-2 border-black rounded-full cursor-pointer transition-colors duration-300 ease-in-out hover:bg-gray-600 hover:text-white' disabled={!stripe} value={t("paymentForm.submit")}/>
+      <div className='flex-1 flex flex-col justify-between gap-5'>
+        <PaymentElement options={{ layout : 'tabs' }} />
+        <input type="submit" className='text-center w-full p-3 py-2 border-2 border-black rounded-full cursor-pointer transition-colors duration-300 ease-in-out hover:bg-gray-600 hover:text-white' disabled={!stripe} value={t("paymentForm.submit")}/>
+      </div>
     </form>
   )
 

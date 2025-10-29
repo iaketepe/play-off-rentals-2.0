@@ -26,7 +26,7 @@ function Header() {
 
             <div className={`bg-gray-800 absolute top-full w-full flex flex-col text-center transition-all duration-300 z-[3000] ${isOpen ? 'max-h-96 opacity-96' : 'max-h-0 opacity-0 overflow-hidden'}`}>
                 <a href="/rent" className="p-3 hover:underline"><div>{t("header.navList.rent")}</div></a>
-                <a href="#" className="p-3 hover:underline"><div>{t("header.navList.faq")}</div></a>
+                <a href="/faq" className="p-3 hover:underline"><div>{t("header.navList.faq")}</div></a>
                 <a href="#" className="p-3 hover:underline"><div>{t("header.navList.contact")}</div></a>
                 <button onClick={toggleLanguage} className="p-3 hover:underline"><div>{t("header.navList.lang")}</div></button>
             </div>
