@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useTranslation } from "react-i18next";
 import { PaymentElement, useStripe, useElements } from '@stripe/react-stripe-js';
 
@@ -8,14 +8,21 @@ function PaymentForm() {
   const elements = useElements();
 
   const form = JSON.parse(sessionStorage.getItem("form")) || [];
+  const addressRef = useRef();
+  const [error, setError] = useState("");
 
   const handleAddress = () => {
     return form["address"]; 
   }
 
   const handleSubmit = async (e) => {
+    e.preventDefault();
     try {
-      e.preventDefault();
+      if(!addressRef.current.value) {
+        setError("Please pick an address before continuing.");
+      } else {
+        setError("");
+      }
 
       if (!stripe || !elements) return;
       const result = await stripe.confirmPayment({
@@ -54,7 +61,8 @@ function PaymentForm() {
           </div>
           <div>
               <label className='block'>{t("paymentForm.address")}</label>
-              <input type="text" value={handleAddress()} className='border border-[#e6e6e6] text-[#30313d] w-full p-2 rounded-sm shadow-sm focus:outline-none focus:ring-3 focus:ring-blue-200 focus:border-[#056fde] transition-colors duration-300 ease-in-out' readOnly required/>
+              <input type="text" ref={addressRef} value={handleAddress()} className='border border-[#e6e6e6] text-[#30313d] w-full p-2 rounded-sm shadow-sm focus:outline-none focus:ring-3 focus:ring-blue-200 focus:border-[#056fde] transition-colors duration-300 ease-in-out' readOnly required/>
+              {error && <p className='text-[#df1b41] text-[14.88px]'>{error}</p>} {/* Show error text if it exists */}
           </div>
       </div>
       <div className='flex-1 flex flex-col justify-between gap-5'>
