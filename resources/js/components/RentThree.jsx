@@ -5,7 +5,7 @@ import { loadStripe } from '@stripe/stripe-js';
 import PaymentForm from "./PaymentForm";
 
 function RentThree() {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
 
     const cart = useRef(JSON.parse(sessionStorage.getItem("cart")) || []);
     const subtotal = useRef(cart.current.reduce((sum, item) => sum + item.cost * (item.qty || 1), 0));
@@ -88,7 +88,7 @@ function RentThree() {
                         </div>
                         <div className="basis-1/2 flex flex-col">
                             {clientSecret && (
-                                <Elements stripe={stripePromise} options={{ clientSecret }}>
+                                <Elements stripe={stripePromise} options={{ clientSecret, locale: i18n.language }}>
                                     <PaymentForm />
                                 </Elements>
                             )}
