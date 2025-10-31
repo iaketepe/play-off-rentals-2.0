@@ -70,10 +70,11 @@
   },
   "paymentForm" : {
     "submit" : "Soumettre",
-    "firstName" : "Prenom :",
-    "lastName" : "Surnom :",
+    "firstName" : "Prénom :",
+    "lastName" : "Nom :",
     "email" : "Courriel :",
-    "address" : "Addresse :"
+    "address" : "Adresse :",
+    "rentalPeriod" : "Période de location :"
   }
   
 }

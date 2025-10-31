@@ -21,3 +21,9 @@ button {
   overflow: hidden;          
   text-overflow: ellipsis;  
 }
+
+
+.react-datepicker-wrapper,
+.react-datepicker__input-container {
+  @apply w-full;
+}

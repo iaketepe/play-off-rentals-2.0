@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useTranslation } from "react-i18next";
 import { PaymentElement, useStripe, useElements } from '@stripe/react-stripe-js';
+import RentalPeriod from './RentalPeriod'; 
 
 function PaymentForm() {
   const { t } = useTranslation();
@@ -63,6 +64,10 @@ function PaymentForm() {
               <label className='block'>{t("paymentForm.address")}</label>
               <input type="text" ref={addressRef} value={handleAddress()} className='border border-[#e6e6e6] text-[#30313d] w-full p-2 rounded-sm shadow-sm focus:outline-none focus:ring-3 focus:ring-blue-200 focus:border-[#056fde] transition-colors duration-300 ease-in-out' readOnly required/>
               {error && <p className='text-[#df1b41] text-[14.88px]'>{error}</p>} {/* Show error text if it exists */}
+          </div>
+          <div>
+            <label className='block'>{t("paymentForm.rentalPeriod")}</label>
+            <RentalPeriod className='border border-[#e6e6e6] text-[#30313d] !w-full ![&_.react-datepicker-wrapper]:w-full ![&_.react-datepicker__input-container]:w-full p-2 rounded-sm shadow-sm focus:outline-none focus:ring-3 focus:ring-blue-200 focus:border-[#056fde] transition-colors duration-300 ease-in-out'/>
           </div>
       </div>
       <div className='flex-1 flex flex-col justify-between gap-5'>
