@@ -10,6 +10,10 @@ Route::get('/rent', function () {
     return view('app', ['page' => 'rent']);
 });
 
+Route::get('/faq', function () {
+    return view('app', ['page' => 'faq']);
+});
+
 Route::get('/contact', function () {
     return view('app', ['page' => 'contact']);
 });

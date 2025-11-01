@@ -7,6 +7,7 @@ import { useTranslation } from "react-i18next";
 
 function RentOne() {
     const [coordinates, setCoordinates] = useState([45.409, -75.7171]);
+    const circleRef = useRef(null);
     const mapDOM = useRef(null);
     const map = useRef(null);
 
@@ -23,7 +24,7 @@ function RentOne() {
         if(!map.current) {
             map.current = L.map(mapDOM.current).setView(coordinates, 13);
 
-            L.circle([45.409, -75.7171], {radius: 10000,color: '#1f89bb'}).addTo(map.current);
+            const circle = L.circle([45.409, -75.7171], {radius: 10000,color: '#1f89bb'}).addTo(map.current);
 
             fetch('/api/map/tiles/metadata')
             .then(response => response.json())
@@ -36,6 +37,8 @@ function RentOne() {
             .catch((err) => {
                 console.error("Error on map startup:", err)
             });
+
+            circleRef.current = circle;
         }
 
         map.current.setView(coordinates, 13);
@@ -44,6 +47,13 @@ function RentOne() {
 
     const handleMapSearching = (lat, lon) => {
         setCoordinates([lat,lon]);
+        console.log(isInCircle(circleRef.current, [lat,lon]));
+    }
+
+    const handleAddToForm = (address) => {
+        const form = JSON.parse(sessionStorage.getItem("form")) || {};
+        form["address"] = address;
+        sessionStorage.setItem("form", JSON.stringify(form));
     }
 
     const handleSearchInput = (e) => {
@@ -79,6 +89,14 @@ function RentOne() {
             });
         },400)
     }
+
+    const isInCircle = (circle, coordinates) => {
+        if (!circle) return;
+        const baseCoordinates = circle.getLatLng();
+        const dist = baseCoordinates.distanceTo(L.latLng(coordinates));
+        console.log(dist, baseCoordinates, circle.getRadius());
+        return dist <= circle.getRadius();
+    }
     
 
 
@@ -98,6 +116,8 @@ function RentOne() {
                             onMouseDown={(e) => e.preventDefault()}
                             onClick={() => {
                                 handleMapSearching(item.lat,item.lon);
+                                handleAddToForm(item.display_address);
+                                //sessionStorage.setItem("contact", JSON.stringify({"address" : item.display_name}));
                                 setIsOpen(false);
                             }}
                             className="border-black border-2 p-3 rounded-lg w-full flex cursor-pointer"

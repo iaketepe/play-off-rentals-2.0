@@ -8,6 +8,7 @@ import Footer from './components/Footer';
 import "./i18n";
 
 const RentCore = lazy(() => import('./cores/RentCore'));
+const FaqCore = lazy(() => import('./cores/FaqCore'));
 
 const rootDiv = document.getElementById('react-root');
 const page = rootDiv ? rootDiv.dataset.page : 'home';
@@ -16,11 +17,13 @@ function Root() {
 
     if(!sessionStorage.getItem("cart")) {
         sessionStorage.setItem("cart",JSON.stringify([]));
+        sessionStorage.setItem("form", JSON.stringify({}));
     }
 
     const cores = {
         home: HomeCore,
         rent: RentCore,
+        faq: FaqCore,
         //contact: <ContactCore/>
     };
 

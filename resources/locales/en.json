@@ -60,6 +60,21 @@
     "title" : "Choose your Rental(s)"
   },
     "rentThree" : {
-    "title" : "Checkout"
+    "title" : "Checkout",
+    "cart" : "Cart",
+    "payBreakdown" : {
+      "subtotal" : "Subtotal",
+      "serviceFee" : "Service Fee (7%)",
+      "tax" : "Tax (13%)",
+      "total" : "Total Cost"
+    }
+  },
+  "paymentForm" : {
+    "submit" : "Submit",
+    "firstName" : "First Name:",
+    "lastName" : "Last Name:",
+    "email" : "Email:",
+    "address" : "Address:",
+    "rentalPeriod" : "Rental Period:"
   }
 }

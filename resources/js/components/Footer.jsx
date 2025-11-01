@@ -8,10 +8,10 @@ function Footer() {
         <footer className="bg-slate-500 flex justify-center">
             <div className="flex flex-col w-full max-w-[55em] p-2 gap-5 sm:flex-row sm:p-5"> 
                 <div className="border flex flex-col sm:basis-2/3 space-y-3 p-5">
-                    <h5 className="text-lg font-semibold">{t("footer.contactInformation.title")}</h5>
+                    <label className="text-lg font-semibold">{t("footer.contactInformation.title")}</label>
                     <div className="flex flex-col flex-1 justify-center">
                         <div>
-                            <h6 className="font-semibold">{t("footer.contactInformation.location")}</h6>
+                            <label className="font-semibold">{t("footer.contactInformation.location")}</label>
                             <p>
                                 {t("footer.contactInformation.office.street")}
                                 <br></br>
@@ -23,10 +23,10 @@ function Footer() {
                             </p>
                         </div>
                     </div>
-                    <h6 className="font-semibold">&copy; {t("footer.contactInformation.copyright")}</h6>
+                    <label className="font-semibold">&copy; {t("footer.contactInformation.copyright")}</label>
                 </div>
                 <div className="bg-white text-black flex flex-col sm:basis-1/3 min-w-[18em] p-5 rounded-lg">
-                    <h5 className="text-lg font-semibold text-center">{t("footer.hoursOfOperation.title")}</h5>
+                    <label className="text-lg font-semibold text-center">{t("footer.hoursOfOperation.title")}</label>
                     <table>
                         <thead>
                             <tr>
