@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { PaymentElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import RentalPeriod from './RentalPeriod'; 
 
-function PaymentForm() {
+function PaymentForm({setRentalDays}) {
   const { t } = useTranslation();
   const stripe = useStripe();
   const elements = useElements();
@@ -67,7 +67,7 @@ function PaymentForm() {
           </div>
           <div>
             <label className='block'>{t("paymentForm.rentalPeriod")}</label>
-            <RentalPeriod className='border border-[#e6e6e6] text-[#30313d] !w-full ![&_.react-datepicker-wrapper]:w-full ![&_.react-datepicker__input-container]:w-full p-2 rounded-sm shadow-sm focus:outline-none focus:ring-3 focus:ring-blue-200 focus:border-[#056fde] transition-colors duration-300 ease-in-out'/>
+            <RentalPeriod setRentalDays={setRentalDays} className='border border-[#e6e6e6] text-[#30313d] w-full p-2 rounded-sm shadow-sm focus:outline-none focus:ring-3 focus:ring-blue-200 focus:border-[#056fde] transition-colors duration-300 ease-in-out'/>
           </div>
       </div>
       <div className='flex-1 flex flex-col justify-between gap-5'>

@@ -6,12 +6,24 @@ import PaymentForm from "./PaymentForm";
 
 function RentThree() {
     const { t, i18n } = useTranslation();
-
+    const [rentalDays, setRentalDays] = useState(1);
     const cart = useRef(JSON.parse(sessionStorage.getItem("cart")) || []);
-    const subtotal = useRef(cart.current.reduce((sum, item) => sum + item.cost * (item.qty || 1), 0));
-    const serviceFee = useRef(Math.round(Math.max(25, subtotal.current * 0.07) * 100) / 100);
-    const HST = useRef(Math.round(subtotal.current * 0.13 * 100) / 100);
-    const total = useRef(Math.round((subtotal.current + serviceFee.current + HST.current) * 100) / 100);
+    const [subtotal, setSubTotal] = useState(cart.current.reduce((sum, item) => sum + item.cost * (item.qty || 1) * rentalDays, 0));
+    const [serviceFee, setServiceFee] = useState(Math.round(Math.max(25, subtotal * 0.07) * 100) / 100);
+    const [HST, setHST] = useState(Math.round(subtotal * 0.13 * 100) / 100);
+    const [total, setTotal] = useState(Math.round((subtotal + serviceFee + HST) * 100) / 100);
+
+    useEffect(() => {
+        const newSubTotal = cart.current.reduce((sum, item) => sum + item.cost * (item.qty || 1) * rentalDays, 0);
+        const newServiceFee = Math.round(Math.max(25, newSubTotal * 0.07) * 100) / 100;
+        const newHST = Math.round(newSubTotal * 0.13 * 100) / 100;
+        const newTotal = Math.round((newSubTotal + newServiceFee + newHST) * 100) / 100;
+
+        setSubTotal(newSubTotal);
+        setServiceFee(newServiceFee);
+        setHST(newHST);
+        setTotal(newTotal);
+    }, [rentalDays]);
 
     
 
@@ -20,7 +32,7 @@ function RentThree() {
 
 
     useEffect(() => {
-        fetch(`/api/payment?amount=${encodeURIComponent(total.current)}`, {
+        fetch(`/api/payment?amount=${encodeURIComponent(total)}`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
         })
@@ -70,27 +82,27 @@ function RentThree() {
                             <div className="flex flex-col justify-between p-2 border-t-2 border-black">
                                 <div className="flex justify-between">
                                     <span>{t("rentThree.payBreakdown.subtotal")}</span>
-                                    <span>${subtotal.current}</span>
+                                    <span>${subtotal}</span>
                                 </div>
                                 <div className="flex justify-between">
                                     <span>{t("rentThree.payBreakdown.serviceFee")}</span>
-                                    <span>${serviceFee.current}</span>
+                                    <span>${serviceFee}</span>
                                 </div>
                                 <div className="flex justify-between">
                                     <span>{t("rentThree.payBreakdown.tax")}</span>
-                                    <span>${HST.current}</span>
+                                    <span>${HST}</span>
                                 </div>
                                 <div className="flex justify-between">
                                     <span>{t("rentThree.payBreakdown.total")}</span>
-                                    <span>${total.current}</span>
+                                    <span>${total}</span>
                                 </div>
                             </div>
                         </div>
                         <div className="basis-1/2 flex flex-col">
                             {clientSecret && (
                                 <Elements stripe={stripePromise} options={{ clientSecret, locale: i18n.language }}>
-                                    <PaymentForm />
-                                </Elements>
+                                    <PaymentForm setRentalDays={setRentalDays}/>
+                                </Elements >
                             )}
                         </div>
                     </div>

@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
-import { addMonths } from "date-fns";
+import { addMonths, differenceInDays } from "date-fns";
 import "react-datepicker/dist/react-datepicker.css";
 
-function RentalPeriod({ className }) {
+function RentalPeriod({ className, setRentalDays }) {
     const [startDate, setStartDate] = useState(null);
     const [endDate, setEndDate] = useState(null);
     const onChange = (dates) => {
@@ -11,6 +11,13 @@ function RentalPeriod({ className }) {
         setStartDate(start);
         setEndDate(end);
     };
+    useEffect(() => {
+        if(startDate & endDate) {
+            const days = differenceInDays(endDate,startDate);
+            setRentalDays(days > 0 ? days : 1);
+        } 
+    }, [startDate, endDate, setRentalDays]);
+
     return <DatePicker
         className={className || ""}
         selected={startDate}
