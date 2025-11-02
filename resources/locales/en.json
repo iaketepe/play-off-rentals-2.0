@@ -61,6 +61,7 @@
   },
     "rentThree" : {
     "title" : "Checkout",
+    "sideNote" : "DO NOT USE REAL CREDIT CARD INFORMATION ON THIS PAGE. THIS IS A FICTIONAL SITE.",
     "cart" : "Cart",
     "payBreakdown" : {
       "subtotal" : "Subtotal",

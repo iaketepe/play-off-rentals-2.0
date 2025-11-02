@@ -61,6 +61,7 @@
   "rentThree" : {
     "title" : "Paiement",
     "cart" : "Carte",
+    "sideNote" : "N'UTILISEZ PAS VOS INFORMATIONS DE CARTE DE CRÉDIT RÉELLES SUR CETTE PAGE. CE SITE EST FICTIF.",
     "payBreakdown" : {
       "subtotal" : "Sous-total",
       "serviceFee" : "Frais de service (7 %)",
