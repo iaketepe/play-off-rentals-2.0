@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { PaymentElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import RentalPeriod from './RentalPeriod'; 
 
-function PaymentForm({setRentalDays}) {
+function PaymentForm({setRentalDays, subtotal}) {
   const { t } = useTranslation();
   const stripe = useStripe();
   const elements = useElements();
@@ -19,7 +19,10 @@ function PaymentForm({setRentalDays}) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      if(!addressRef.current.value) {
+      if (!subtotal) {
+        return;
+      }
+      if (!addressRef.current.value) {
         setError("Please pick an address before continuing.");
       } else {
         setError("");

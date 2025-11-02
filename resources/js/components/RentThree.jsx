@@ -101,7 +101,7 @@ function RentThree() {
                         <div className="basis-1/2 flex flex-col">
                             {clientSecret && (
                                 <Elements stripe={stripePromise} options={{ clientSecret, locale: i18n.language }}>
-                                    <PaymentForm setRentalDays={setRentalDays}/>
+                                    <PaymentForm setRentalDays={setRentalDays} subtotal={subtotal}/>
                                 </Elements >
                             )}
                         </div>
