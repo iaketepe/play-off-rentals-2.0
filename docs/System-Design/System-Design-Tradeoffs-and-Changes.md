@@ -82,3 +82,7 @@ After setting up my home page and my rent process, I decided I had enough of a v
 - After doing some research, I realized that my cloud server may have been ignoring my htaccess file, so I updated my dockerfile making sure my cloud server would allow for htaccess overrides.
 - After doing so, I was able to access all of my pages including my rent sub process pages.
 
+#### Dealing with Cloud Service Updates
+- After trying to deploy my new faq page, I seem to have been met with a deployment failure. Thankfully, the failed deployment didn't mess with the current deployment of my site. So I could continue to figure out the issue without having to revert my changes and update my deployment.
+- After doing some research, I realized my deployment build failed because render updated how it allows premissions. Npm install works by taking and potentially updating the dependencies list, relying on operations like chown. This seems to have been recently patched my cloud service provider, who seems to no longer be allowing for that.
+- So I switched from npm install to npm clean install (npm ci). This makes it so that npm sets up my dependencies exactly how I had set it up. No inferences or anything else. This allowed my deployment to be updated.
