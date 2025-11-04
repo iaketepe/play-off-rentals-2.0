@@ -61,6 +61,7 @@
   "rentThree" : {
     "title" : "Paiement",
     "cart" : "Carte",
+    "sideNote" : "N'UTILISEZ PAS VOS INFORMATIONS DE CARTE DE CRÉDIT RÉELLES SUR CETTE PAGE. CE SITE EST FICTIF.",
     "payBreakdown" : {
       "subtotal" : "Sous-total",
       "serviceFee" : "Frais de service (7 %)",
@@ -75,7 +76,35 @@
     "email" : "Courriel :",
     "address" : "Adresse :",
     "rentalPeriod" : "Période de location :"
-  }
+  },
+  "faqCore": {
+    "q1": {
+      "question": "Comment le prix est-il calculé?",
+      "answer": "Le prix est basé sur le sous-total des machines, multiplié par le nombre de jours de location, plus la taxe et des frais de service (le plus élevé entre 25 $ ou 7 %).",
+      "example": "Ex : Supposons qu’un client loue une machine de 100 $ pour 3 jours. Le total serait : 100 × 3 (jours de location) + 300 × 13 % (TVH) + 25 (frais de service) = 364 $."
+    },
+    "q2": {
+      "question": "Quelle est votre zone de service?",
+      "answer": "Nous desservons un rayon de 10 km autour de notre adresse."
+    },
+    "q3": {
+      "question": "Puis-je louer différentes machines pour des durées différentes?",
+      "answer": "Toutes les machines d’une même commande doivent avoir la même période de location. Si vous avez besoin de durées différentes, vous pouvez passer des commandes séparées."
+    },
+    "q4": {
+      "question": "Offrez-vous la livraison et la cueillette?",
+      "answer": "Oui! Nous nous occupons de la livraison et de la cueillette dans notre zone de service. Les frais de livraison et de cueillette sont inclus dans vos frais de service."
+    },
+    "q5": {
+      "question": "Que faire si je souhaite prolonger ma location?",
+      "answer": "Malheureusement, la prolongation d’une location n’est pas encore offerte. Si vous souhaitez « prolonger », la meilleure option est de passer une nouvelle commande et de nous contacter."
+    },
+    "q6": {
+      "question": "Y a-t-il un dépôt ou une politique concernant les dommages?",
+      "answer": "Un dépôt de garantie remboursable peut s’appliquer selon l’équipement. Nous inspectons également toutes les machines avant et après chaque location pour nous assurer qu’elles sont en excellent état de fonctionnement."
+    }
+}
+
   
 }
 

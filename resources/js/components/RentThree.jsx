@@ -65,6 +65,7 @@ function RentThree() {
         <div className="w-full h-full flex flex-col gap-10">
             <div className="flex flex-col gap-10">
                 <h1 className='inline text-black text-4xl font-semibold'>{t("rentThree.title")}</h1>
+                <span className="text-xs text-center">{t("rentThree.sideNote")}</span>
                 <div className="flex flex-col">
                     <h3 className="text-xl font-semibold">{t("rentThree.cart")}</h3>
                     <div className="flex flex-1 flex-col gap-5 sm:flex-row">
@@ -101,7 +102,7 @@ function RentThree() {
                         <div className="basis-1/2 flex flex-col">
                             {clientSecret && (
                                 <Elements stripe={stripePromise} options={{ clientSecret, locale: i18n.language }}>
-                                    <PaymentForm setRentalDays={setRentalDays}/>
+                                    <PaymentForm setRentalDays={setRentalDays} subtotal={subtotal}/>
                                 </Elements >
                             )}
                         </div>

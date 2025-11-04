@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
-import { addMonths, differenceInDays } from "date-fns";
+import { addDays, addMonths, differenceInDays } from "date-fns";
 import "react-datepicker/dist/react-datepicker.css";
 
 function RentalPeriod({ className, setRentalDays }) {
@@ -13,8 +13,8 @@ function RentalPeriod({ className, setRentalDays }) {
     };
     useEffect(() => {
         if(startDate & endDate) {
-            const days = differenceInDays(endDate,startDate);
-            setRentalDays(days > 0 ? days : 1);
+            const days = differenceInDays(endDate,startDate) + 1;
+            setRentalDays(days);
         } 
     }, [startDate, endDate, setRentalDays]);
 
@@ -22,7 +22,7 @@ function RentalPeriod({ className, setRentalDays }) {
         className={className || ""}
         selected={startDate}
         onChange={onChange}
-        minDate={new Date()}
+        minDate={addDays(new Date(), 1)}
         maxDate={addMonths(new Date(), 5)}
         startDate={startDate}
         endDate={endDate}
