@@ -77,5 +77,33 @@
     "email" : "Email:",
     "address" : "Address:",
     "rentalPeriod" : "Rental Period:"
+  },
+  "faqCore" : {
+    "title" : "FAQ",
+    "q1": {
+      "question": "How is pricing calculated?",
+      "answer": "Pricing is based on the subtotal of the machines, multiplied by the number of rental days, plus tax and a service fee (whichever is higher between $25 or 7%).",
+      "example" : "Ex: Say a customer orders one 100$ machine for 3 days. The total would be: 100 * 3 (Days of Rent) + 300 * 13% (HST)  + 25 (Service Fee) = 364$."
+    },
+    "q2": {
+      "question": "What is your service range?",
+      "answer": "We service within 10 km of our address."
+    },
+    "q3": {
+      "question": "Can I rent different machines for different durations?",
+      "answer": "All machines in a single order must share the same rental period. If you need different time frames, you can place separate orders."
+    },
+    "q4": {
+      "question": "Do you handle delivery and pickup?",
+      "answer": "Yes! We handle both delivery and pickup within our service range. Delivery and pickup fees are included in your service fee."
+    },
+    "q5": {
+      "question": "What if I need to extend my rental?",
+      "answer": "Unfortunately, we don't currently extending a rental is not a feature. If you want to 'extend' the best thing to do would be to place another order and contact us."
+    },
+    "q6": {
+      "question": "Is there a deposit or damage policy?",
+      "answer": "A refundable security deposit may apply depending on the equipment. We also inspect all machines before and after each rental to ensure they’re in great working condition."
+    }
   }
 }

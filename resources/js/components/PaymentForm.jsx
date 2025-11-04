@@ -10,7 +10,8 @@ function PaymentForm({setRentalDays, subtotal}) {
 
   const form = JSON.parse(sessionStorage.getItem("form")) || [];
   const addressRef = useRef();
-  const [error, setError] = useState("");
+  const submitRef = useRef();
+  const [addressError, setAddressError] = useState("");
 
   const handleAddress = () => {
     return form["address"]; 
@@ -66,7 +67,7 @@ function PaymentForm({setRentalDays, subtotal}) {
           <div>
               <label className='block'>{t("paymentForm.address")}</label>
               <input type="text" ref={addressRef} value={handleAddress()} className='border border-[#e6e6e6] text-[#30313d] w-full p-2 rounded-sm shadow-sm focus:outline-none focus:ring-3 focus:ring-blue-200 focus:border-[#056fde] transition-colors duration-300 ease-in-out' readOnly required/>
-              {error && <p className='text-[#df1b41] text-[14.88px]'>{error}</p>} {/* Show error text if it exists */}
+              {addressError && <p className='text-[#df1b41] text-[14.88px]'>{addressError}</p>} {/* Show error text if it exists */}
           </div>
           <div>
             <label className='block'>{t("paymentForm.rentalPeriod")}</label>
