@@ -25,7 +25,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 RUN composer install --no-dev --optimize-autoloader
 
 # Install Node dependencies and build React/Vite assets
-RUN npm install
+RUN npm ci
 RUN npm run build 
 
 # Set permissions
