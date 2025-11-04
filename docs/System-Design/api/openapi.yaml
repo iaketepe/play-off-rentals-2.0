@@ -7,7 +7,7 @@ servers:
   - url: http://localhost:8000/api
     description: Development server
 paths:
-  /map/locations:
+  /api/map/locations:
     get:
       tags:
         - Map
@@ -117,7 +117,7 @@ paths:
             application/json:
               schema:
                 type: object
-  /map/tiles/metadata:
+  /api/map/tiles/metadata:
     get:
       tags:
         - Map
@@ -147,7 +147,7 @@ paths:
                     type: string
                 example:
                   error: "Something went wrong"
-  /map/tiles/{z}/{x}/{y}.png:
+  /api/map/tiles/{z}/{x}/{y}.png:
     get:
       tags:
         - Map
