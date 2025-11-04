@@ -221,6 +221,41 @@ paths:
           content:
             application/json:
               schema:
-                type: object  
-  #/api/payment:
+                type: object
+  /api/payment:
+    post:
+      tags:
+        - Payment
+      summary: Sends the rental order payment amount to the backend
+      parameters:
+        - in: query
+          name: amount
+          required: true
+          schema:
+            type: number
+            format: float
+          description: The rental order payment amount
+      responses:
+        '200':
+          description: Client secret and public key returned
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  clientSecret:
+                    type: string
+                    description: The Stripe PaymentIntent client secret
+                  stripePublicKey:
+                    type: string
+                    description: Your Stripe publishable key
+                required:
+                  - clientSecret
+                  - stripePublicKey
+        'default':
+          description: Upstream result
+          content:
+            application/json:
+              schema:
+                type: object
   # https://editor.swagger.io/
