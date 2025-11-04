@@ -185,5 +185,42 @@ paths:
             application/json:
               schema:
                 type: object
-    
+  /api/machines:
+    get:
+      tags:
+        - Machines
+      summary: Gets all rental arcade machines
+      responses: 
+        '200' :
+          description: Array of objects representing each arcade machine
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    example: "0"
+                  name:
+                    type: string
+                    example: "Pac-Man (1980)"
+                  description:
+                    type: string
+                    example: "Navigate the maze, munch on dots, and outsmart the ghosts in this timeless arcade classic by Namco!"
+                  cost:
+                    type: number
+                    example: "50"
+                  image_path:
+                    type: string
+                    example: "<protocol>://<subdomain>.<db>.com/<image_name>.<file_format>"
+                  description_fr:
+                    type: string
+                    example: "Parcourez le labyrinthe, dévorez les pastilles et déjouez les fantômes dans ce classique intemporel de l’arcade signé Namco !"
+        'default':
+          description: Upstream result
+          content:
+            application/json:
+              schema:
+                type: object  
+  #/api/payment:
   # https://editor.swagger.io/
