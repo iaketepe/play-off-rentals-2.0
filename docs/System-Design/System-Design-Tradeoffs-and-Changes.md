@@ -51,7 +51,11 @@ In both cases, the Blade file being rendered would mount a React root, adding in
 - Eventually I chose Geoapify for my Geodata provider. Since Geoapify also provides geocoding, I thought about using it for that as well. The only problem is having one provider for both, would halve the number daily requests. However, since LocationIQ can provide geocoding and because I believe users are likely to rewrite their search query more than just rendering that result, I planned on using it to maximize the amount of requests users could make.
 
 ### Step 2: Rental Catalogue
+Step 2 was relatively straightforward. I started by creating a SQL schema in Supabase to define the tables for the store. For storing arcade machine images, I leveraged Supabase’s storage buckets (S3-compatible), keeping image files separate from the database and storing their URLs in the tables.
 
+<img width="1179" height="630" alt="image" src="https://github.com/user-attachments/assets/cb7038ee-55d8-438b-98ce-7de4e1947080" />
+
+- In order to access the data from my backend, I used Laravel’s recommended ORM, Eloquent. After installing the dependency and creating ORM models for each table, I was able to query and manipulate their records as needed.
 
 ### Step 3: Payment Processing
 
