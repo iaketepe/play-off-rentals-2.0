@@ -103,7 +103,16 @@
       "question": "Y a-t-il un dépôt ou une politique concernant les dommages?",
       "answer": "Un dépôt de garantie remboursable peut s’appliquer selon l’équipement. Nous inspectons également toutes les machines avant et après chaque location pour nous assurer qu’elles sont en excellent état de fonctionnement."
     }
-}
+  },
+  "contactCore" : {
+    "title" : "Contacte",
+    "firstName" : "Prénom :",
+    "lastName" : "Nom :",
+    "email" : "Courriel :",
+    "subject" : "Sujet :",
+    "message" : "Message :",
+    "submit" : "Soumettre"
+  }
 
   
 }
