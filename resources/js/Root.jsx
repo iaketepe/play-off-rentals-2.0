@@ -9,6 +9,7 @@ import "./i18n";
 
 const RentCore = lazy(() => import('./cores/RentCore'));
 const FaqCore = lazy(() => import('./cores/FaqCore'));
+const ContactCore = lazy(() => import('./cores/ContactCore'));
 
 const rootDiv = document.getElementById('react-root');
 const page = rootDiv ? rootDiv.dataset.page : 'home';
@@ -24,7 +25,7 @@ function Root() {
         home: HomeCore,
         rent: RentCore,
         faq: FaqCore,
-        //contact: <ContactCore/>
+        contact: ContactCore,
     };
 
     const Core = cores[page] ?? cores.home;

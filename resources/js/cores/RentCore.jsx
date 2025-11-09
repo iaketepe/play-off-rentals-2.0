@@ -1,6 +1,6 @@
 import { useState, Suspense, lazy } from 'react';
 import { useTranslation } from "react-i18next";
-import RentOne from './components/RentOne';
+import RentOne from '../components/RentOne';
 
 
 function RentCore () {
