@@ -67,7 +67,8 @@ In both cases, the Blade file being rendered would mount a React root, adding in
     - Cookies: One of the older forms of client storage.
 - The problem with cookies is how easy they are to access. Allowing for issues like Cross Site Request Forgery (CSRF) to occur. Therefore, it made more sense to focus on using local or session, with session being the final choice to minimize need for user intervention when clearing the storage.
 
-
+#### Dealing with Payment
+- 
 
 ## Site Reliability
 ### Adding Lazy Loading
