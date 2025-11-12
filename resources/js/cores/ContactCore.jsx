@@ -1,8 +1,27 @@
 import { useTranslation } from "react-i18next";
+import { useRef } from "react";
 
 function ContactCore() {
 
     const { t } = useTranslation();
+
+    const formRef = useRef();
+
+    const handleEmail = async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(formRef.current);
+        const formBody = Object.fromEntries(formData.entries());
+
+        const res = await fetch("/api/email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formBody),
+        });
+
+        const data = await res.json();
+        console.log(data);
+    }
 
     return(
         <div className=" border-black flex flex-col p-[clamp(.25rem,2vw,2.5rem)] items-center">
@@ -11,25 +30,25 @@ function ContactCore() {
                     <h1 className='inline text-black text-4xl font-semibold'>Contact</h1>
                     <div className="text-black flex flex-col gap-2 justify-center items-center">
                     </div>
-                        <form  className='h-full flex flex-col justify-between gap-2'>
+                        <form ref={formRef} onSubmit={handleEmail} className='h-full flex flex-col justify-between gap-2'>
                             <div className='space-y-3 text-[#30313d]'>
                                 <div className='flex gap-5 justify-between'>
                                     <div className='basis-1/2'>
                                         <label className='block'>{t("contactCore.firstName")}</label>
-                                        <input type="text" className='border border-[#e6e6e6] text-[#30313d] w-full p-2 rounded-sm shadow-sm focus:outline-none focus:ring-3 focus:ring-blue-200 focus:border-[#056fde] transition-colors duration-300 ease-in-out' required/>
+                                        <input name="firstName" type="text" className='border border-[#e6e6e6] text-[#30313d] w-full p-2 rounded-sm shadow-sm focus:outline-none focus:ring-3 focus:ring-blue-200 focus:border-[#056fde] transition-colors duration-300 ease-in-out' required/>
                                     </div>
                                     <div className='basis-1/2'>
                                         <label className='block'>{t("contactCore.lastName")}</label>
-                                        <input type="text" className='border border-[#e6e6e6] text-[#30313d] w-full p-2 rounded-sm shadow-sm focus:outline-none focus:ring-3 focus:ring-blue-200 focus:border-[#056fde] transition-colors duration-300 ease-in-out' required/>
+                                        <input name="lastName" type="text" className='border border-[#e6e6e6] text-[#30313d] w-full p-2 rounded-sm shadow-sm focus:outline-none focus:ring-3 focus:ring-blue-200 focus:border-[#056fde] transition-colors duration-300 ease-in-out' required/>
                                     </div>
                                 </div>
                                 <div>
                                     <label className='block'>{t("contactCore.email")}</label>
-                                    <input type="email" className='border border-[#e6e6e6] text-[#30313d] w-full p-2 rounded-sm shadow-sm focus:outline-none focus:ring-3 focus:ring-blue-200 focus:border-[#056fde] transition-colors duration-300 ease-in-out' required/>
+                                    <input name="email" type="email" className='border border-[#e6e6e6] text-[#30313d] w-full p-2 rounded-sm shadow-sm focus:outline-none focus:ring-3 focus:ring-blue-200 focus:border-[#056fde] transition-colors duration-300 ease-in-out' required/>
                                 </div>
                                 <div>
                                     <label className='block'>{t("contactCore.subject")}</label>
-                                    <input type="text" className='border border-[#e6e6e6] text-[#30313d] w-full p-2 rounded-sm shadow-sm focus:outline-none focus:ring-3 focus:ring-blue-200 focus:border-[#056fde] transition-colors duration-300 ease-in-out' required/>
+                                    <input name="subject" type="text" className='border border-[#e6e6e6] text-[#30313d] w-full p-2 rounded-sm shadow-sm focus:outline-none focus:ring-3 focus:ring-blue-200 focus:border-[#056fde] transition-colors duration-300 ease-in-out' required/>
                                 </div>
                                 <div>
                                     <label className='block'>{t("contactCore.message")}</label>
