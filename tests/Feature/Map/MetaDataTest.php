@@ -9,7 +9,7 @@ use Tests\TestCase;
 class MetaDataTest extends TestCase
 {
     /**
-     * A basic feature test example.
+     * Testing the map metadata request for RentOne component
      */
     public function test_tileMetaData(): void
     {
