@@ -27,6 +27,10 @@ class MapController extends Controller {
         $x = $request->route('x');
         $y = $request->route('y');
 
+        if (!is_numeric($z) || !is_numeric($x) || !is_numeric($y)) {
+            return response()->json(['error' => 'Invalid tile coordinates'], 400);
+        }
+
         $tiles = $this->geodata->getTiles($z,$x,$y);
         return response($tiles->getBody()->getContents(), $tiles->getStatusCode())->header('Content-Type', $tiles->getHeaderLine('Content-Type'));
     }
