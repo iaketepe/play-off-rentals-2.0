@@ -32,7 +32,7 @@ class MapController extends Controller {
     }
 
     public function autoComplete(Request $request) {
-        $query = $request->query('query');
+        $query = $request->query('query') ?? "";
         $locations = $this->autocoder->search($query);
 
         return response()->json($locations);
