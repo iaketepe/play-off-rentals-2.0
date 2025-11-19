@@ -6,7 +6,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
-class autoCompleteTest extends TestCase
+class AutoCompleteTest extends TestCase
 {
     /**
      * Testing the automatic map search result request for the RentOne component

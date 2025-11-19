@@ -6,7 +6,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
-class getTilesTest extends TestCase
+class GetTilesTest extends TestCase
 {
     /**
      * Testing the return of raster tiles for RentOne Component
