@@ -179,6 +179,16 @@ paths:
               schema:
                 type: string
                 format: binary
+        '400':
+          description: Invalid tile coordinates
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: Invalid tile coordinates
         'default':
           description: Upstream result
           content:
