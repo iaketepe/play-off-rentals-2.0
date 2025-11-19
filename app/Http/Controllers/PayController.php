@@ -11,9 +11,15 @@ class PayController extends Controller {
 
     public function initializePayment(Request $request) {
         Stripe::setApiKey(config('cashier.secret'));
+        
+        $amount = $request->input('amount');
+
+        if(!is_numeric($amount)) {
+            return response()->json([ "error" => "Amount is not a valid number"], 400);
+        }
 
         $paymentIntent = PaymentIntent::create([
-            'amount' => $request->input('amount') * 100,
+            'amount' => $amount * 100,
             'currency' => 'cad',
         ]);
 

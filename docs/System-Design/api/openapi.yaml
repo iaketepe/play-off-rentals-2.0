@@ -262,6 +262,16 @@ paths:
                 required:
                   - clientSecret
                   - stripePublicKey
+        '400':
+          description: Amount is invalid
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Amount is not a valid number"
         'default':
           description: Upstream result
           content:
