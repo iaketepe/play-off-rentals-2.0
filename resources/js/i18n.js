@@ -27,6 +27,8 @@ i18n
       lookupCookie: "i18nextLng",
       cookieOptions: { path: "/", secure: true, sameSite: "lax" },
       load: "languageOnly",
+      convertDetectedLanguage: (lng) => lng.slice(0,2)
+
     }
   });
 
