@@ -49,6 +49,15 @@ return [
             'local_domain' => env('MAIL_EHLO_DOMAIN', parse_url((string) env('APP_URL', 'http://localhost'), PHP_URL_HOST)),
         ],
 
+        'gmail' => [
+            'transport' => 'smtp',
+            'scheme' => 'smtp',
+            'host' => 'smtp.gmail.com',
+            'port' => 587,
+            'username' => env('MAIL_USERNAME'),
+            'auth_mode' => 'XOAUTH2',
+        ],
+
         'ses' => [
             'transport' => 'ses',
         ],

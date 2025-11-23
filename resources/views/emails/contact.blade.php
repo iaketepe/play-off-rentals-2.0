@@ -6,7 +6,7 @@
     <title>Someone sent a message</title>
 </head>
 <body>
-    <h1>Hello representative,</h1>
+    <h1>Hello,</h1>
 
     <p>{{ $message_text }}</p>
 

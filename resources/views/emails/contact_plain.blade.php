@@ -1,15 +1,15 @@
-Hello representative,
+Hello,
 
-{{ message_text }}
+{{ $message_text }}
 
 Thanks,
-{{ first_name }} {{ last_name }}
+{{ $first_name }} {{ $last_name }}
 
 ---
 
 Bonjour,
 
-{{ message_text }}
+{{ $message_text }}
 
 Merci,
-{{ first_name }} {{ last_name }}
+{{ $first_name }} {{ $last_name }}
