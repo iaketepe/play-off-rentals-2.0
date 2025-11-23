@@ -42,7 +42,6 @@ class GmailService {
             ->text($plain)
             ->html($html);
         $mailer->send($email);
-
     }
 
 }
