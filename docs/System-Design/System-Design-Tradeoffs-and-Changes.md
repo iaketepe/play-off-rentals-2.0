@@ -68,7 +68,7 @@ In both cases, the Blade file being rendered would mount a React root, adding in
 - The problem with cookies is how easy they are to access. Allowing for issues like Cross Site Request Forgery (CSRF) to occur. Therefore, it made more sense to focus on using local or session, with session being the final choice to minimize need for user intervention when clearing the storage.
 
 #### Dealing with Payment
-- 
+- The next part was actually implementing a payment processing service. I was interested in using a platform like Stripe or Paypal, though I stayed with stripe due to its free sandbox environment. Another thing was stripe connection with Laravel. In the Laravel ecosystem, there is a package that supports payment processing called 'Laravel Cashier'. There was a version of it that was built for stripe. So, I planned on using the tool for my own payment processing.
 
 ## Site Reliability
 ### Adding Lazy Loading
