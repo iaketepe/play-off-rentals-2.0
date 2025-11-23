@@ -3,7 +3,6 @@
 namespace App\Services;
 
 use Illuminate\Support\Facades\View;
-use Symfony\Component\Mailer\Transport;
 use Symfony\Component\Mailer\Mailer;
 use Symfony\Component\Mime\Email;
 use Symfony\Component\Mailer\Transport\Smtp\EsmtpTransport;
