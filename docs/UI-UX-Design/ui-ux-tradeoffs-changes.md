@@ -12,14 +12,19 @@ Designing with this structure in mind, gives me more seperation when designing m
 Since this is a web store. I have to design my header and footer, to fit the theme and function of one. This means both must adhere to good UX practices like accessibility and responsive design. 
 
 ### Dealing with the Header
+#### Notable Bugs
+- [Used onBlur to setIsOpen variable to false, closing navbar onClick](https://github.com/iaketepe/play-off-rentals-2.0/commit/45af7583bb1ced9f28ef888841c90baed1351235)
+- [Updated z-index to combat render override on RentOne](https://github.com/iaketepe/play-off-rentals-2.0/commit/47b8ba993f43d1ce6facdfc58fb4c38e98b86633)
+
 #### Fixing the Language Transition Issue
 When I originally deployed my site, there was a bug where changing the language required two button clicks instead of one. It only happened the first time you got onto the site, but it was a bug with bad connotations for language accessibility. Eventually, I was able to figure out the problem. The way my translation system works by storing the default language cookie (ex: 'EN-CA' for English (Canada)) of the user, sending either english or french translations for a given page (English is the fallback page for languages outside of that). Next, if the user wants to switch languages, they click it from the menu. This will execute a function that checks if the language stored is either 'en' (English) or 'fr' (French). This will change the pages.
 
 The problem comes from how I was storing the language data when the user gets to the site. The data retained the format of the default cooke ('EN-CA') instead of being in the form of 'en'. So, it would take one click to convert the data from 'EN-CA' -> 'en'. Then, it would another click to convert from 'en' to 'fr'. So I updated my code to parse the language cookie to required format, improving the user experience.
 
-#### Notable Bugs
-- [Used onBlur to setIsOpen variable to false, closing navbar onClick](https://github.com/iaketepe/play-off-rentals-2.0/commit/45af7583bb1ced9f28ef888841c90baed1351235)
-- [Updated z-index to combat render override on RentOne](https://github.com/iaketepe/play-off-rentals-2.0/commit/47b8ba993f43d1ce6facdfc58fb4c38e98b86633)
+<img width="441" height="101" alt="image" src="https://github.com/user-attachments/assets/58abba47-0dcd-4803-96e6-73c447201f43" />
+
+<img width="388" height="104" alt="image" src="https://github.com/user-attachments/assets/897ffbc6-4aa1-4c8e-bd5a-c5faca47217d" />
+
 
 ### Dealing with the Footer
 #### Table element vs Div with class="grid"
@@ -56,4 +61,5 @@ So I had to take those into account when creating my own input fields. I also ke
 <img width="596" height="596" alt="image" src="https://github.com/user-attachments/assets/d9f462ea-5c04-4504-875e-5f38e9a2e570" />
 
 NOTE: From the name fields to Rental Period are my fields. Stripes fields are from the 'Secure, fast checkout with Link' to the Country field
+
 
