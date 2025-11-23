@@ -30,7 +30,7 @@ class ContactMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: $this->data['subject'] ?? 'Someone sent us a mesesage',
+            subject: $this->data['email'] . ' - ' . $this->data['subject'] ?? 'Someone sent us a mesesage',
             from: new Address(
                 $this->data['email'],
                 trim(($this->data['firstname'] ?? '') . ' ' . ($this->data['lastname'] ?? ''))

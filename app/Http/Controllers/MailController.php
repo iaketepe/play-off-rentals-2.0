@@ -27,8 +27,8 @@ class MailController extends Controller {
                 'message' => 'required|string',
             ]);
 
-            $this->gmailService->send(config('mail.from.address'), new ContactMail($validated));
             //Mail::to($validated['email'])->send(new ReplyMail($validated));
+            $this->gmailService->send(config('mail.from.address'), new ContactMail($validated));
         } catch (Exception $e) {
             return response()->json(['error' => 'Email could not be sent: ' . $e], 500);
         }
