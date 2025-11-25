@@ -31,8 +31,8 @@ class GmailService {
         $plain = View::make($content->text, $content->with)->render();
         $html = View::make($content->view, $content->with)->render();
 
-        $addr = $mailable->envelope()->from;
-        $from = "{$addr->name} <{$addr->address}>";
+        $mailableFrom = $mailable->envelope()->from;
+        $from = "{$mailableFrom->name} <{$mailableFrom->address}>";
 
         $email = new Email();
 
