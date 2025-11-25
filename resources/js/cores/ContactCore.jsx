@@ -34,24 +34,24 @@ function ContactCore() {
                             <div className='space-y-3 text-[#30313d]'>
                                 <div className='flex gap-5 justify-between'>
                                     <div className='basis-1/2'>
-                                        <label className='block'>{t("contactCore.firstName")}</label>
-                                        <input name="firstname" type="text" className='border border-[#e6e6e6] text-[#30313d] w-full p-2 rounded-sm shadow-sm focus:outline-none focus:ring-3 focus:ring-blue-200 focus:border-[#056fde] transition-colors duration-300 ease-in-out' required/>
+                                        <label for="firstname" className='block'>{t("contactCore.firstName")}</label>
+                                        <input name="firstname" id="firstname" type="text" className='border border-[#e6e6e6] text-[#30313d] w-full p-2 rounded-sm shadow-sm focus:outline-none focus:ring-3 focus:ring-blue-200 focus:border-[#056fde] transition-colors duration-300 ease-in-out' required/>
                                     </div>
                                     <div className='basis-1/2'>
-                                        <label className='block'>{t("contactCore.lastName")}</label>
-                                        <input name="lastname" type="text" className='border border-[#e6e6e6] text-[#30313d] w-full p-2 rounded-sm shadow-sm focus:outline-none focus:ring-3 focus:ring-blue-200 focus:border-[#056fde] transition-colors duration-300 ease-in-out' required/>
+                                        <label for="lastname" className='block'>{t("contactCore.lastName")}</label>
+                                        <input name="lastname" id="lastname" type="text" className='border border-[#e6e6e6] text-[#30313d] w-full p-2 rounded-sm shadow-sm focus:outline-none focus:ring-3 focus:ring-blue-200 focus:border-[#056fde] transition-colors duration-300 ease-in-out' required/>
                                     </div>
                                 </div>
                                 <div>
-                                    <label className='block'>{t("contactCore.email")}</label>
-                                    <input name="email" type="email" className='border border-[#e6e6e6] text-[#30313d] w-full p-2 rounded-sm shadow-sm focus:outline-none focus:ring-3 focus:ring-blue-200 focus:border-[#056fde] transition-colors duration-300 ease-in-out' required/>
+                                    <label for="email" className='block'>{t("contactCore.email")}</label>
+                                    <input name="email" id="email" type="email" className='border border-[#e6e6e6] text-[#30313d] w-full p-2 rounded-sm shadow-sm focus:outline-none focus:ring-3 focus:ring-blue-200 focus:border-[#056fde] transition-colors duration-300 ease-in-out' required/>
                                 </div>
                                 <div>
-                                    <label className='block'>{t("contactCore.subject")}</label>
-                                    <input name="subject" type="text" className='border border-[#e6e6e6] text-[#30313d] w-full p-2 rounded-sm shadow-sm focus:outline-none focus:ring-3 focus:ring-blue-200 focus:border-[#056fde] transition-colors duration-300 ease-in-out' required/>
+                                    <label for="subject" className='block'>{t("contactCore.subject")}</label>
+                                    <input name="subject" id="subject" type="text" className='border border-[#e6e6e6] text-[#30313d] w-full p-2 rounded-sm shadow-sm focus:outline-none focus:ring-3 focus:ring-blue-200 focus:border-[#056fde] transition-colors duration-300 ease-in-out' required/>
                                 </div>
                                 <div>
-                                    <label className='block'>{t("contactCore.message")}</label>
+                                    <label for="message" className='block'>{t("contactCore.message")}</label>
                                     <textarea name="message" id="message" rows="4" className='border border-[#e6e6e6] text-[#30313d] w-full p-2 rounded-sm shadow-sm focus:outline-none focus:ring-3 focus:ring-blue-200 focus:border-[#056fde] transition-colors duration-300 ease-in-out' required></textarea>
                                 </div>
                             </div>

@@ -13,7 +13,7 @@ class SendEmailTest extends TestCase
      */
     public function test_sendEmail(): void
     {
-        /*$response = $this->post('/api/email', [
+        /*$response = $this->postJson('/api/email', [
             'firstname' => 'John',
             'lastname'  => 'Doe',
             'email'     => 'john@example.com',
