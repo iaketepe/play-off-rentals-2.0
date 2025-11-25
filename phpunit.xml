@@ -20,6 +20,9 @@
         <testsuite name="Feature/Db">
             <directory>tests/Feature/Db</directory>
         </testsuite>-->
+        <testsuite name="Feature/Email">
+            <directory>tests/Feature/Email</directory>
+        </testsuite>
     </testsuites>
     <source>
         <include>

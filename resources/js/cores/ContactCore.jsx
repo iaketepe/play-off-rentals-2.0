@@ -14,9 +14,9 @@ function ContactCore() {
         const formBody = Object.fromEntries(formData.entries());
 
         const res = await fetch("/api/email", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formBody),
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(formBody),
         });
 
         const data = await res.json();

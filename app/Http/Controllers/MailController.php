@@ -18,15 +18,14 @@ class MailController extends Controller {
     }
 
     public function sendEmail(Request $request) {
+        $validated = $request->validate([
+            'firstname' => 'required|string',
+            'lastname' => 'required|string',
+            'email' => 'required|email',
+            'subject' => 'required|string',
+            'message' => 'required|string',
+        ]);
         try {
-            $validated = $request->validate([
-                'firstname' => 'required|string',
-                'lastname' => 'required|string',
-                'email' => 'required|email',
-                'subject' => 'required|string',
-                'message' => 'required|string',
-            ]);
-
             //Mail::to($validated['email'])->send(new ReplyMail($validated));
             $this->gmailService->send(config('mail.from.address'), new ContactMail($validated));
         } catch (Exception $e) {
