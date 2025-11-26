@@ -52,25 +52,25 @@ function PaymentForm({setRentalDays, subtotal}) {
       <div className='space-y-3 text-[#30313d]'>
           <div className='flex gap-5 justify-between'>
               <div className='basis-1/2'>
-                  <label for="firstname" className='block'>{t("paymentForm.firstName")}</label>
+                  <label htmlFor="firstname" className='block'>{t("paymentForm.firstName")}</label>
                   <input type="text" id='firstname' className='border border-[#e6e6e6] text-[#30313d] w-full p-2 rounded-sm shadow-sm focus:outline-none focus:ring-3 focus:ring-blue-200 focus:border-[#056fde] transition-colors duration-300 ease-in-out' required/>
               </div>
               <div className='basis-1/2'>
-                  <label for="lastname" className='block'>{t("paymentForm.lastName")}</label>
+                  <label htmlFor="lastname" className='block'>{t("paymentForm.lastName")}</label>
                   <input type="text" id='lastname' className='border border-[#e6e6e6] text-[#30313d] w-full p-2 rounded-sm shadow-sm focus:outline-none focus:ring-3 focus:ring-blue-200 focus:border-[#056fde] transition-colors duration-300 ease-in-out' required/>
               </div>
           </div>
           <div>
-              <label for="email" className='block'>{t("paymentForm.email")}</label>
+              <label htmlFor="email" className='block'>{t("paymentForm.email")}</label>
               <input type="email" id='email' className='border border-[#e6e6e6] text-[#30313d] w-full p-2 rounded-sm shadow-sm focus:outline-none focus:ring-3 focus:ring-blue-200 focus:border-[#056fde] transition-colors duration-300 ease-in-out' required/>
           </div>
           <div>
-              <label for="address" className='block'>{t("paymentForm.address")}</label>
+              <label htmlFor="address" className='block'>{t("paymentForm.address")}</label>
               <input type="text" id='address' ref={addressRef} value={handleAddress()} className='border border-[#e6e6e6] text-[#30313d] w-full p-2 rounded-sm shadow-sm focus:outline-none focus:ring-3 focus:ring-blue-200 focus:border-[#056fde] transition-colors duration-300 ease-in-out' readOnly required/>
               {addressError && <p className='text-[#df1b41] text-[14.88px]'>{addressError}</p>} {/* Show error text if it exists */}
           </div>
           <div>
-            <label for="rentalperiod" className='block'>{t("paymentForm.rentalPeriod")}</label>
+            <label htmlFor="rentalperiod" className='block'>{t("paymentForm.rentalPeriod")}</label>
             <RentalPeriod setRentalDays={setRentalDays} className='border border-[#e6e6e6] text-[#30313d] w-full p-2 rounded-sm shadow-sm focus:outline-none focus:ring-3 focus:ring-blue-200 focus:border-[#056fde] transition-colors duration-300 ease-in-out'/>
           </div>
       </div>
