@@ -1,11 +1,21 @@
 import { useTranslation } from "react-i18next";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
 function ContactCore() {
 
     const { t } = useTranslation();
 
     const formRef = useRef();
+
+    useEffect(() => {
+        if (window.turnstile) return;
+
+        const turnstileScript = document.createElement("script");
+        turnstileScript.src = "https://challenges.cloudflare.com/turnstile/v0/api.js";
+        turnstileScript.async = true;
+        turnstileScript.defer = true;
+        document.body.appendChild(turnstileScript);
+    }, []);
 
     const handleEmail = async (e) => {
         e.preventDefault();
@@ -34,28 +44,29 @@ function ContactCore() {
                             <div className='space-y-3 text-[#30313d]'>
                                 <div className='flex gap-5 justify-between'>
                                     <div className='basis-1/2'>
-                                        <label for="firstname" className='block'>{t("contactCore.firstName")}</label>
+                                        <label htmlFor="firstname" className='block'>{t("contactCore.firstName")}</label>
                                         <input name="firstname" id="firstname" type="text" className='border border-[#e6e6e6] text-[#30313d] w-full p-2 rounded-sm shadow-sm focus:outline-none focus:ring-3 focus:ring-blue-200 focus:border-[#056fde] transition-colors duration-300 ease-in-out' required/>
                                     </div>
                                     <div className='basis-1/2'>
-                                        <label for="lastname" className='block'>{t("contactCore.lastName")}</label>
+                                        <label htmlFor="lastname" className='block'>{t("contactCore.lastName")}</label>
                                         <input name="lastname" id="lastname" type="text" className='border border-[#e6e6e6] text-[#30313d] w-full p-2 rounded-sm shadow-sm focus:outline-none focus:ring-3 focus:ring-blue-200 focus:border-[#056fde] transition-colors duration-300 ease-in-out' required/>
                                     </div>
                                 </div>
                                 <div>
-                                    <label for="email" className='block'>{t("contactCore.email")}</label>
+                                    <label htmlFor="email" className='block'>{t("contactCore.email")}</label>
                                     <input name="email" id="email" type="email" className='border border-[#e6e6e6] text-[#30313d] w-full p-2 rounded-sm shadow-sm focus:outline-none focus:ring-3 focus:ring-blue-200 focus:border-[#056fde] transition-colors duration-300 ease-in-out' required/>
                                 </div>
                                 <div>
-                                    <label for="subject" className='block'>{t("contactCore.subject")}</label>
+                                    <label htmlFor="subject" className='block'>{t("contactCore.subject")}</label>
                                     <input name="subject" id="subject" type="text" className='border border-[#e6e6e6] text-[#30313d] w-full p-2 rounded-sm shadow-sm focus:outline-none focus:ring-3 focus:ring-blue-200 focus:border-[#056fde] transition-colors duration-300 ease-in-out' required/>
                                 </div>
                                 <div>
-                                    <label for="message" className='block'>{t("contactCore.message")}</label>
+                                    <label htmlFor="message" className='block'>{t("contactCore.message")}</label>
                                     <textarea name="message" id="message" rows="4" className='border border-[#e6e6e6] text-[#30313d] w-full p-2 rounded-sm shadow-sm focus:outline-none focus:ring-3 focus:ring-blue-200 focus:border-[#056fde] transition-colors duration-300 ease-in-out' required></textarea>
                                 </div>
                             </div>
                             <div className='flex-1 flex flex-col justify-between gap-5'>
+                                <div className="cf-turnstile overflow-x-hidden m-auto" data-sitekey="0x4AAAAAACC-ja_kxiQLCIXw"></div>
                                 <input type="submit" className='text-center w-full p-3 py-2 border-2 border-black rounded-full cursor-pointer transition-colors duration-300 ease-in-out hover:bg-gray-600 hover:text-white' value={t("contactCore.submit")}/>
                             </div>
                         </form>
