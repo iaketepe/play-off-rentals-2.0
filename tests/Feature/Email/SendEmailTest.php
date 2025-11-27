@@ -4,6 +4,8 @@ namespace Tests\Feature\Email;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Support\Facades\Mail;
+use App\Http\Controllers\MailController;
 use Tests\TestCase;
 
 class SendEmailTest extends TestCase
@@ -13,15 +15,29 @@ class SendEmailTest extends TestCase
      */
     public function test_sendEmail(): void
     {
-        /*$response = $this->postJson('/api/email', [
+        Mail::fake();
+
+        $response = $this->postJson('/api/email', [
             'firstname' => 'John',
             'lastname'  => 'Doe',
-            'email'     => 'john@example.com',
+            'email'     => 'john@gmail.com',
             'subject'   => 'Hello',
-            'message'   => 'Testing email feature'
+            'message'   => 'Testing email feature',
+            'cf-turnstile-response' => 'fake-token',
         ]);
 
-        $response->assertStatus(200);*/
+        $response->assertStatus(400);
+
+        $response = $this->postJson('/api/email', [
+            'firstname' => 'John',
+            'lastname'  => 'Doe',
+            'email'     => 'john.@.example.com',
+            'subject'   => 'Hello',
+            'message'   => 'Testing email feature',
+            'cf-turnstile-response' => '',
+        ]);
+
+        $response->assertStatus(422);
 
         $response = $this->postJson('/api/email', [
             'email'     => 'john@example.com',
@@ -39,5 +55,21 @@ class SendEmailTest extends TestCase
         ]);
 
         $response->assertStatus(422);
+
+        $this->partialMock(MailController::class, function ($mock) {
+            $mock->shouldReceive('validateTurnstile')
+                ->andReturn(['success' => true]);
+        });
+
+        /*$response = $this->postJson('/api/email', [
+            'firstname' => 'John',
+            'lastname'  => 'Doe',
+            'email'     => 'john@gmail.com',
+            'subject'   => 'Hello',
+            'message'   => 'Testing email feature',
+            'cf-turnstile-response' => 'mock-token',
+        ]);
+
+        $response->assertStatus(200);*/
     }
 }
