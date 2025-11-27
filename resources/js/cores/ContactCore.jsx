@@ -37,7 +37,7 @@ function ContactCore() {
     const handleNotification = (status, data) => {
         try {
             const message = JSON.parse(data);
-            setSubmitNotification(message['message']);
+            setSubmitNotification(message.message);
         } catch (error) {
             if(status == 429) {
                 setSubmitNotification("Error: Too many requests. Please try again later.");

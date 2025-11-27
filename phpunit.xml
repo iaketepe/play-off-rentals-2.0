@@ -19,10 +19,10 @@
         </testsuite>
         <testsuite name="Feature/Db">
             <directory>tests/Feature/Db</directory>
-        </testsuite>-->
+        </testsuite>
         <testsuite name="Feature/Email">
             <directory>tests/Feature/Email</directory>
-        </testsuite>
+        </testsuite>-->
     </testsuites>
     <source>
         <include>
