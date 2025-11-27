@@ -70,9 +70,9 @@ class MailController extends Controller {
             $this->gmailService->send($validated['email'], new ReplyMail($validated));
             $this->gmailService->send(config('mail.from.address'), new ContactMail($validated));
         } catch (InvalidArgumentException $e) {
-            return response()->json(['error' => $e->getMessage() . $e->getMessage()], 400);
+            return response()->json(['message' => $e->getMessage()], 400);
         } catch (Exception $e) {
-            return response()->json(['error' => 'Email could not be sent: ' . $e->getMessage()], 500);
+            return response()->json(['message' => 'Email could not be sent.'], 500);
         }
 
         return response()->json(['message' => 'Email sent successfully!']);

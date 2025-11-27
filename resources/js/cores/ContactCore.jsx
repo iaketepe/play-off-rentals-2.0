@@ -1,11 +1,12 @@
 import { useTranslation } from "react-i18next";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 function ContactCore() {
 
     const { t } = useTranslation();
 
     const formRef = useRef();
+    const [submitNotification, setSubmitNotification] = useState("");
 
     useEffect(() => {
         if (window.turnstile) return;
@@ -29,8 +30,24 @@ function ContactCore() {
             body: JSON.stringify(formBody),
         });
 
-        const data = await res.json();
-        console.log(data);
+        const data = await res.text();
+        handleNotification(res.status, data);
+    }
+
+    const handleNotification = (status, data) => {
+        try {
+            const message = JSON.parse(data);
+            setSubmitNotification(message['message']);
+        } catch (error) {
+            if(status == 429) {
+                setSubmitNotification("Error: Too many requests. Please try again later.");
+            }
+            else {
+                setSubmitNotification("Error: Please make sure all fields have been entered correctly.");
+            }
+
+        }
+
     }
 
     return(
@@ -68,6 +85,7 @@ function ContactCore() {
                             <div className='flex-1 flex flex-col justify-between gap-5'>
                                 <div className="cf-turnstile overflow-x-hidden m-auto" data-sitekey="0x4AAAAAACC-ja_kxiQLCIXw"></div>
                                 <input type="submit" className='text-center w-full p-3 py-2 border-2 border-black rounded-full cursor-pointer transition-colors duration-300 ease-in-out hover:bg-gray-600 hover:text-white' value={t("contactCore.submit")}/>
+                                {submitNotification && <p className='text-[#000000] text-[14.88px] text-center'>{submitNotification}</p>} {/* Show error text if it exists */}
                             </div>
                         </form>
                 </div>
