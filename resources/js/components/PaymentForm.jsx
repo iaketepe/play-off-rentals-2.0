@@ -10,8 +10,10 @@ function PaymentForm({setRentalDays, subtotal}) {
 
   const form = JSON.parse(sessionStorage.getItem("form")) || [];
   const addressRef = useRef();
-  const submitRef = useRef();
   const [addressError, setAddressError] = useState("");
+
+  const [submitError, setSubmitError] = useState("");
+  
 
   const handleAddress = () => {
     return form["address"]; 
@@ -21,12 +23,16 @@ function PaymentForm({setRentalDays, subtotal}) {
     e.preventDefault();
     try {
       if (!subtotal) {
+        setSubmitError("Please add items to your cart before attempting to checkout.")
         return;
+      } else {
+        setSubmitError("");
       }
       if (!addressRef.current.value) {
-        setError("Please pick an address before continuing.");
+        setAddressError("Please pick an address before continuing.");
+        return;
       } else {
-        setError("");
+        setAddressError("");
       }
 
       if (!stripe || !elements) return;
@@ -65,18 +71,19 @@ function PaymentForm({setRentalDays, subtotal}) {
               <input type="email" id='email' className='border border-[#e6e6e6] text-[#30313d] w-full p-2 rounded-sm shadow-sm focus:outline-none focus:ring-3 focus:ring-blue-200 focus:border-[#056fde] transition-colors duration-300 ease-in-out' required/>
           </div>
           <div>
+            <label htmlFor="rentalperiod" className='block'>{t("paymentForm.rentalPeriod")}</label>
+            <RentalPeriod setRentalDays={setRentalDays} className='border border-[#e6e6e6] text-[#30313d] w-full p-2 rounded-sm shadow-sm focus:outline-none focus:ring-3 focus:ring-blue-200 focus:border-[#056fde] transition-colors duration-300 ease-in-out'/>
+          </div>
+          <div>
               <label htmlFor="address" className='block'>{t("paymentForm.address")}</label>
               <input type="text" id='address' ref={addressRef} value={handleAddress()} className='border border-[#e6e6e6] text-[#30313d] w-full p-2 rounded-sm shadow-sm focus:outline-none focus:ring-3 focus:ring-blue-200 focus:border-[#056fde] transition-colors duration-300 ease-in-out' readOnly required/>
               {addressError && <p className='text-[#df1b41] text-[14.88px]'>{addressError}</p>} {/* Show error text if it exists */}
-          </div>
-          <div>
-            <label htmlFor="rentalperiod" className='block'>{t("paymentForm.rentalPeriod")}</label>
-            <RentalPeriod setRentalDays={setRentalDays} className='border border-[#e6e6e6] text-[#30313d] w-full p-2 rounded-sm shadow-sm focus:outline-none focus:ring-3 focus:ring-blue-200 focus:border-[#056fde] transition-colors duration-300 ease-in-out'/>
           </div>
       </div>
       <div className='flex-1 flex flex-col justify-between gap-5'>
         <PaymentElement options={{ layout : 'tabs' }} />
         <input type="submit" className='text-center w-full p-3 py-2 border-2 border-black rounded-full cursor-pointer transition-colors duration-300 ease-in-out hover:bg-gray-600 hover:text-white' disabled={!stripe} value={t("paymentForm.submit")}/>
+        {submitError && <p className='text-[#df1b41] text-[14.88px] text-center'>{submitError}</p>} {/* Show error text if it exists */}
       </div>
     </form>
   )
