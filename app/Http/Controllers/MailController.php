@@ -19,7 +19,7 @@ class MailController extends Controller {
     }
 
 
-    private function validateTurnstile($token, $remoteip = null) {
+    function validateTurnstile($token, $remoteip = null) {
         $url = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
 
         $data = [
@@ -54,7 +54,7 @@ class MailController extends Controller {
         $validated = $request->validate([
             'firstname' => 'required|string',
             'lastname' => 'required|string',
-            'email' => 'required|email',
+            'email' => 'required|email:rfc,dns',
             'subject' => 'required|string',
             'message' => 'required|string',
             'cf-turnstile-response' => 'required|string'
@@ -63,7 +63,7 @@ class MailController extends Controller {
         try {
             $turnstileConfirmation = $this->validateTurnstile($validated['cf-turnstile-response']);
 
-            if ($turnstileConfirmation === FALSE) {
+            if (!$turnstileConfirmation['success']) {
                 throw new \InvalidArgumentException('Invalid turnstile token');
             }
 
@@ -74,7 +74,6 @@ class MailController extends Controller {
         } catch (Exception $e) {
             return response()->json(['error' => 'Email could not be sent: ' . $e->getMessage()], 500);
         }
-
 
         return response()->json(['message' => 'Email sent successfully!']);
     }
