@@ -29,3 +29,6 @@ jobs:
       # Run tests
       - name: Run tests
         run: php artisan test
+        
+      - name: Workflow Completion
+        run: echo "Good Work! Safety Test has been passed. The branch will be updated."
