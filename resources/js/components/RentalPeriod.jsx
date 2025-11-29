@@ -19,6 +19,7 @@ function RentalPeriod({ className, setRentalDays }) {
     }, [startDate, endDate, setRentalDays]);
 
     return <DatePicker
+        id="rentalperiod"
         className={className || ""}
         selected={startDate}
         onChange={onChange}

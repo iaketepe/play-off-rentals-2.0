@@ -1,12 +1,11 @@
 import { useState, Suspense, lazy } from 'react';
 import { useTranslation } from "react-i18next";
-
+import RentOne from '../components/RentOne';
 
 function RentCore () {
     const [step, setStep] = useState(1);
     const { t } = useTranslation();
 
-    const RentOne = lazy(() => import("../components/RentOne"));
     const RentTwo = lazy(() => import("../components/RentTwo"));
     const RentThree = lazy(() => import("../components/RentThree"));
 

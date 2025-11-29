@@ -179,6 +179,16 @@ paths:
               schema:
                 type: string
                 format: binary
+        '400':
+          description: Invalid tile coordinates
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: Invalid tile coordinates
         'default':
           description: Upstream result
           content:
@@ -221,6 +231,51 @@ paths:
           content:
             application/json:
               schema:
-                type: object  
-  #/api/payment:
+                type: object
+  /api/payment:
+    post:
+      tags:
+        - Payment
+      summary: Sends the rental order payment amount to the backend
+      parameters:
+        - in: query
+          name: amount
+          required: true
+          schema:
+            type: number
+            format: float
+          description: The rental order payment amount
+      responses:
+        '200':
+          description: Client secret and public key returned
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  clientSecret:
+                    type: string
+                    description: The Stripe PaymentIntent client secret
+                  stripePublicKey:
+                    type: string
+                    description: Your Stripe publishable key
+                required:
+                  - clientSecret
+                  - stripePublicKey
+        '400':
+          description: Amount is invalid
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Amount is not a valid number"
+        'default':
+          description: Upstream result
+          content:
+            application/json:
+              schema:
+                type: object
   # https://editor.swagger.io/

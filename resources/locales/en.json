@@ -105,5 +105,14 @@
       "question": "Is there a deposit or damage policy?",
       "answer": "A refundable security deposit may apply depending on the equipment. We also inspect all machines before and after each rental to ensure they’re in great working condition."
     }
+  },
+  "contactCore" : {
+    "title" : "Contact",
+    "firstName" : "First Name:",
+    "lastName" : "Last Name:",
+    "email" : "Email:",
+    "subject" : "Subject",
+    "message" : "Message",
+    "submit" : "Submit"
   }
 }
