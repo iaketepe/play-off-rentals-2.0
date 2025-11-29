@@ -43,6 +43,7 @@ function ContactCore() {
                 setSubmitNotification("Error: Too many requests. Please try again later.");
             }
             else {
+                console.log(error);
                 setSubmitNotification("Error: Please make sure all fields have been entered correctly.");
             }
 
