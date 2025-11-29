@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Services\GmailService;
+use Illuminate\Support\Facades\Log;
 use App\Mail\ContactMail;
 use App\Mail\ReplyMail;
 use Exception;
 use InvalidArgumentException;
+use Throwable;
 
 class MailController extends Controller {
 
@@ -71,7 +73,11 @@ class MailController extends Controller {
             $this->gmailService->send(config('mail.from.address'), new ContactMail($validated));
         } catch (InvalidArgumentException $e) {
             return response()->json(['message' => $e->getMessage()], 400);
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
+            Log::error('Email send failed', [
+                'message' => $e->getMessage(),
+                'trace' => $e->getTraceAsString(),
+            ]);
             return response()->json(['message' => 'Email could not be sent.'], 500);
         }
 
