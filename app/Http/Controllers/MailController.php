@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use App\Services\GmailService;
 use App\Mail\ContactMail;
 use App\Mail\ReplyMail;
@@ -70,8 +71,10 @@ class MailController extends Controller {
             $this->gmailService->send($validated['email'], new ReplyMail($validated));
             $this->gmailService->send(config('mail.from.address'), new ContactMail($validated));
         } catch (InvalidArgumentException $e) {
+            Log::error('400 - sendEmail failed: '.$e->getMessage());
             return response()->json(['message' => $e->getMessage()], 400);
         } catch (Exception $e) {
+            Log::error('500 - sendEmail failed: '.$e->getMessage());
             return response()->json(['message' => 'Email could not be sent.'], 500);
         }
 
