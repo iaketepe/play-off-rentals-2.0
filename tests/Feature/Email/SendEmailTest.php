@@ -56,10 +56,10 @@ class SendEmailTest extends TestCase
 
         $response->assertStatus(422);
 
-        $this->partialMock(MailController::class, function ($mock) {
+        /*$this->partialMock(MailController::class, function ($mock) {
             $mock->shouldReceive('validateTurnstile')
                 ->andReturn(['success' => true]);
-        });
+        });*/
 
         /*$response = $this->postJson('/api/email', [
             'firstname' => 'John',
