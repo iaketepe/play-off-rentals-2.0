@@ -51,10 +51,24 @@ In both cases, the Blade file being rendered would mount a React root, adding in
 - Eventually I chose Geoapify for my Geodata provider. Since Geoapify also provides geocoding, I thought about using it for that as well. The only problem is having one provider for both, would halve the number daily requests. However, since LocationIQ can provide geocoding and because I believe users are likely to rewrite their search query more than just rendering that result, I planned on using it to maximize the amount of requests users could make.
 
 ### Step 2: Rental Catalogue
+- Step 2 was relatively straightforward. I started by creating a SQL schema in Supabase to define the tables for the store. For storing arcade machine images, I leveraged Supabase’s storage buckets (S3-compatible), keeping image files separate from the database and storing their URLs in the tables.
 
+<img width="1179" height="630" alt="image" src="https://github.com/user-attachments/assets/cb7038ee-55d8-438b-98ce-7de4e1947080" />
+
+- In order to access the data from my backend, I used Laravel’s recommended ORM, Eloquent. After installing the dependency and creating ORM models for each table, I was able to query and manipulate their records as needed.
 
 ### Step 3: Payment Processing
+#### Handling the Cart
+- Step 3 needed a bit of work to implement. First, I needed to get information from the previous step on the cart of arcade machines chosen. This meant I had to figure out a persistent storage method for cart-related information between steps or even between pages on the site. 
+- To figure this out, I decided that I would store this information on the client side, having each user use their 'local' storage. This way, I could minimize extra computations my server would have to calculate, only having it verify that the transaction could be completed and execute it.
+- Something I didn't realize was the different types of 'local' storage accessible from a web standpoint:
+    - LocalStorage: A form of web storage that doesn't expire until explicitly cleared.
+    - SessionStorage: A form of web storage that only expires when all windows/pages tied to a given site are closed.
+    - Cookies: One of the older forms of client storage.
+- The problem with cookies is how easy they are to access. Allowing for issues like Cross Site Request Forgery (CSRF) to occur. Therefore, it made more sense to focus on using local or session, with session being the final choice to minimize need for user intervention when clearing the storage.
 
+#### Dealing with Payment
+- The next part was actually implementing a payment processing service. I was interested in using a platform like Stripe or Paypal, though I stayed with stripe due to its free sandbox environment. Another thing was stripe connection with Laravel. In the Laravel ecosystem, there is a package that supports payment processing called 'Laravel Cashier'. There was a version of it that was built for stripe. So, I planned on using the tool for my own payment processing.
 
 ## Site Reliability
 ### Adding Lazy Loading
@@ -82,3 +96,7 @@ After setting up my home page and my rent process, I decided I had enough of a v
 - After doing some research, I realized that my cloud server may have been ignoring my htaccess file, so I updated my dockerfile making sure my cloud server would allow for htaccess overrides.
 - After doing so, I was able to access all of my pages including my rent sub process pages.
 
+#### Dealing with Cloud Service Updates
+- After trying to deploy my new faq page, I seem to have been met with a deployment failure. Thankfully, the failed deployment didn't mess with the current deployment of my site. So I could continue to figure out the issue without having to revert my changes and update my deployment.
+- After doing some research, I realized my deployment build failed because render updated how it allows premissions. Npm install works by taking and potentially updating the dependencies list, relying on operations like chown. This seems to have been recently patched my cloud service provider, who seems to no longer be allowing for that.
+- So I switched from npm install to npm clean install (npm ci). This makes it so that npm sets up my dependencies exactly how I had set it up. No inferences or anything else. This allowed my deployment to be updated.
