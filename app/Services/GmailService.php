@@ -4,6 +4,7 @@ namespace App\Services;
 
 use Illuminate\Support\Facades\View;
 //use Symfony\Component\Mailer\Mailer;
+use Illuminate\Support\Facades\Log;
 use Symfony\Component\Mime\Email;
 use Symfony\Component\Mailer\Transport\Smtp\EsmtpTransport;
 use Symfony\Component\Mailer\Transport\Smtp\Auth\Xoauth2Authenticator;
@@ -58,6 +59,10 @@ class GmailService {
         ]);
 
         if ($response->failed()) {
+            Log::error('Gmail API send failed', [
+                'status' => $response->status(),
+                'body' => $response->body(),
+            ]);
             throw new \Exception("Gmail API send failed.");
         }
     }
