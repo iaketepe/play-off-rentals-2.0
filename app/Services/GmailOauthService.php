@@ -15,7 +15,7 @@ class GmailOauthService
 
         $refreshToken = env('GOOGLE_REFRESH_TOKEN');
 
-        if(env('APP_ENV') !== 'local') {
+        if(env('APP_ENV') === 'local') {
             $refreshToken = env('GOOGLE_REFRESH_LOCAL_TOKEN');
         }
 
