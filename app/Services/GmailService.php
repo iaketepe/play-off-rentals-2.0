@@ -6,8 +6,8 @@ use Illuminate\Support\Facades\View;
 //use Symfony\Component\Mailer\Mailer;
 use Illuminate\Support\Facades\Log;
 use Symfony\Component\Mime\Email;
-use Symfony\Component\Mailer\Transport\Smtp\EsmtpTransport;
-use Symfony\Component\Mailer\Transport\Smtp\Auth\Xoauth2Authenticator;
+//use Symfony\Component\Mailer\Transport\Smtp\EsmtpTransport;
+//use Symfony\Component\Mailer\Transport\Smtp\Auth\Xoauth2Authenticator;
 use App\Services\GmailOauthService;
 use Illuminate\Support\Facades\Http;
 
@@ -17,14 +17,14 @@ class GmailService {
 
     public function send($destination, $mailable) {
         $accessToken = (new GmailOauthService())->getGmailAccessToken();
-        $transport = new EsmtpTransport(
+        /*$transport = new EsmtpTransport(
             host: 'smtp.gmail.com',
             port: 587,
             authenticators: [new Xoauth2Authenticator()]
         );
 
         $transport->setUsername(env('MAIL_USERNAME'));
-        $transport->setPassword($accessToken);
+        $transport->setPassword($accessToken);*/
 
 
         $content = $mailable->content();
