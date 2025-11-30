@@ -1,5 +1,7 @@
 # System Design Trade Offs and Changes
 
+<!-- TOC -->
+
 ## Designing the Project Structure
 
 ### Choosing my Core Stack
@@ -79,7 +81,6 @@ In both cases, the Blade file being rendered would mount a React root, adding in
 - Trying to understand this out a bit more, I inspected my site's network traffic. I realized every time my site loaded a page, it would grab all of the data it needs for every page, create all pages as objects and only render the page that was asked. 
 - To fix this, I implemented React lazy loading, making sure that on load only the requested page would be loaded.
 
-
 ### Dealing with Deployment
 After setting up my home page and my rent process, I decided I had enough of a viable product to deploy. I ended up deploying my project on render since render was what I used in the past.
 
@@ -100,3 +101,6 @@ After setting up my home page and my rent process, I decided I had enough of a v
 - After trying to deploy my new faq page, I seem to have been met with a deployment failure. Thankfully, the failed deployment didn't mess with the current deployment of my site. So I could continue to figure out the issue without having to revert my changes and update my deployment.
 - After doing some research, I realized my deployment build failed because render updated how it allows premissions. Npm install works by taking and potentially updating the dependencies list, relying on operations like chown. This seems to have been recently patched my cloud service provider, who seems to no longer be allowing for that.
 - So I switched from npm install to npm clean install (npm ci). This makes it so that npm sets up my dependencies exactly how I had set it up. No inferences or anything else. This allowed my deployment to be updated.
+
+### Dealing with Email Submission
+- 
