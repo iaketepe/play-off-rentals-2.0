@@ -103,4 +103,19 @@ After setting up my home page and my rent process, I decided I had enough of a v
 - So I switched from npm install to npm clean install (npm ci). This makes it so that npm sets up my dependencies exactly how I had set it up. No inferences or anything else. This allowed my deployment to be updated.
 
 ### Dealing with Email Submission
-- 
+- Email submission started out well. I designed my architecture to start from the clientside as an api endpoint (/email). This endpoint would send email form information (name, subject, email, etc) from the frontend to the backend. This endpoint would be connected to my MailController class, which would contain a mail service (gmail) which would take care of sending the information as an actual SMTP-based mail request.
+- However, I still have to deal with the security principles that would make the form safe to implement.
+
+#### Dealing with oAuth
+- oAuth is one of the practices I wanted to implement because it helps me mimic real software systems. In order to set it up, I needed to create a client on Google Cloud for my web store. Afterwards, I created a refresh token by sending a curl request using an authorization code I had gotten before hand.
+- Although I had my refresh token, I believed it was better to rely on access tokens for authentication. To simplify this process, I ended up using a popular package called [League/Oauth2-google](https://oauth2-client.thephpleague.com/providers/league/). After checking its [packagist](https://packagist.org/packages/league/oauth2-google) statistics (19M+ installs) as well as how it works (Open ID Connect + JWT), I decided it was a simple, reliable way to create my implementation.
+
+#### Dealing with GmailService
+- Originally, I planned on using laravels Mail and mailable classes to send my SMTP request. However, after trying to send, I realized laravel they seemed to be 'depreciated'. So I opted to use the recommended Symfony classes instead. After some testing, and successful trials in local, I believed I could my code would work in production. Unfortunately it did not work. I checked to see if my refresh token was the issue or if I didn't set up something else.
+- In the end, Render, cloud provider for my server for was actually the reason. In September 2025, Render actually said they would be blocking any outbound SMTP requests for free tier users. This is problematic because email submission is a core part of a web store, so losing it would cause the loss of a prominent feature.
+- It made me think about whether I should move over to a different platform (Vercel, etc). Moving over would give me a chance to get the functionality I would need, on the other hand, it creates more overhead because I may have to refactor other parts of the project. 
+- Thankfully, I was able to figure out a way to keep my project on render without adding in a convoluted solution. I simply made an HTTPS request to gmail's api instead. I had my oauth tokens, so I just needed to grab the data and encode it and send it.
+
+#### Handling Turnstile and Rate Limiting
+- I've worked with Turnstiles before (albeit in node) so I knew what I needed to do. I simply added an html element with the public site key. Then I went to my backend and added a validate Turnstile function, hiding my private key as an environment variable.
+- In terms of rate limiting, I could rely on laravels middleware class. Specifically, the throttle property. Throttle lets me limit the number of times an IP address can make a request to an endpoint. I used throttle to limit the endpoint to 5 times per minute for a given IP address
