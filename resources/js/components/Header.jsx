@@ -20,7 +20,7 @@ function Header() {
                 <a href="/" aria-label="Go to Home"><FontAwesomeIcon icon={faGamepad} className="scale-200 rounded-lg transform transition duration-300 ease-in-out hover:scale-240"/></a>
                 
                 <div className="flex flex-1 justify-end">
-                    <a href="#" aria-label="Go to Login/Signup" className="bg-gray-700 text-xs p-4 py-2 rounded-full border-black border-2 hover:bg-gray-600 transition-colors duration-300 ease-in-out">{t("header.login")}</a>
+                    <a href="/login" aria-label="Go to Login/Signup" className="bg-gray-700 text-xs p-4 py-2 rounded-full border-black border-2 hover:bg-gray-600 transition-colors duration-300 ease-in-out">{t("header.login")}</a>
                 </div>
             </div>
 

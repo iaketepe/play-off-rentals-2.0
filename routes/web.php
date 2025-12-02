@@ -17,3 +17,8 @@ Route::get('/faq', function () {
 Route::get('/contact', function () {
     return view('app', ['page' => 'contact']);
 });
+
+Route::get('/login', function () {
+    return view('app', ['page' => 'login']);
+});
+
