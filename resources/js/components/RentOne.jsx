@@ -6,6 +6,7 @@ import { useTranslation } from "react-i18next";
 
 
 function RentOne() {
+    const { t } = useTranslation();
     const [coordinates, setCoordinates] = useState([45.409, -75.7171]);
     const circleRef = useRef(null);
     const mapDOM = useRef(null);
@@ -17,7 +18,8 @@ function RentOne() {
     const timer = useRef(null);
     const abortController = useRef(null);
 
-    const { t } = useTranslation();
+    const [submitError, setSubmitError] = useState("");
+
     
 
     useEffect(() => {
@@ -47,12 +49,17 @@ function RentOne() {
 
     const handleMapSearching = (lat, lon) => {
         setCoordinates([lat,lon]);
-        console.log(isInCircle(circleRef.current, [lat,lon]));
+        if(!isInCircle(circleRef.current, [lat,lon])) {
+            setSubmitError("Warning: The location you have entered is not in the service area.");
+        } else {
+            setSubmitError("");
+        }
     }
 
     const handleAddToForm = (address) => {
         const form = JSON.parse(sessionStorage.getItem("form")) || {};
         form["address"] = address;
+        form["coordinates"] = coordinates;
         sessionStorage.setItem("form", JSON.stringify(form));
     }
 
@@ -94,7 +101,6 @@ function RentOne() {
         if (!circle) return;
         const baseCoordinates = circle.getLatLng();
         const dist = baseCoordinates.distanceTo(L.latLng(coordinates));
-        console.log(dist, baseCoordinates, circle.getRadius());
         return dist <= circle.getRadius();
     }
     
@@ -129,6 +135,7 @@ function RentOne() {
                 </div>
                 <div id="map" ref={mapDOM} className="border-black border-2 m-auto w-full max-w-lg h-[20rem] rounded-lg">
                 </div>
+                {submitError && <p className='text-[#D19224] text-[14.88px] text-center'>{submitError}</p>} {/* Show error text if it exists */}
             </div>
         </div>
 
