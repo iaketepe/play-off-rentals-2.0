@@ -13,21 +13,26 @@ class InitializePaymentTest extends TestCase
      */
     public function test_initializePayment(): void
     {
-        $response = $this->post('/api/payment?amount=' . urlencode('15.25'));
+        $response = $this->postJson('/api/payment', [
+            'amount' => '15.25',
+            'coordinates' => ['45.409', '-75.7171']
+        ]);
 
         $response->assertStatus(200);
 
-        $response = $this->post('/api/payment?amount=' . urlencode('a28.00'));
+        $response = $this->postJson('/api/payment', [
+            'amount' => 'a28.00',
+            'coordinates' => ['45.409', '-75.7171']
+        ]);
 
-        $response->assertStatus(400);
+        $response->assertStatus(422);
 
-        $response = $this->post('/api/payment?amount=' . urlencode('35.00'));
+        $response = $this->postJson('/api/payment', [
+            'amount' => '28.00',
+            'coordinates' => 24
+        ]);
 
-        $response->assertStatus(200);
-
-        $response = $this->post('/api/payment?amount=' . urlencode('1000.00'));
-
-        $response->assertStatus(200);
+        $response->assertStatus(422);
 
     }
 }
