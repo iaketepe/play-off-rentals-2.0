@@ -26,21 +26,29 @@ function RentThree() {
     }, [rentalDays]);
 
     
-
     const [stripePromise, setStripePromise] = useState(null);
     const [clientSecret, setClientSecret] = useState('');
-
+    const form = JSON.parse(sessionStorage.getItem("form")) || [];
+    const [parentNotification, setParentNotification] = useState('');
 
     useEffect(() => {
-        fetch(`/api/payment?amount=${encodeURIComponent(total)}`, {
+        fetch(`/api/payment`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                amount: total,
+                coordinates: form['coordinates'] ?? [100000, 100000]
+            })
         })
         .then(res => res.json())
         .then(data => {
+            if (data.error) {
+                setParentNotification(data.error);
+            }
+
             setStripePromise(loadStripe(data.stripePublicKey));
             setClientSecret(data.clientSecret);
-        });
+        })
     }, []);
 
     if (!clientSecret || !stripePromise) {
@@ -102,7 +110,7 @@ function RentThree() {
                         <div className="basis-1/2 flex flex-col">
                             {clientSecret && (
                                 <Elements stripe={stripePromise} options={{ clientSecret, locale: i18n.language }}>
-                                    <PaymentForm setRentalDays={setRentalDays} subtotal={subtotal}/>
+                                    <PaymentForm setRentalDays={setRentalDays} subtotal={subtotal} parentNotification={parentNotification}/>
                                 </Elements >
                             )}
                         </div>

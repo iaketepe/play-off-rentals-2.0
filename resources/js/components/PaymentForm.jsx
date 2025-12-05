@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { PaymentElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import RentalPeriod from './RentalPeriod'; 
 
-function PaymentForm({setRentalDays, subtotal}) {
+function PaymentForm({setRentalDays, subtotal, parentNotification}) {
   const { t } = useTranslation();
   const stripe = useStripe();
   const elements = useElements();
@@ -13,7 +13,6 @@ function PaymentForm({setRentalDays, subtotal}) {
   const [addressError, setAddressError] = useState("");
 
   const [submitError, setSubmitError] = useState("");
-  
 
   const handleAddress = () => {
     return form["address"]; 
@@ -33,6 +32,10 @@ function PaymentForm({setRentalDays, subtotal}) {
         return;
       } else {
         setAddressError("");
+      }
+      if (parentNotification) {
+        setSubmitError(parentNotification)
+        return;
       }
 
       if (!stripe || !elements) return;

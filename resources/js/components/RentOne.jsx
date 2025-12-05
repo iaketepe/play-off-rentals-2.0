@@ -56,10 +56,11 @@ function RentOne() {
         }
     }
 
-    const handleAddToForm = (address) => {
+    const handleAddToForm = (address, coords) => {
         const form = JSON.parse(sessionStorage.getItem("form")) || {};
         form["address"] = address;
-        form["coordinates"] = coordinates;
+        console.log(coordinates);
+        form["coordinates"] = coords;
         sessionStorage.setItem("form", JSON.stringify(form));
     }
 
@@ -122,7 +123,7 @@ function RentOne() {
                             onMouseDown={(e) => e.preventDefault()}
                             onClick={() => {
                                 handleMapSearching(item.lat,item.lon);
-                                handleAddToForm(item.display_address);
+                                handleAddToForm(item.display_address, [item.lat,item.lon]);
                                 //sessionStorage.setItem("contact", JSON.stringify({"address" : item.display_name}));
                                 setIsOpen(false);
                             }}
