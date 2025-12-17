@@ -11,30 +11,30 @@ function FaqCore() {
                     <h1 className='inline text-black text-4xl font-semibold'>FAQ</h1>
                     <div className="text-white flex flex-col gap-2">
                         <details className="bg-slate-500 border-black border-2 p-5 open:space-y-5">
-                            <summary className="text-xl font-semibold">{t("faqCore.q1.question")}</summary>
+                            <summary className="text-xl font-semibold cursor-pointer">{t("faqCore.q1.question")}</summary>
                             <div className="bg-white text-black p-5 rounded-lg space-y-2">
                                 <p>{t("faqCore.q1.answer")}</p>
                                 <em className="text-sm font-semibold">{t("faqCore.q1.example")}</em>
                             </div>
                         </details>
                         <details className="bg-slate-500 border-black border-2 p-5 open:space-y-5">
-                            <summary className="text-xl font-semibold">{t("faqCore.q2.question")}</summary>
+                            <summary className="text-xl font-semibold cursor-pointer">{t("faqCore.q2.question")}</summary>
                             <p className="bg-white text-black p-5 rounded-lg">{t("faqCore.q2.answer")}</p>
                         </details>
                         <details className="bg-slate-500 border-black border-2 p-5 open:space-y-5">
-                            <summary className="text-xl font-semibold">{t("faqCore.q3.question")}</summary>
+                            <summary className="text-xl font-semibold cursor-pointer">{t("faqCore.q3.question")}</summary>
                             <p className="bg-white text-black p-5 rounded-lg">{t("faqCore.q3.answer")}</p>
                         </details>
                         <details className="bg-slate-500 border-black border-2 p-5 open:space-y-5">
-                            <summary className="text-xl font-semibold">{t("faqCore.q4.question")}</summary>
+                            <summary className="text-xl font-semibold cursor-pointer">{t("faqCore.q4.question")}</summary>
                             <p className="bg-white text-black p-5 rounded-lg">{t("faqCore.q4.answer")}</p>
                         </details>
                         <details className="bg-slate-500 border-black border-2 p-5 open:space-y-5">
-                            <summary className="text-xl font-semibold">{t("faqCore.q5.question")}</summary>
+                            <summary className="text-xl font-semibold cursor-pointer">{t("faqCore.q5.question")}</summary>
                             <p className="bg-white text-black p-5 rounded-lg">{t("faqCore.q5.answer")}</p>
                         </details>
                         <details className="bg-slate-500 border-black border-2 p-5 open:space-y-5">
-                            <summary className="text-xl font-semibold">{t("faqCore.q6.question")}</summary>
+                            <summary className="text-xl font-semibold cursor-pointer">{t("faqCore.q6.question")}</summary>
                             <p className="bg-white text-black p-5 rounded-lg">{t("faqCore.q6.answer")}</p>
                         </details>
 
