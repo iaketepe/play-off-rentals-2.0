@@ -112,6 +112,11 @@
     "subject" : "Sujet :",
     "message" : "Message :",
     "submit" : "Soumettre"
+  },
+  "loginCore" : {
+    "username" : "Username",
+    "password" : "Password",
+    "submit" : "Soumettre"
   }
 
   

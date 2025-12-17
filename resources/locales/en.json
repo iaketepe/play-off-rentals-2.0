@@ -114,5 +114,10 @@
     "subject" : "Subject",
     "message" : "Message",
     "submit" : "Submit"
+  },
+  "loginCore" : {
+    "username" : "Username",
+    "password" : "Password",
+    "submit" : "Submit"
   }
 }

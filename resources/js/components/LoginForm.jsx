@@ -5,7 +5,7 @@ function LoginForm({pageSwitch}) {
     const { t } = useTranslation();
 
     return (
-            <div className="w-full max-w-[320px] h-full max-h-[25rem] p-5 border-black border rounded-lg flex flex-col justify-between">
+            <div className="w-full max-w-[320px] h-full max-h-[25rem] p-5 border-black border-3 rounded-lg flex flex-col justify-between">
                 <h1 className='inline text-black text-2xl font-semibold'>Login</h1>
                 <div>
                     <span className="block text-xs text-center">Need to SIgn Up? <button onClick={pageSwitch} className="underline">Click Here</button></span>
