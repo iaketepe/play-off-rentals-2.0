@@ -119,5 +119,9 @@
     "username" : "Username",
     "password" : "Password",
     "submit" : "Submit"
+  },
+  "accountCore" : {
+    "title" : "Profile",
+    "delete" : "Delete My Account"
   }
 }

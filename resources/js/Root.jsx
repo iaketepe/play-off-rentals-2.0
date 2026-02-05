@@ -11,6 +11,7 @@ const RentCore = lazy(() => import('./cores/RentCore'));
 const FaqCore = lazy(() => import('./cores/FaqCore'));
 const ContactCore = lazy(() => import('./cores/ContactCore'));
 const LoginCore = lazy(()  => import('./cores/LoginCore'));
+const AccountCore = lazy(()  => import('./cores/AccountCore'));
 
 const rootDiv = document.getElementById('react-root');
 const page = rootDiv ? rootDiv.dataset.page : 'home';
@@ -28,6 +29,7 @@ function Root() {
         faq: FaqCore,
         contact: ContactCore,
         login: LoginCore,
+        profile: AccountCore
     };
 
     const Core = cores[page] ?? cores.home;

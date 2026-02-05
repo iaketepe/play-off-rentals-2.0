@@ -22,3 +22,6 @@ Route::get('/login', function () {
     return view('app', ['page' => 'login']);
 });
 
+Route::get('/profile', function () {
+    return view('app', ['page' => 'profile']);
+});
