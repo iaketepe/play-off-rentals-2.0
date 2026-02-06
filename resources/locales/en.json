@@ -122,6 +122,8 @@
   },
   "accountCore" : {
     "title" : "Profile",
+    "orders" : "Your Orders",
+    "reviews" : "Your Reviews",
     "delete" : "Delete My Account"
   }
 }

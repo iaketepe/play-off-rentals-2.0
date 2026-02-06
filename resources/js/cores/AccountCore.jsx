@@ -10,8 +10,14 @@ function AccountCore() {
                 <div className="w-full h-full flex flex-col gap-10">
                     <h1 className='inline text-black text-4xl font-semibold'>{t("accountCore.title")}</h1>
                     <div className="text-white flex flex-col gap-2">
-                        <div></div>
-                        <div></div>
+                        <div>
+                           <h2 className="inline text-black text-2xl font-semibold">{t("accountCore.orders")}</h2>
+                           <div className="border-2 border-black h-[20rem]"></div>
+                        </div>
+                        <div>
+                           <h2 className="inline text-black text-2xl font-semibold">{t("accountCore.reviews")}</h2>
+                           <div className="border-2 border-black h-[20rem]"></div>
+                        </div>
                         <button className="text-black text-center w-full p-3 py-2 border-2 border-black rounded-full cursor-pointer transition-colors duration-300 ease-in-out hover:bg-red-700 hover:text-white">{t("accountCore.delete")}</button>
                     </div>
                 </div>
