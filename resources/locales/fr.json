@@ -117,6 +117,12 @@
     "username" : "Username",
     "password" : "Password",
     "submit" : "Soumettre"
+  },
+    "accountCore" : {
+    "title" : "Profil",
+    "orders" : "Vos Commandes",
+    "reviews" : "Vos Avis",
+    "delete" : "Désactiver Le Compte"
   }
 
   
